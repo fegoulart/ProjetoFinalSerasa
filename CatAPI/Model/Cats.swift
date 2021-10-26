@@ -10,7 +10,8 @@ class CatMapper{
     // static func map(var catDTO) -> Cat{
     
 }
-
+// FIXME: Os dois pontos deveriam ficar próximos da variável
+// FIXME: Remover as variaveis com underscore (_) e usar camelCase com CodingKeys
 struct Cats: Codable{
     var temperament        : Temperament?
     var weigth             : String?
@@ -48,13 +49,15 @@ struct Cats: Codable{
     var suppressed_tail    : Bool?
     var short_legs         : Bool?
     var hypoallergenic     : Bool?
-    
+    // FIXME: Remover espacos (instalar Swiflint)
      
     
     
     
 }
-struct Temperament {
+
+// FIXME: Corrigir os dois pontos
+struct Temperament: Codable {
     
     var active            : Bool?
     var energetic         : Bool?
