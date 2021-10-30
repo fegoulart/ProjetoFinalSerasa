@@ -6,10 +6,10 @@
 //
 
 import Foundation
-//class CatMapper{
+// class CatMapper{
 //    // static func map(var catDTO) -> Cat{
 //
-//}
+// }
 
 // mapeamento da API
 struct Cats: Codable {
@@ -54,28 +54,23 @@ struct Cats: Codable {
 
 }
 
-struct Image: Codable{
+struct Image: Codable {
     var height: Int?
     var id: String?
     var url: String?
     var width: Int?
 }
 
-struct Weight: Codable{
+struct Weight: Codable {
     var imperial: String?
     var metric: String?
 }
 
-struct Cat: Codable{
+struct Cat: Codable {
     var catDetail: [Cats]?
 }
 
-
-
-
-
-
-//enum CodingKeys: String, CodingKey {
+// enum CodingKeys: String, CodingKey {
 //    case weigth = "peso"
 //    case id = "id"
 //    case name = "nome"
@@ -111,4 +106,4 @@ struct Cat: Codable{
 //    case suppressedTail
 //    case shortLegs
 //    case hypoallergenic
-//}
+// }

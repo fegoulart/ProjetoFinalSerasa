@@ -7,7 +7,7 @@
 
 import Foundation
 enum Temperament {
-    
+
     case active
     case energetic
     case independent
@@ -53,5 +53,4 @@ enum Temperament {
     case sweetTempered
     case tenacious
 
-    
 }

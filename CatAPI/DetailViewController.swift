@@ -5,15 +5,18 @@
 ////  Created by Thayanne Viana on 28/10/21.
 ////
 //
-//import Foundation
-//import UIKit
-//import SafariServices
-//import CoreData
+// import Foundation
+// import UIKit
+// import SafariServices
+// import CoreData
+// #if DEBUG
+// import SwiftUI
+// #endif
 //
 //
 //
 //
-//class DetailViewController: UIViewController {
+// class DetailViewController: UIViewController {
 //
 //    var toutchCat:[Cat]=[]
 //    let reuseIdentifier = "Cell"
@@ -67,9 +70,9 @@
 ////        self.view.sendSubviewToBack(blurView)
 ////    }
 //
-//}
+// }
 //
-//extension DetailViewController: UITableViewDataSource {
+// extension DetailViewController: UITableViewDataSource {
 //
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return self.toutchCat.count
@@ -135,9 +138,9 @@
 //
 //    }
 //
-//}
+// }
 //
-//extension DetailViewController: UITableViewDelegate {
+// extension DetailViewController: UITableViewDelegate {
 //
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //
@@ -164,5 +167,14 @@
 //
 //    }
 //
-//}
+// }
 //
+// #if DEBUG
+// struct DetaukViewController_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ViewControllerPreview {
+//            DetailViewController()
+//        }
+//    }
+// }
+// #endif
