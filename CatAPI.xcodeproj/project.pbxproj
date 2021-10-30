@@ -24,6 +24,8 @@
 		146DD89D2728DCB60094C3FA /* Temperament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD89C2728DCB60094C3FA /* Temperament.swift */; };
 		56AC3606272DCFDF0077EF70 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC3605272DCFDF0077EF70 /* UIViewController+Extension.swift */; };
 		56AC360A272DD07A0077EF70 /* ViewControllerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC3609272DD07A0077EF70 /* ViewControllerPreview.swift */; };
+		56AC360E272DDC180077EF70 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC360C272DDC180077EF70 /* FavoritesViewController.swift */; };
+		56AC360F272DDC180077EF70 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AC360D272DDC180077EF70 /* FavoritesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		146DD89C2728DCB60094C3FA /* Temperament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperament.swift; sourceTree = "<group>"; };
 		56AC3605272DCFDF0077EF70 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		56AC3609272DD07A0077EF70 /* ViewControllerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPreview.swift; sourceTree = "<group>"; };
+		56AC360C272DDC180077EF70 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		56AC360D272DDC180077EF70 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +167,8 @@
 				14421FCE272B7D6C0098F334 /* DetailViewController.swift */,
 				14421FD0272CBF180098F334 /* HomeViewController.swift */,
 				14421FD1272CBF180098F334 /* HomeViewController.xib */,
+				56AC360C272DDC180077EF70 /* FavoritesViewController.swift */,
+				56AC360D272DDC180077EF70 /* FavoritesViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				146DD8682721C5990094C3FA /* Assets.xcassets in Resources */,
+				56AC360F272DDC180077EF70 /* FavoritesViewController.xib in Resources */,
 				14421FD3272CBF180098F334 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56AC360E272DDC180077EF70 /* FavoritesViewController.swift in Sources */,
 				14421FCF272B7D6C0098F334 /* DetailViewController.swift in Sources */,
 				56AC3606272DCFDF0077EF70 /* UIViewController+Extension.swift in Sources */,
 				146DD8912721FCEB0094C3FA /* Cats.swift in Sources */,
