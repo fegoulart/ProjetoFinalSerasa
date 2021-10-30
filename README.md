@@ -1,40 +1,40 @@
 
-1) Trazer todos os dados de racas da API
+# 1) Trazer todos os dados de racas da API
 
 Vamos utilizar:
 
 struct Breed {
-   adaptability: Int,
-affectionLevel: Int,
-childFriendly: Int,
-countryCode: String,
-description: String,
-dogFriendly: Int,
-energyLevel: Int,
-experimental: Int,
-grooming: Int,
-hairless: Int,
-healthIssues: Int,
-hypoallergenic: Int,
+   adaptability: Int, // Adaptabilidade
+affectionLevel: Int, // Afeicao
+childFriendly: Int, // Gosta de criancas
+countryCode: String, 
+description: String, 
+dogFriendly: Int, // Gosta de cachorros
+energyLevel: Int, // Nivel de energia
+experimental: Int, 
+grooming: Int, // Precisa escovar
+hairless: Int, // Sem pelo
+healthIssues: Int, // Problemas de saude
+hypoallergenic: Int, // Nao da alergia
 identity: String,
-image: CatImage,
-indoor: Int,
-intelligence: Int,
-lap: Int,
-lifeSpan: String,
+image: CatImage, 
+indoor: Int, // Pode viver em apto
+intelligence: Int, // Inteligente
+lap: Int, // Gosta de colo
+lifeSpan: String, // Anos de vida
 name: String,
-natural: Int,
+natural: Int, // Natural ? 
 origin: String,
-rare: Int,
-rex: Int,
-sheddingLevel: Int,
-shortLegs: Int,
-socialNeeds: Int,
-strangerFriendly: Int,
-suppressedTail: Int,
-temperament: String,
-vocalisation: Int,
-weight: CatWeight
+rare: Int, // Raro 
+rex: Int, // https://excitedcats.com/types-of-rex-cats/
+sheddingLevel: Int, // Solta pelo 
+shortLegs: Int, // Perninha curta
+socialNeeds: Int, // Necessidade 
+strangerFriendly: Int,  // Amigavelmente estranho
+suppressedTail: Int, // Rabo pequeno
+temperament: String,  //Temperamentos (varios)
+vocalisation: Int, // Barulhento
+weight: CatWeight // Peso
 
 
 struct CatImage {
@@ -97,3 +97,21 @@ struct CatWeight {
     },
     "wikipedia_url": "https://en.wikipedia.org/wiki/Abyssinian_(cat)"
   },
+
+
+# 2) CRIAR O BANCO DE DADOS DE RACAS NO CORE DATA com entity Breed
+
+# 3) Mapear struct que veio da API para a classe Breed 
+
+# 4) Na primeira tela: vamos sempre trazer os dados da API. Se sucesso, apagamos tudo do Core Data e substituimos
+
+# 5) Tela de escolha do usuario: ao apertar o botao, selecionar do Banco de dados
+
+# 6) Abrir uma nova tela com tableview com as opcoes
+
+# 7) Ao clicar no desejado: abrir tela de detalhes
+
+# 8) Usuario pode favoritar
+
+# 9) 
+
