@@ -37,7 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func mainViewController() -> UIViewController {
-        let viewController = ViewController()
+        let mApi = API()
+        let viewController = HomeViewController(api: mApi)
         let navigationController =  UINavigationController(rootViewController: viewController)
         navigationController.tabBarItem = tabBarItem(title: "home", systemIcon: "house")
         return navigationController
