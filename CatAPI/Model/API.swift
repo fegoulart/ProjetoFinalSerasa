@@ -15,36 +15,41 @@ class API {
         return "\(self.urlRaiz)/\(EndPoints.breeds)"
     }
 
-    func getCats(urlString: String, method: HTTPMethod, response: @escaping ([Cats]) -> Void, errorReturned: @escaping (String) -> Void ) {
-        
+    func getCats(
+        urlString: String,
+        method: HTTPMethod,
+        response: @escaping ([Cats]) -> Void,
+        errorReturned: @escaping (String) -> Void
+    ) {
+
         let config: URLSessionConfiguration = URLSessionConfiguration.default
         let session: URLSession = URLSession(configuration: config)
-                
+
         guard let url: URL = URL(string: urlString) else { return }
         var urlRequest: URLRequest = URLRequest(url: url)
         urlRequest.httpMethod = "\(method)"
-        
-        let task = session.dataTask(with: urlRequest, completionHandler: { (result, urlResponse, error) in
+
+        let task = session.dataTask(with: urlRequest, completionHandler: { (result, urlResponse, _) in
                 var statusCode: Int = 0
-                   
+
                 if let response = urlResponse as? HTTPURLResponse {
                     statusCode = response.statusCode
                    }
-                   
+
                 guard let data = result else {
-                       
+
                     errorReturned("Não retornou nada")
                        return
                    }
-                   
+
                    do {
-                       
+
                     let decoder = JSONDecoder()
                     let decodableData: [Cats] = try decoder.decode([Cats].self, from: data)
                     if decodableData.count < 1 {
                            errorReturned("Array de gatos é igual a ZERO")
                        }
-                       
+
                     switch statusCode {
                     case 200:
                         response(decodableData)
@@ -57,7 +62,7 @@ class API {
                     default:
                         break
                        }
-                       
+
                    } catch {
                        errorReturned("Impossível decodificar")
                    }
@@ -66,4 +71,3 @@ class API {
            }
 
     }
-

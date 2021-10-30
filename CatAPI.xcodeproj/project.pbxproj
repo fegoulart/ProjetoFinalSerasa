@@ -22,6 +22,8 @@
 		146DD89527265D550094C3FA /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD89427265D550094C3FA /* EndPoints.swift */; };
 		146DD8982726631D0094C3FA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8972726631D0094C3FA /* HTTPMethod.swift */; };
 		146DD89D2728DCB60094C3FA /* Temperament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD89C2728DCB60094C3FA /* Temperament.swift */; };
+		56AC3606272DCFDF0077EF70 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC3605272DCFDF0077EF70 /* UIViewController+Extension.swift */; };
+		56AC360A272DD07A0077EF70 /* ViewControllerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC3609272DD07A0077EF70 /* ViewControllerPreview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		146DD89427265D550094C3FA /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		146DD8972726631D0094C3FA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		146DD89C2728DCB60094C3FA /* Temperament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperament.swift; sourceTree = "<group>"; };
+		56AC3605272DCFDF0077EF70 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		56AC3609272DD07A0077EF70 /* ViewControllerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPreview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 		146DD85A2721C5960094C3FA /* CatAPI */ = {
 			isa = PBXGroup;
 			children = (
+				56AC3604272DCFC10077EF70 /* Extensions */,
 				146DD85B2721C5960094C3FA /* AppDelegate.swift */,
 				146DD88F2721FCD80094C3FA /* Model */,
 				146DD899272673430094C3FA /* Controllers */,
@@ -153,12 +158,29 @@
 		146DD899272673430094C3FA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				56AC3608272DD06A0077EF70 /* Helper */,
 				146DD85F2721C5960094C3FA /* ViewController.swift */,
 				14421FCE272B7D6C0098F334 /* DetailViewController.swift */,
 				14421FD0272CBF180098F334 /* HomeViewController.swift */,
 				14421FD1272CBF180098F334 /* HomeViewController.xib */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		56AC3604272DCFC10077EF70 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				56AC3605272DCFDF0077EF70 /* UIViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		56AC3608272DD06A0077EF70 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				56AC3609272DD07A0077EF70 /* ViewControllerPreview.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +193,7 @@
 				146DD8542721C5960094C3FA /* Sources */,
 				146DD8552721C5960094C3FA /* Frameworks */,
 				146DD8562721C5960094C3FA /* Resources */,
-				146DD89A2728D8F40094C3FA /* ShellScript */,
+				56AC360B272DD2800077EF70 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -288,22 +310,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		146DD89A2728D8F40094C3FA /* ShellScript */ = {
+		56AC360B272DD2800077EF70 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
+			name = Swiftlint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -313,11 +336,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				14421FCF272B7D6C0098F334 /* DetailViewController.swift in Sources */,
+				56AC3606272DCFDF0077EF70 /* UIViewController+Extension.swift in Sources */,
 				146DD8912721FCEB0094C3FA /* Cats.swift in Sources */,
 				146DD8602721C5960094C3FA /* ViewController.swift in Sources */,
 				146DD8662721C5960094C3FA /* CatAPI.xcdatamodeld in Sources */,
 				146DD85C2721C5960094C3FA /* AppDelegate.swift in Sources */,
 				14421FD2272CBF180098F334 /* HomeViewController.swift in Sources */,
+				56AC360A272DD07A0077EF70 /* ViewControllerPreview.swift in Sources */,
 				146DD89527265D550094C3FA /* EndPoints.swift in Sources */,
 				146DD8932726598C0094C3FA /* API.swift in Sources */,
 				146DD89D2728DCB60094C3FA /* Temperament.swift in Sources */,
