@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CatAPI" customModuleProvider="target">
+            <connections>
+                <outlet property="botaoInicio" destination="fLU-hS-MUe" id="k5K-C2-Bl7"/>
+                <outlet property="fundo" destination="Enk-aT-gpR" id="00B-Pe-Cmu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fundo cats " translatesAutoresizingMaskIntoConstraints="NO" id="st1-C6-X9B">
+                    <rect key="frame" x="-412" y="0.0" width="1217" height="896"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enk-aT-gpR">
+                    <rect key="frame" x="20" y="244" width="374" height="200"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pronta(o) para conhecer seu novo amor?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L9-WS-c8A">
+                            <rect key="frame" x="10" y="52" width="354" height="96"/>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.91267045551004711" green="0.69401790955088838" blue="0.80638962992217067" alpha="0.94207940134061441" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="4KQ-dt-eSc"/>
+                        <constraint firstItem="7L9-WS-c8A" firstAttribute="leading" secondItem="Enk-aT-gpR" secondAttribute="leading" constant="10" id="8BL-yb-Dx2"/>
+                        <constraint firstItem="7L9-WS-c8A" firstAttribute="centerY" secondItem="Enk-aT-gpR" secondAttribute="centerY" id="Cmr-or-Hdr"/>
+                        <constraint firstAttribute="trailing" secondItem="7L9-WS-c8A" secondAttribute="trailing" constant="10" id="PMx-5a-3M2"/>
+                        <constraint firstItem="7L9-WS-c8A" firstAttribute="centerX" secondItem="Enk-aT-gpR" secondAttribute="centerX" id="aE6-sq-aUm"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-hS-MUe">
+                    <rect key="frame" x="79" y="518" width="257" height="62"/>
+                    <color key="backgroundColor" red="0.91267045550000003" green="0.69401790959999998" blue="0.80638962989999996" alpha="0.94207940130000001" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="tintColor" red="0.023484675850000001" green="0.023484675850000001" blue="0.023484675850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" titleAlignment="center">
+                        <attributedString key="attributedTitle">
+                            <fragment content="Prontissíma(o)!">
+                                <attributes>
+                                    <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <font key="NSFont" size="30" name="Noteworthy-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                </attributes>
+                            </fragment>
+                            <fragment content=" ">
+                                <attributes>
+                                    <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <font key="NSFont" size="30" name="Helvetica"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </buttonConfiguration>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fLU-hS-MUe" firstAttribute="top" secondItem="Enk-aT-gpR" secondAttribute="bottom" constant="74" id="0mM-SJ-WKh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Enk-aT-gpR" secondAttribute="trailing" constant="20" id="Aqu-qc-N4z"/>
+                <constraint firstItem="st1-C6-X9B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Cpz-h6-KYd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="st1-C6-X9B" secondAttribute="trailing" id="cKH-5H-gZw"/>
+                <constraint firstItem="Enk-aT-gpR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="ezZ-oj-1p0"/>
+                <constraint firstItem="st1-C6-X9B" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hY3-bT-rrq"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="st1-C6-X9B" secondAttribute="bottom" id="kjS-2f-Xb5"/>
+                <constraint firstItem="Enk-aT-gpR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="w0e-LB-nbM"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="73.660714285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fundo cats " width="333.33334350585938" height="333.33334350585938"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

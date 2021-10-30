@@ -6,104 +6,109 @@
 //
 
 import Foundation
-class CatMapper{
-    // static func map(var catDTO) -> Cat{
-    
-}
-// FIXME: Os dois pontos deveriam ficar próximos da variável
-// FIXME: Remover as variaveis com underscore (_) e usar camelCase com CodingKeys
-struct Cats: Codable{
-    var temperament        : Temperament?
-    var weigth             : String?
-    var id                 : String?
-    var name               : String?
-    var caf_url            : String?
-    var vetstreet_url      : String?
-    var vcahospitals_url   : String?
-    var origin             : String?
-    var country_code       : String?
-    var description        : String?
-    var life_span          : String?
-    var wikipedia_url      : String?
-    var reference_image_id : String?
-    var image              : String?
-    var indoor             : Bool?
-    var lap                : Bool?
-    var alt_names          : Bool?
-    var adaptability       : Bool?
-    var affection_level    : Bool?
-    var child_friendly     : Bool?
-    var dog_friendly       : Bool?
-    var energy_level       : Bool?
-    var grooming           : Bool?
-    var health_issues      : Bool?
-    var intelligence       : Bool?
-    var shedding_level     : Bool?
-    var social_needs       : Bool?
-    var vocalisation       : Bool?
-    var experimental       : Bool?
-    var hairless           : Bool?
-    var natural            : Bool?
-    var rare               : Bool?
-    var rex                : Bool?
-    var suppressed_tail    : Bool?
-    var short_legs         : Bool?
-    var hypoallergenic     : Bool?
-    // FIXME: Remover espacos (instalar Swiflint)
-     
-    
-    
-    
+//class CatMapper{
+//    // static func map(var catDTO) -> Cat{
+//
+//}
+
+// mapeamento da API
+struct Cats: Codable {
+    let temperament: String?
+    let weigth: Weight?
+    let id: String?
+    let name: String?
+    let cfa_url: String?
+    let vetstreet_url: String?
+    let vcahospitals_url: String?
+    let origin: String?
+    let country_code: String?
+    let country_codes: String?
+    let description: String?
+    let life_span: String?
+    let wikipediaUrl: String?
+    let reference_image_id: String?
+    let image: Image?
+    let indoor: Int?
+    let lap: Int?
+    let alt_names: String?
+    let adaptability: Int?
+    let affection_level: Int?
+    let child_friendly: Int?
+    let dog_friendly: Int?
+    let energy_level: Int?
+    let grooming: Int?
+    let health_issues: Int?
+    let intelligence: Int?
+    let shedding_level: Int?
+    let social_needs: Int?
+    let vocalisation: Int?
+    let experimental: Int?
+    let hairless: Int?
+    let natural: Int?
+    let rare: Int?
+    let rex: Int?
+    let suppressed_tail: Int?
+    let short_legs: Int?
+    let hypoallergenic: Int?
+    var stranger_friendly: Int?
+
 }
 
-// FIXME: Corrigir os dois pontos
-struct Temperament: Codable {
-    
-    var active            : Bool?
-    var energetic         : Bool?
-    var independent       : Bool?
-    var intelligent       : Bool?
-    var gentl             : Bool?
-    var affectionate      : Bool?
-    var social            : Bool?
-    var playful           : Bool?
-    var interactive       : Bool?
-    var lively            : Bool?
-    var sensitiv          : Bool?
-    var curious           : Bool?
-    var easyGoing         : Bool?
-    var calm              : Bool?
-    var loyal             : Bool?
-    var sensible          : Bool?
-    var agile             : Bool?
-    var funLoving         : Bool?
-    var relaxed           : Bool?
-    var friendly          : Bool?
-    var alert             : Bool?
-    var demanding         : Bool?
-    var dependent         : Bool?
-    var patient           : Bool?
-    var highlyInteractive : Bool?
-    var mischievous       : Bool?
-    var loving            : Bool?
-    var sweet             : Bool?
-    var quiet             : Bool?
-    var clever            : Bool?
-    var devoted           : Bool?
-    var talkative         : Bool?
-    var warm              : Bool?
-    var highlyIntelligent : Bool?
-    var expressive        : Bool?
-    var trainable         : Bool?
-    var inquisitive       : Bool?
-    var sociable          : Bool?
-    var shy               : Bool?
-    var sedate            : Bool?
-    var outgoing          : Bool?
-    var adventurous       : Bool?
-    var sweetTempered     : Bool?
-    var tenacious         : Bool?
-
-
-    
+struct Image: Codable{
+    var height: Int?
+    var id: String?
+    var url: String?
+    var width: Int?
 }
+
+struct Weight: Codable{
+    var imperial: String?
+    var metric: String?
+}
+
+struct Cat: Codable{
+    var catDetail: [Cats]?
+}
+
+
+
+
+
+
+//enum CodingKeys: String, CodingKey {
+//    case weigth = "peso"
+//    case id = "id"
+//    case name = "nome"
+//    case cafUrl
+//    case vetstreetUrl
+//    case vcahospitalsUrl
+//    case origin = "origem"
+//    case countryCode = "codigodoPais"
+//    case description = "descricao"
+//    case lifeSpan = "vidaUtil"
+//    case wikipediaUrl
+//    case referenceImageId
+//    case image
+//    case indoor
+//    case lap
+//    case altNames
+//    case adaptability
+//    case affectionLevel
+//    case childFriendly
+//    case dogFriendly
+//    case energyLevel
+//    case grooming
+//    case healthIssues
+//    case intelligence
+//    case sheddingLevel
+//    case socialNeeds
+//    case vocalisation
+//    case experimental
+//    case hairless
+//    case natural
+//    case rare
+//    case rex
+//    case suppressedTail
+//    case shortLegs
+//    case hypoallergenic
+//}

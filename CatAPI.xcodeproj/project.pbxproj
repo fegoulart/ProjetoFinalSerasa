@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14421FCF272B7D6C0098F334 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14421FCE272B7D6C0098F334 /* DetailViewController.swift */; };
+		14421FD2272CBF180098F334 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14421FD0272CBF180098F334 /* HomeViewController.swift */; };
+		14421FD3272CBF180098F334 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14421FD1272CBF180098F334 /* HomeViewController.xib */; };
 		146DD85C2721C5960094C3FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD85B2721C5960094C3FA /* AppDelegate.swift */; };
 		146DD8602721C5960094C3FA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD85F2721C5960094C3FA /* ViewController.swift */; };
 		146DD8662721C5960094C3FA /* CatAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8642721C5960094C3FA /* CatAPI.xcdatamodeld */; };
@@ -18,6 +21,7 @@
 		146DD8932726598C0094C3FA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8922726598C0094C3FA /* API.swift */; };
 		146DD89527265D550094C3FA /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD89427265D550094C3FA /* EndPoints.swift */; };
 		146DD8982726631D0094C3FA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8972726631D0094C3FA /* HTTPMethod.swift */; };
+		146DD89D2728DCB60094C3FA /* Temperament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD89C2728DCB60094C3FA /* Temperament.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14421FCE272B7D6C0098F334 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		14421FD0272CBF180098F334 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		14421FD1272CBF180098F334 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		146DD8582721C5960094C3FA /* CatAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146DD85B2721C5960094C3FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		146DD85F2721C5960094C3FA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +60,7 @@
 		146DD8922726598C0094C3FA /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		146DD89427265D550094C3FA /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		146DD8972726631D0094C3FA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		146DD89C2728DCB60094C3FA /* Temperament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperament.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +145,7 @@
 				146DD8922726598C0094C3FA /* API.swift */,
 				146DD89427265D550094C3FA /* EndPoints.swift */,
 				146DD8972726631D0094C3FA /* HTTPMethod.swift */,
+				146DD89C2728DCB60094C3FA /* Temperament.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -145,6 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				146DD85F2721C5960094C3FA /* ViewController.swift */,
+				14421FCE272B7D6C0098F334 /* DetailViewController.swift */,
+				14421FD0272CBF180098F334 /* HomeViewController.swift */,
+				14421FD1272CBF180098F334 /* HomeViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -159,7 +171,7 @@
 				146DD8542721C5960094C3FA /* Sources */,
 				146DD8552721C5960094C3FA /* Frameworks */,
 				146DD8562721C5960094C3FA /* Resources */,
-				566351BA27282D8100512EF5 /* Swiftlint */,
+				146DD89A2728D8F40094C3FA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -255,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				146DD8682721C5990094C3FA /* Assets.xcassets in Resources */,
+				14421FD3272CBF180098F334 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,23 +288,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		566351BA27282D8100512EF5 /* Swiftlint */ = {
+		146DD89A2728D8F40094C3FA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
-			name = Swiftlint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -300,12 +312,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14421FCF272B7D6C0098F334 /* DetailViewController.swift in Sources */,
 				146DD8912721FCEB0094C3FA /* Cats.swift in Sources */,
 				146DD8602721C5960094C3FA /* ViewController.swift in Sources */,
 				146DD8662721C5960094C3FA /* CatAPI.xcdatamodeld in Sources */,
 				146DD85C2721C5960094C3FA /* AppDelegate.swift in Sources */,
+				14421FD2272CBF180098F334 /* HomeViewController.swift in Sources */,
 				146DD89527265D550094C3FA /* EndPoints.swift in Sources */,
 				146DD8932726598C0094C3FA /* API.swift in Sources */,
+				146DD89D2728DCB60094C3FA /* Temperament.swift in Sources */,
 				146DD8982726631D0094C3FA /* HTTPMethod.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

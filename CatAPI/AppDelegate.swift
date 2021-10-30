@@ -12,12 +12,16 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    //FIXME: Quebrar a linha abaixo para o limite de 120 caracteres
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let viewController: UIViewController = HomeViewController( )
+        let navigationController =  UINavigationController(rootViewController: viewController)
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = ViewController()
+        self.window?.rootViewController =  navigationController
         self.window?.makeKeyAndVisible()
+        
+        print("Tamanho: \(UIScreen.main.bounds)")
+
 
         return true
     }
