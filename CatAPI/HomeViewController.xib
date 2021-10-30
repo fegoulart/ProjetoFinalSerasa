@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CatAPI" customModuleProvider="target">
             <connections>
                 <outlet property="botaoInicio" destination="fLU-hS-MUe" id="k5K-C2-Bl7"/>
-                <outlet property="fundo" destination="Enk-aT-gpR" id="00B-Pe-Cmu"/>
+                <outlet property="indicator" destination="LTl-ls-c3k" id="LvB-T7-DoF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,68 +20,82 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="fundo cats " translatesAutoresizingMaskIntoConstraints="NO" id="st1-C6-X9B">
-                    <rect key="frame" x="-412" y="0.0" width="1217" height="896"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fundo cats " translatesAutoresizingMaskIntoConstraints="NO" id="st1-C6-X9B">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Enk-aT-gpR">
-                    <rect key="frame" x="20" y="244" width="374" height="200"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCK-ST-pHc">
+                    <rect key="frame" x="20" y="44" width="414" height="818"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pronta(o) para conhecer seu novo amor?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L9-WS-c8A">
-                            <rect key="frame" x="10" y="52" width="354" height="96"/>
+                            <rect key="frame" x="40" y="40" width="334" height="96"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-hS-MUe">
+                            <rect key="frame" x="40" y="196" width="334" height="62"/>
+                            <color key="backgroundColor" red="0.91267045550000003" green="0.69401790959999998" blue="0.80638962989999996" alpha="0.94207940130000001" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.023484675850000001" green="0.023484675850000001" blue="0.023484675850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" titleAlignment="center">
+                                <attributedString key="attributedTitle">
+                                    <fragment content="Prontissíma(o)!">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="30" name="Noteworthy-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <font key="NSFont" size="30" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                            </buttonConfiguration>
+                        </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.91267045551004711" green="0.69401790955088838" blue="0.80638962992217067" alpha="0.94207940134061441" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="4KQ-dt-eSc"/>
-                        <constraint firstItem="7L9-WS-c8A" firstAttribute="leading" secondItem="Enk-aT-gpR" secondAttribute="leading" constant="10" id="8BL-yb-Dx2"/>
-                        <constraint firstItem="7L9-WS-c8A" firstAttribute="centerY" secondItem="Enk-aT-gpR" secondAttribute="centerY" id="Cmr-or-Hdr"/>
-                        <constraint firstAttribute="trailing" secondItem="7L9-WS-c8A" secondAttribute="trailing" constant="10" id="PMx-5a-3M2"/>
-                        <constraint firstItem="7L9-WS-c8A" firstAttribute="centerX" secondItem="Enk-aT-gpR" secondAttribute="centerX" id="aE6-sq-aUm"/>
+                        <constraint firstAttribute="trailing" secondItem="fLU-hS-MUe" secondAttribute="trailing" constant="40" id="CBt-Ne-R4X"/>
+                        <constraint firstItem="7L9-WS-c8A" firstAttribute="leading" secondItem="KCK-ST-pHc" secondAttribute="leading" constant="40" id="Ffd-0W-eBi"/>
+                        <constraint firstAttribute="trailing" secondItem="7L9-WS-c8A" secondAttribute="trailing" constant="40" id="Jk5-kz-XAo"/>
+                        <constraint firstItem="fLU-hS-MUe" firstAttribute="leading" secondItem="KCK-ST-pHc" secondAttribute="leading" constant="40" id="Sgu-kq-kSa"/>
+                        <constraint firstItem="7L9-WS-c8A" firstAttribute="top" secondItem="KCK-ST-pHc" secondAttribute="top" constant="40" id="hsM-Nw-8TN"/>
+                        <constraint firstItem="fLU-hS-MUe" firstAttribute="top" secondItem="7L9-WS-c8A" secondAttribute="bottom" constant="60" id="mvj-wj-R5v"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-hS-MUe">
-                    <rect key="frame" x="79" y="518" width="257" height="62"/>
-                    <color key="backgroundColor" red="0.91267045550000003" green="0.69401790959999998" blue="0.80638962989999996" alpha="0.94207940130000001" colorSpace="custom" customColorSpace="displayP3"/>
-                    <color key="tintColor" red="0.023484675850000001" green="0.023484675850000001" blue="0.023484675850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" titleAlignment="center">
-                        <attributedString key="attributedTitle">
-                            <fragment content="Prontissíma(o)!">
-                                <attributes>
-                                    <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <font key="NSFont" size="30" name="Noteworthy-Bold"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                </attributes>
-                            </fragment>
-                            <fragment content=" ">
-                                <attributes>
-                                    <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <font key="NSFont" size="30" name="Helvetica"/>
-                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
-                    </buttonConfiguration>
-                </button>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="LTl-ls-c3k">
+                    <rect key="frame" x="187" y="428" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="6EX-1H-gT5"/>
+                        <constraint firstAttribute="height" constant="40" id="ggS-nn-CEQ"/>
+                    </constraints>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fLU-hS-MUe" firstAttribute="top" secondItem="Enk-aT-gpR" secondAttribute="bottom" constant="74" id="0mM-SJ-WKh"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Enk-aT-gpR" secondAttribute="trailing" constant="20" id="Aqu-qc-N4z"/>
-                <constraint firstItem="st1-C6-X9B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Cpz-h6-KYd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="st1-C6-X9B" secondAttribute="trailing" id="cKH-5H-gZw"/>
-                <constraint firstItem="Enk-aT-gpR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="200" id="ezZ-oj-1p0"/>
-                <constraint firstItem="st1-C6-X9B" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="hY3-bT-rrq"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="st1-C6-X9B" secondAttribute="bottom" id="kjS-2f-Xb5"/>
-                <constraint firstItem="Enk-aT-gpR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="w0e-LB-nbM"/>
+                <constraint firstItem="KCK-ST-pHc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="20" id="1K1-Ar-yNy"/>
+                <constraint firstAttribute="trailing" secondItem="st1-C6-X9B" secondAttribute="trailing" id="3Ux-AO-MRV"/>
+                <constraint firstItem="st1-C6-X9B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3ss-Ik-RAo"/>
+                <constraint firstItem="st1-C6-X9B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Is-aj-fIG"/>
+                <constraint firstAttribute="bottom" secondItem="st1-C6-X9B" secondAttribute="bottom" id="DGu-Qg-FQi"/>
+                <constraint firstItem="LTl-ls-c3k" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Il5-Nn-Vaz"/>
+                <constraint firstItem="KCK-ST-pHc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="SHf-qT-gbC"/>
+                <constraint firstAttribute="bottom" secondItem="st1-C6-X9B" secondAttribute="bottom" id="SSO-ge-GuU"/>
+                <constraint firstItem="LTl-ls-c3k" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fgy-wm-NNH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KCK-ST-pHc" secondAttribute="bottom" id="hZW-CC-28s"/>
+                <constraint firstItem="st1-C6-X9B" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ikw-zK-Sd8"/>
+                <constraint firstItem="st1-C6-X9B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qMh-VL-yWa"/>
+                <constraint firstItem="KCK-ST-pHc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qzi-z8-set"/>
+                <constraint firstItem="st1-C6-X9B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wOb-3A-nWn"/>
             </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="73.660714285714278"/>
+            <point key="canvasLocation" x="137.68115942028987" y="162.05357142857142"/>
         </view>
     </objects>
     <resources>

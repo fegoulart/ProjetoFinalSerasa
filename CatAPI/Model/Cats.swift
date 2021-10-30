@@ -6,104 +6,77 @@
 //
 
 import Foundation
-// class CatMapper{
-//    // static func map(var catDTO) -> Cat{
-//
-// }
-
-// mapeamento da API
 struct Cats: Codable {
-    let temperament: String?
-    let weigth: Weight?
-    let id: String?
-    let name: String?
-    let cfa_url: String?
-    let vetstreet_url: String?
-    let vcahospitals_url: String?
-    let origin: String?
-    let country_code: String?
-    let country_codes: String?
-    let description: String?
-    let life_span: String?
-    let wikipediaUrl: String?
-    let reference_image_id: String?
-    let image: Image?
-    let indoor: Int?
-    let lap: Int?
-    let alt_names: String?
-    let adaptability: Int?
-    let affection_level: Int?
-    let child_friendly: Int?
-    let dog_friendly: Int?
-    let energy_level: Int?
-    let grooming: Int?
-    let health_issues: Int?
-    let intelligence: Int?
-    let shedding_level: Int?
-    let social_needs: Int?
-    let vocalisation: Int?
-    let experimental: Int?
-    let hairless: Int?
-    let natural: Int?
-    let rare: Int?
-    let rex: Int?
-    let suppressed_tail: Int?
-    let short_legs: Int?
-    let hypoallergenic: Int?
-    var stranger_friendly: Int?
+    //    var    adaptability: Int? // Adaptabilidade
+    //    var   affectionLevel: Int?// Afeicao
+    //    var   childFriendly: Int?// Gosta de criancas
+    //    var   countryCode: String?
+    //    var   description: String?
+    //    var   dogFriendly: Int?// Gosta de cachorros
+    //    var   energyLevel: Int? // Nivel de energia
+    //    var   experimental: Int?
+    //    var   grooming: Int? // Precisa escovar
+    //    var   hairless: Int?// Sem pelo
+    //    var   healthIssues: Int? // Problemas de saude
+    //    var   hypoallergenic: Int? // Nao da alergia
+    var   identity: String?
+    //    var   image: CatImage?
+    //    var   indoor: Int? // Pode viver em apto
+    //    var   intelligence: Int? // Inteligente
+    //    var   lap: Int? // Gosta de colo
+    //    var   lifeSpan: String? // Anos de vida
+    //    var   name: String?
+    //    var   natural: Int?// Natural ?
+    //    var   origin: String?
+    //    var   rare: Int? // Raro
+    //    var   rex: Int? // https://excitedcats.com/types-of-rex-cats/
+    //    var   sheddingLevel: Int? // Solta pelo
+    //    var   shortLegs: Int? // Perninha curta
+    //    var   socialNeeds: Int? // Necessidade
+    //    var   strangerFriendly: Int?  // Amigavelmente estranho
+    //    var   suppressedTail: Int? // Rabo pequeno
+    //    var   temperament: String? // Temperamentos (varios)
+    //    var   vocalisation: Int? // Barulhento
+    //    var   weight: CatWeight? // Peso
 
+    enum CodingKeys: String, CodingKey {
+        // case weigth
+        case identity = "id"
+        //    case name
+        //    case origin
+        //    case country_code = "countryCode"
+        //    case description
+        //    case life_span = "lifeSpan"
+        //    case image
+        //    case indoor
+        //    case lap
+        //    case adaptability
+        //    case affection_level = "affectionLevel"
+        //    case child_friendly = "childFriendly"
+        //    case dog_friendly="dogFriendly"
+        //    case energy_level = "energyLevel"
+        //    case grooming
+        //    case health_issues = "healthIssues"
+        //    case intelligence
+        //    case shedding_level = "sheddingLevel"
+        //    case social_needs = "socialNeeds"
+        //    case vocalisation
+        //    case experimental
+        //    case hairless
+        //    case natural
+        //    case rare
+        //    case rex
+        //    case suppressed_tail = "suppressedTail"
+        //    case short_legs = "shortLegs"
+        //    case hypoallergenic
+    }
 }
-
-struct Image: Codable {
-    var height: Int?
-    var id: String?
-    var url: String?
-    var width: Int?
-}
-
-struct Weight: Codable {
-    var imperial: String?
-    var metric: String?
-}
-
-struct Cat: Codable {
-    var catDetail: [Cats]?
-}
-
-// enum CodingKeys: String, CodingKey {
-//    case weigth = "peso"
-//    case id = "id"
-//    case name = "nome"
-//    case cafUrl
-//    case vetstreetUrl
-//    case vcahospitalsUrl
-//    case origin = "origem"
-//    case countryCode = "codigodoPais"
-//    case description = "descricao"
-//    case lifeSpan = "vidaUtil"
-//    case wikipediaUrl
-//    case referenceImageId
-//    case image
-//    case indoor
-//    case lap
-//    case altNames
-//    case adaptability
-//    case affectionLevel
-//    case childFriendly
-//    case dogFriendly
-//    case energyLevel
-//    case grooming
-//    case healthIssues
-//    case intelligence
-//    case sheddingLevel
-//    case socialNeeds
-//    case vocalisation
-//    case experimental
-//    case hairless
-//    case natural
-//    case rare
-//    case rex
-//    case suppressedTail
-//    case shortLegs
-//    case hypoallergenic
-// }
+    struct CatImage: Codable {
+        var url: String?
+    }
+    struct CatWeight: Codable {
+        var weight: MetricWeight?
+    }
+    struct MetricWeight: Codable {
+        var metric: String?
+    }
