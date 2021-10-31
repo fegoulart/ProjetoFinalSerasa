@@ -14,9 +14,6 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var botaoInicio: UIButton!
 
-    @IBOutlet weak var kidsFriendlyButton: UIButton!
-    @IBOutlet weak var iAmReadyButton: UIButton!
-
     var cats: [Cats] = []
     var suggestionsCats: [Cats] = []
     var api: API?
@@ -27,37 +24,40 @@ class HomeViewController: UIViewController {
         botaoInicio.layer.cornerRadius = 20
         getBreeds {  [weak self] result in
             guard self != nil else { return }
-            self?.indicator.stopAnimating()
+            switch result {
+            case .success(let cats):
+                self?.cats = cats
+            case .failure(let error):
+                print(error)
+            }
+            DispatchQueue.main.async {
+                self?.indicator.stopAnimating()
+            }
         }
-
     }
+
     convenience init(api: API) {
         self.init()
         self.api = api
     }
-    private func getBreeds(completion: @escaping ((Result < [Cats], APIError>)  -> Void)) {
+
+    private func getBreeds(completion: @escaping ((Result < [Cats], APIError>) -> Void)) {
         guard let mApi = api else {return}
-        mApi.getCats(urlString: mApi.setCatBreedsURL(), method: .GET){
-            [weak self] result in
+        mApi.getCats(urlString: mApi.setCatBreedsURL(), method: .GET) { [weak self] result in
             guard self != nil else { return }
-            switch result{
+            switch result {
             case .success(let cats):
-                self?.cats = cats
+                completion(Result.success(cats))
             case .failure(let error):
-                print (error)
+                completion(Result.failure(error))
             }
         }
     }
-}
 
-extension HomeViewController {
-//    override func target(forAction action: Selector, withSender sender: Any?) -> Any? {
-//            // ACTION do I am Ready Button
-//        self.suggestionsCats = self.cats
-//        if kidsFriendlyButton.isSelected {
-//           // self.suggestionsCats.filter { $0.kidsFriendly > 3 } // So fa
-//        }
-//    }
+    @IBAction func prontissimoButtonAction(_ sender: UIButton) {
+        let suggestionViewController = SuggestionViewController(allBreeds: self.cats)
+        self.show(suggestionViewController, sender: nil)
+    }
 }
 
 #if DEBUG

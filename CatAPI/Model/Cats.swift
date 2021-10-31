@@ -7,7 +7,7 @@
 
 import Foundation
 struct Cats: Codable {
-    var    adaptability: Int? // Adaptabilidade
+    var   adaptability: Int? // Adaptabilidade
     var   hypoallergenic: Int? // Nao da alergia
     var   identity: String?
     var   image: CatImage?
