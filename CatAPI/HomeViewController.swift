@@ -11,6 +11,7 @@ import SwiftUI
 #endif
 
 class HomeViewController: UIViewController {
+
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var botaoInicio: UIButton!
 

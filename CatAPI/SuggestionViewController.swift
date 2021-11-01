@@ -8,11 +8,11 @@
 import UIKit
 
 class SuggestionViewController: UIViewController {
-    var suggestions:[Cats]?
+    var suggestions: [Cats]?
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .blue
 
-        // Do any additional setup after loading the view.
     }
 
     convenience init(allBreeds: [Cats] ) {
@@ -21,14 +21,6 @@ class SuggestionViewController: UIViewController {
     }
 
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

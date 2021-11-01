@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum APIError: Error{
+enum APIError: Error {
     case connectivity
     case notFound
     case empty
