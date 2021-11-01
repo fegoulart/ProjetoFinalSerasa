@@ -31,6 +31,6 @@ final class FilterBreed {
         if wish.rare {
             suggestion = suggestion.filter { $0.rare ?? 0 == 1 }
         }
-        return suggestion
+        return suggestion.filter { $0.name ?? "" != "" }
     }
 }
