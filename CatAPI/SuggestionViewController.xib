@@ -36,10 +36,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="658"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uo2-ua-7ke">
-                                            <rect key="frame" x="57" y="24" width="100" height="100"/>
+                                            <rect key="frame" x="47" y="24" width="120" height="120"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="Efj-04-kgP"/>
-                                                <constraint firstAttribute="height" constant="100" id="kBz-17-lE2"/>
+                                                <constraint firstAttribute="width" constant="120" id="Efj-04-kgP"/>
+                                                <constraint firstAttribute="height" constant="120" id="kBz-17-lE2"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="Gosta de apartamento" titleAlignment="automatic">
@@ -48,10 +48,10 @@
                                             </buttonConfiguration>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-Gi-53R">
-                                            <rect key="frame" x="257" y="24" width="100" height="100"/>
+                                            <rect key="frame" x="247" y="24" width="120" height="120"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="kEx-Br-r2B"/>
-                                                <constraint firstAttribute="width" constant="100" id="x2E-pz-cAf"/>
+                                                <constraint firstAttribute="height" constant="120" id="kEx-Br-r2B"/>
+                                                <constraint firstAttribute="width" constant="120" id="x2E-pz-cAf"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="Gosta de &quot;cantar&quot; alto">
@@ -60,10 +60,10 @@
                                             </buttonConfiguration>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGf-lc-cXP">
-                                            <rect key="frame" x="57" y="174" width="100" height="100"/>
+                                            <rect key="frame" x="47" y="194" width="120" height="120"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="23l-dX-0l6"/>
-                                                <constraint firstAttribute="height" constant="100" id="jfK-x5-MFg"/>
+                                                <constraint firstAttribute="width" constant="120" id="23l-dX-0l6"/>
+                                                <constraint firstAttribute="height" constant="120" id="jfK-x5-MFg"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="Gosta de um colinho">
@@ -72,10 +72,10 @@
                                             </buttonConfiguration>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6B-wh-Qcb">
-                                            <rect key="frame" x="57" y="324" width="100" height="100"/>
+                                            <rect key="frame" x="47" y="364" width="120" height="120"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="dCd-S4-Sbw"/>
-                                                <constraint firstAttribute="width" constant="100" id="x8W-tP-t8q"/>
+                                                <constraint firstAttribute="height" constant="120" id="dCd-S4-Sbw"/>
+                                                <constraint firstAttribute="width" constant="120" id="x8W-tP-t8q"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="Solta pêlo">
@@ -84,10 +84,10 @@
                                             </buttonConfiguration>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ooh-AC-N0R">
-                                            <rect key="frame" x="257" y="174" width="100" height="100"/>
+                                            <rect key="frame" x="247" y="194" width="120" height="120"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="RqO-b0-QIf"/>
-                                                <constraint firstAttribute="height" constant="100" id="u4l-z8-tR5"/>
+                                                <constraint firstAttribute="width" constant="120" id="RqO-b0-QIf"/>
+                                                <constraint firstAttribute="height" constant="120" id="u4l-z8-tR5"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="É sociável">
@@ -96,10 +96,10 @@
                                             </buttonConfiguration>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fp-bT-coZ">
-                                            <rect key="frame" x="257" y="324" width="100" height="100"/>
+                                            <rect key="frame" x="247" y="364" width="120" height="120"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="100" id="eu8-Ub-mWK"/>
-                                                <constraint firstAttribute="width" constant="100" id="yx5-m9-bzi"/>
+                                                <constraint firstAttribute="height" constant="120" id="eu8-Ub-mWK"/>
+                                                <constraint firstAttribute="width" constant="120" id="yx5-m9-bzi"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="Raro">
@@ -112,20 +112,21 @@
                                     <constraints>
                                         <constraint firstItem="F6B-wh-Qcb" firstAttribute="top" secondItem="KGf-lc-cXP" secondAttribute="bottom" constant="50" id="2Sb-I3-Tt9"/>
                                         <constraint firstItem="KGf-lc-cXP" firstAttribute="centerX" secondItem="jwx-Le-jv6" secondAttribute="centerX" constant="-100" id="GfT-l5-e5o"/>
-                                        <constraint firstItem="Uo2-ua-7ke" firstAttribute="top" secondItem="jwx-Le-jv6" secondAttribute="top" constant="24" id="I4o-Sg-S28"/>
                                         <constraint firstItem="8fp-bT-coZ" firstAttribute="centerX" secondItem="jwx-Le-jv6" secondAttribute="centerX" constant="100" id="QP2-18-GhY"/>
+                                        <constraint firstItem="Uo2-ua-7ke" firstAttribute="top" secondItem="jwx-Le-jv6" secondAttribute="top" constant="24" id="UTx-a7-mZe"/>
                                         <constraint firstItem="8fp-bT-coZ" firstAttribute="top" secondItem="Ooh-AC-N0R" secondAttribute="bottom" constant="50" id="VtV-Fx-YjJ"/>
+                                        <constraint firstAttribute="height" constant="658" id="Y4q-AF-lnf"/>
                                         <constraint firstItem="Z4a-Gi-53R" firstAttribute="centerX" secondItem="jwx-Le-jv6" secondAttribute="centerX" constant="100" id="cPP-sV-4km"/>
                                         <constraint firstItem="Ooh-AC-N0R" firstAttribute="top" secondItem="Z4a-Gi-53R" secondAttribute="bottom" constant="50" id="cqD-qt-3fj"/>
                                         <constraint firstItem="Uo2-ua-7ke" firstAttribute="centerX" secondItem="jwx-Le-jv6" secondAttribute="centerX" constant="-100" id="ge9-Hd-kkM"/>
                                         <constraint firstItem="F6B-wh-Qcb" firstAttribute="centerX" secondItem="jwx-Le-jv6" secondAttribute="centerX" constant="-100" id="jDC-s7-iKx"/>
-                                        <constraint firstItem="Z4a-Gi-53R" firstAttribute="top" secondItem="jwx-Le-jv6" secondAttribute="top" constant="24" id="nRm-su-mGH"/>
                                         <constraint firstItem="KGf-lc-cXP" firstAttribute="top" secondItem="Uo2-ua-7ke" secondAttribute="bottom" constant="50" id="pIa-5b-OaE"/>
+                                        <constraint firstItem="Z4a-Gi-53R" firstAttribute="top" secondItem="jwx-Le-jv6" secondAttribute="top" constant="24" id="prq-kT-GDN"/>
                                         <constraint firstItem="Ooh-AC-N0R" firstAttribute="centerX" secondItem="jwx-Le-jv6" secondAttribute="centerX" constant="100" id="yat-wc-Utr"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaN-29-aL0">
-                                    <rect key="frame" x="41.5" y="558" width="331" height="100"/>
+                                    <rect key="frame" x="41.5" y="584" width="331" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="Isb-eb-vQ4"/>
                                     </constraints>
@@ -142,20 +143,17 @@
                             <constraints>
                                 <constraint firstItem="jwx-Le-jv6" firstAttribute="leading" secondItem="94f-J2-6bH" secondAttribute="leading" id="Fvw-xC-Twc"/>
                                 <constraint firstItem="oaN-29-aL0" firstAttribute="centerX" secondItem="94f-J2-6bH" secondAttribute="centerX" id="PLq-I9-w1n"/>
-                                <constraint firstAttribute="bottom" secondItem="jwx-Le-jv6" secondAttribute="bottom" id="SDp-l6-GrU"/>
-                                <constraint firstItem="jwx-Le-jv6" firstAttribute="top" secondItem="94f-J2-6bH" secondAttribute="top" id="SFC-Q3-ZFl"/>
-                                <constraint firstItem="oaN-29-aL0" firstAttribute="bottom" secondItem="jwx-Le-jv6" secondAttribute="bottom" id="Tid-0L-WgG"/>
                                 <constraint firstAttribute="trailing" secondItem="jwx-Le-jv6" secondAttribute="trailing" id="dtO-t6-p7W"/>
+                                <constraint firstAttribute="bottom" secondItem="jwx-Le-jv6" secondAttribute="bottom" id="q7o-Gg-EJq"/>
+                                <constraint firstItem="oaN-29-aL0" firstAttribute="top" secondItem="F6B-wh-Qcb" secondAttribute="bottom" constant="100" id="tVF-Hj-3sG"/>
+                                <constraint firstItem="jwx-Le-jv6" firstAttribute="top" secondItem="94f-J2-6bH" secondAttribute="top" id="yNm-V3-N8R"/>
                                 <constraint firstItem="oaN-29-aL0" firstAttribute="width" secondItem="94f-J2-6bH" secondAttribute="width" multiplier="0.8" id="yaJ-0P-Une"/>
                             </constraints>
-                            <viewLayoutGuide key="contentLayoutGuide" id="oTz-lq-L3Z"/>
-                            <viewLayoutGuide key="frameLayoutGuide" id="EIn-hn-E4k"/>
                         </scrollView>
                     </subviews>
                     <constraints>
                         <constraint firstItem="966-LC-IS9" firstAttribute="top" secondItem="hZw-8D-BeB" secondAttribute="top" id="9YJ-ZZ-aNh"/>
                         <constraint firstItem="94f-J2-6bH" firstAttribute="top" secondItem="966-LC-IS9" secondAttribute="bottom" id="bEd-QB-aTW"/>
-                        <constraint firstAttribute="bottom" secondItem="94f-J2-6bH" secondAttribute="bottom" id="e38-m8-spF"/>
                     </constraints>
                 </stackView>
             </subviews>
@@ -165,7 +163,6 @@
                 <constraint firstItem="jwx-Le-jv6" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="7AO-Xv-blI"/>
                 <constraint firstItem="hZw-8D-BeB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Bwm-TM-qXt"/>
                 <constraint firstItem="hZw-8D-BeB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="DKz-KX-jz1"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jwx-Le-jv6" secondAttribute="bottom" id="PRv-Ci-oW8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hZw-8D-BeB" secondAttribute="bottom" id="Q34-VY-RLo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hZw-8D-BeB" secondAttribute="trailing" id="WFr-Vz-btc"/>
             </constraints>
