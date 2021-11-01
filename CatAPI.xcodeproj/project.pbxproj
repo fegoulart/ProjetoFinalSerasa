@@ -29,6 +29,7 @@
 		56AC360A272DD07A0077EF70 /* ViewControllerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC3609272DD07A0077EF70 /* ViewControllerPreview.swift */; };
 		56AC360E272DDC180077EF70 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC360C272DDC180077EF70 /* FavoritesViewController.swift */; };
 		56AC360F272DDC180077EF70 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AC360D272DDC180077EF70 /* FavoritesViewController.xib */; };
+		56B718BE27302312000E5CCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B718BD27302312000E5CCE /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		56AC3609272DD07A0077EF70 /* ViewControllerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPreview.swift; sourceTree = "<group>"; };
 		56AC360C272DDC180077EF70 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		56AC360D272DDC180077EF70 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		56B718BD27302312000E5CCE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				146DD8672721C5990094C3FA /* Assets.xcassets */,
 				146DD86C2721C5990094C3FA /* Info.plist */,
 				146DD8642721C5960094C3FA /* CatAPI.xcdatamodeld */,
+				56B718BD27302312000E5CCE /* LaunchScreen.storyboard */,
 			);
 			path = CatAPI;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				14421FD9272E06CA0098F334 /* SuggestionViewController.xib in Resources */,
 				146DD8682721C5990094C3FA /* Assets.xcassets in Resources */,
 				56AC360F272DDC180077EF70 /* FavoritesViewController.xib in Resources */,
+				56B718BE27302312000E5CCE /* LaunchScreen.storyboard in Resources */,
 				14421FD3272CBF180098F334 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -509,6 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
