@@ -6,6 +6,9 @@
 //
 
 import UIKit
+#if DEBUG
+import SwiftUI
+#endif
 
 class SuggestionViewController: UIViewController {
     var suggestions: [Cats]?
@@ -19,8 +22,14 @@ class SuggestionViewController: UIViewController {
         self.init()
         self.suggestions = allBreeds
     }
-
-
-
-
 }
+
+#if DEBUG
+struct SuggestionViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        ViewControllerPreview {
+            SuggestionViewController()
+        }
+    }
+}
+#endif
