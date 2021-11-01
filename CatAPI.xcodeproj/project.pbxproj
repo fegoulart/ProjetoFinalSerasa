@@ -30,6 +30,10 @@
 		56AC360E272DDC180077EF70 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AC360C272DDC180077EF70 /* FavoritesViewController.swift */; };
 		56AC360F272DDC180077EF70 /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56AC360D272DDC180077EF70 /* FavoritesViewController.xib */; };
 		56B718BE27302312000E5CCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56B718BD27302312000E5CCE /* LaunchScreen.storyboard */; };
+		56B718CD27306BA6000E5CCE /* FilterBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B718CC27306BA6000E5CCE /* FilterBreed.swift */; };
+		56E39408273070F40025B5FC /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39407273070F40025B5FC /* Suggestion.swift */; };
+		56E3940B273072B30025B5FC /* BestCatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39409273072B30025B5FC /* BestCatsViewController.swift */; };
+		56E3940C273072B30025B5FC /* BestCatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E3940A273072B30025B5FC /* BestCatsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,10 @@
 		56AC360C272DDC180077EF70 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		56AC360D272DDC180077EF70 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
 		56B718BD27302312000E5CCE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		56B718CC27306BA6000E5CCE /* FilterBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBreed.swift; sourceTree = "<group>"; };
+		56E39407273070F40025B5FC /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
+		56E39409273072B30025B5FC /* BestCatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatsViewController.swift; sourceTree = "<group>"; };
+		56E3940A273072B30025B5FC /* BestCatsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BestCatsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +173,8 @@
 				146DD8972726631D0094C3FA /* HTTPMethod.swift */,
 				146DD89C2728DCB60094C3FA /* Temperament.swift */,
 				14421FD4272DDFFF0098F334 /* APIError.swift */,
+				56B718CC27306BA6000E5CCE /* FilterBreed.swift */,
+				56E39407273070F40025B5FC /* Suggestion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +191,8 @@
 				56AC360D272DDC180077EF70 /* FavoritesViewController.xib */,
 				14421FD6272E06CA0098F334 /* SuggestionViewController.swift */,
 				14421FD7272E06CA0098F334 /* SuggestionViewController.xib */,
+				56E39409273072B30025B5FC /* BestCatsViewController.swift */,
+				56E3940A273072B30025B5FC /* BestCatsViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -309,6 +321,7 @@
 				14421FD9272E06CA0098F334 /* SuggestionViewController.xib in Resources */,
 				146DD8682721C5990094C3FA /* Assets.xcassets in Resources */,
 				56AC360F272DDC180077EF70 /* FavoritesViewController.xib in Resources */,
+				56E3940C273072B30025B5FC /* BestCatsViewController.xib in Resources */,
 				56B718BE27302312000E5CCE /* LaunchScreen.storyboard in Resources */,
 				14421FD3272CBF180098F334 /* HomeViewController.xib in Resources */,
 			);
@@ -360,6 +373,7 @@
 				14421FCF272B7D6C0098F334 /* DetailViewController.swift in Sources */,
 				56AC3606272DCFDF0077EF70 /* UIViewController+Extension.swift in Sources */,
 				146DD8912721FCEB0094C3FA /* Cats.swift in Sources */,
+				56B718CD27306BA6000E5CCE /* FilterBreed.swift in Sources */,
 				146DD8602721C5960094C3FA /* ViewController.swift in Sources */,
 				146DD8662721C5960094C3FA /* CatAPI.xcdatamodeld in Sources */,
 				146DD85C2721C5960094C3FA /* AppDelegate.swift in Sources */,
@@ -369,6 +383,8 @@
 				146DD8932726598C0094C3FA /* API.swift in Sources */,
 				146DD89D2728DCB60094C3FA /* Temperament.swift in Sources */,
 				146DD8982726631D0094C3FA /* HTTPMethod.swift in Sources */,
+				56E39408273070F40025B5FC /* Suggestion.swift in Sources */,
+				56E3940B273072B30025B5FC /* BestCatsViewController.swift in Sources */,
 				14421FD5272DDFFF0098F334 /* APIError.swift in Sources */,
 				14421FD8272E06CA0098F334 /* SuggestionViewController.swift in Sources */,
 			);

@@ -9,7 +9,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuggestionViewController" customModule="CatAPI" customModuleProvider="target">
             <connections>
+                <outlet property="goUIButton" destination="oaN-29-aL0" id="5Fu-h0-ZA6"/>
+                <outlet property="indoorUIButton" destination="Uo2-ua-7ke" id="97e-fX-VpU"/>
+                <outlet property="lapUIButton" destination="KGf-lc-cXP" id="5hB-JH-t4L"/>
+                <outlet property="rareUIButton" destination="8fp-bT-coZ" id="nhH-1X-J95"/>
+                <outlet property="sheddingUIButton" destination="F6B-wh-Qcb" id="Tv2-pi-t2M"/>
+                <outlet property="sociableUIButton" destination="Ooh-AC-N0R" id="9lD-iS-vDu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="vocalizingUIButton" destination="Z4a-Gi-53R" id="ese-pG-5jY"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -35,31 +42,42 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Le-jv6">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="658"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uo2-ua-7ke">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uo2-ua-7ke">
                                             <rect key="frame" x="47" y="24" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="Efj-04-kgP"/>
                                                 <constraint firstAttribute="height" constant="120" id="kBz-17-lE2"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Gosta de apartamento" titleAlignment="automatic">
+                                            <buttonConfiguration key="configuration" style="filled" title="Gosta de apartamento" cornerStyle="medium">
+                                                <backgroundConfiguration key="background">
+                                                    <color key="backgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                                </backgroundConfiguration>
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="baseBackgroundColor" red="0.81530142289941521" green="0.88734575578788344" blue="0.90941474903559116" alpha="0.63254240905346515" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="baseBackgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="EOT-Es-veh"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-Gi-53R">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="wordWrap" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-Gi-53R">
                                             <rect key="frame" x="247" y="24" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="120" id="kEx-Br-r2B"/>
                                                 <constraint firstAttribute="width" constant="120" id="x2E-pz-cAf"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Gosta de &quot;cantar&quot; alto">
+                                            <buttonConfiguration key="configuration" style="filled" title="Gosta de &quot;cantar&quot; alto" cornerStyle="medium">
+                                                <backgroundConfiguration key="background">
+                                                    <color key="backgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                                </backgroundConfiguration>
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="baseBackgroundColor" red="0.81530142289999996" green="0.88734575579999997" blue="0.90941474899999997" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="baseBackgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="5aO-Jd-kbv"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KGf-lc-cXP">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KGf-lc-cXP">
                                             <rect key="frame" x="47" y="194" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="23l-dX-0l6"/>
@@ -70,20 +88,26 @@
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="baseBackgroundColor" red="0.81530142289999996" green="0.88734575579999997" blue="0.90941474899999997" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="vqc-Hh-7Mo"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6B-wh-Qcb">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F6B-wh-Qcb">
                                             <rect key="frame" x="47" y="364" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="120" id="dCd-S4-Sbw"/>
                                                 <constraint firstAttribute="width" constant="120" id="x8W-tP-t8q"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Solta pêlo">
+                                            <buttonConfiguration key="configuration" style="filled" title="Não solta pelo">
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="baseBackgroundColor" red="0.81530142289999996" green="0.88734575579999997" blue="0.90941474899999997" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="Q2c-Es-rQj"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ooh-AC-N0R">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ooh-AC-N0R">
                                             <rect key="frame" x="247" y="194" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="RqO-b0-QIf"/>
@@ -92,10 +116,13 @@
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" title="É sociável">
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="baseBackgroundColor" red="0.81530142289999996" green="0.88734575579999997" blue="0.90941474899999997" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="baseBackgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="XtU-af-xkN"/>
+                                            </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fp-bT-coZ">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fp-bT-coZ">
                                             <rect key="frame" x="247" y="364" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="120" id="eu8-Ub-mWK"/>
@@ -106,6 +133,9 @@
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="baseBackgroundColor" red="0.81530142289999996" green="0.88734575579999997" blue="0.90941474899999997" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
+                                            <connections>
+                                                <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="a0Y-n7-1Lg"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,6 +168,9 @@
                                         </backgroundConfiguration>
                                         <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </buttonConfiguration>
+                                    <connections>
+                                        <action selector="goUIButton:" destination="-1" eventType="touchUpInside" id="Rqw-aF-Txd"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>
