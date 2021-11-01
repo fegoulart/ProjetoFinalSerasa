@@ -28,6 +28,7 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pronta(o) para conhecer seu novo amor?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L9-WS-c8A">
                             <rect key="frame" x="40" y="40" width="334" height="96"/>
+                            <color key="backgroundColor" red="0.91267045550000003" green="0.69401790959999998" blue="0.80638962989999996" alpha="0.94207940130000001" colorSpace="custom" customColorSpace="displayP3"/>
                             <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

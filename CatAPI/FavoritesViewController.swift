@@ -6,6 +6,9 @@
 //
 
 import UIKit
+#if DEBUG
+import SwiftUI
+#endif
 
 class FavoritesViewController: UIViewController {
 
@@ -13,3 +16,13 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
     }
 }
+
+#if DEBUG
+struct FavoritesViewController_Previews: PreviewProvider {
+    static var previews: some View {
+        ViewControllerPreview {
+            SuggestionViewController()
+        }
+    }
+}
+#endif

@@ -5,12 +5,12 @@
 ////  Created by Thayanne Viana on 21/10/21.
 ////
 //
-//import UIKit
-//#if DEBUG
-//import SwiftUI
-//#endif
+// import UIKit
+// #if DEBUG
+// import SwiftUI
+// #endif
 //
-//class ViewController: UIViewController {
+// class ViewController: UIViewController {
 //
 //    let api = API()
 //    var cats: [Cats] = []
@@ -45,9 +45,9 @@
 //            print("Erro: \(error.description)")
 //        }
 //    }
-//}
+// }
 //
-//extension ViewController: UITableViewDataSource {
+// extension ViewController: UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return self.cats.count
 //    }
@@ -76,27 +76,27 @@
 //
 //        return cell
 //    }
-//}
+// }
 //
-//// extension ViewController: UITableViewDelegate {
-////    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-////           let dvc = DetailViewController()
-////           dvc.cat = self.cats[indexPath.row]
-////           dvc.title = dvc.cat.name
-////           self.show(dvc, sender: nil)
-////       }
-//// }
+// extension ViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//           let dvc = DetailViewController()
+//           dvc.cat = self.cats[indexPath.row]
+//           dvc.title = dvc.cat.name
+//           self.show(dvc, sender: nil)
+//       }
+// }
 //
-//#if DEBUG
-//struct ViewController_Previews: PreviewProvider {
+// #if DEBUG
+// struct ViewController_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ViewControllerPreview {
 //            ViewController()
 //        }
 //    }
-//}
-//#endif
+// }
+// #endif
 //
-//class Fernando {
+// class Fernando {
 //
-//}
+// }
