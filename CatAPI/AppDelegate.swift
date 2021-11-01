@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func setupTabBar() -> UITabBarController {
         let tabBarController = UITabBarController()
         tabBarController.tabBar.backgroundColor = .systemGray
+        tabBarController.tabBar.barTintColor = .systemGray
         tabBarController.tabBar.tintColor = .white
         tabBarController.tabBar.unselectedItemTintColor = .darkGray
         tabBarController.viewControllers = setupViewControllers()
