@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCK-ST-pHc">
-                    <rect key="frame" x="20" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pronta(o) para conhecer seu novo amor?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L9-WS-c8A">
                             <rect key="frame" x="40" y="40" width="334" height="96"/>
@@ -58,6 +58,9 @@
                                     </fragment>
                                 </attributedString>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="prontissimoButtonAction:" destination="-1" eventType="touchUpInside" id="c2P-wh-eEo"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,16 +84,17 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="KCK-ST-pHc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="20" id="1K1-Ar-yNy"/>
+                <constraint firstItem="KCK-ST-pHc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2ls-zA-Kxd"/>
                 <constraint firstAttribute="trailing" secondItem="st1-C6-X9B" secondAttribute="trailing" id="3Ux-AO-MRV"/>
                 <constraint firstItem="st1-C6-X9B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3ss-Ik-RAo"/>
                 <constraint firstItem="st1-C6-X9B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Is-aj-fIG"/>
                 <constraint firstAttribute="bottom" secondItem="st1-C6-X9B" secondAttribute="bottom" id="DGu-Qg-FQi"/>
                 <constraint firstItem="LTl-ls-c3k" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Il5-Nn-Vaz"/>
-                <constraint firstItem="KCK-ST-pHc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="SHf-qT-gbC"/>
                 <constraint firstAttribute="bottom" secondItem="st1-C6-X9B" secondAttribute="bottom" id="SSO-ge-GuU"/>
+                <constraint firstItem="KCK-ST-pHc" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" id="Tjv-3E-ojF"/>
                 <constraint firstItem="LTl-ls-c3k" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fgy-wm-NNH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KCK-ST-pHc" secondAttribute="bottom" id="hZW-CC-28s"/>
+                <constraint firstItem="KCK-ST-pHc" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" id="hjA-QZ-zNc"/>
                 <constraint firstItem="st1-C6-X9B" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ikw-zK-Sd8"/>
                 <constraint firstItem="st1-C6-X9B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qMh-VL-yWa"/>
                 <constraint firstItem="KCK-ST-pHc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qzi-z8-set"/>
