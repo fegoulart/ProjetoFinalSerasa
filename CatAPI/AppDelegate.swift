@@ -46,14 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func favoritesViewController() -> UIViewController {
-        let viewController = FavoritesViewController()
-        viewController.tabBarItem = tabBarItem(title: "favorites", systemIcon: "house")
-        return viewController
+        let localRepository = CoreDataRepository()
+        let viewController = FavoritesViewController(localRepository: localRepository)
+        viewController.tabBarItem = tabBarItem(title: "favorites", systemIcon: "star")
+        let navigationController =  UINavigationController(rootViewController: viewController)
+        return navigationController
     }
 
     private func tabBarItem(title: String, systemIcon: String) -> UITabBarItem {
         let tabBarImage = UIImage(systemName: systemIcon)
         return UITabBarItem(title: title, image: tabBarImage, selectedImage: tabBarImage)
     }
-
 }

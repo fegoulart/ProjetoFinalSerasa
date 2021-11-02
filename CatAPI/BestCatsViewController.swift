@@ -95,9 +95,12 @@ extension BestCatsViewController: UITableViewDataSource {
 extension BestCatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCat = suggestions[indexPath.row]
-        let selectedCell = self.suggestionsTableView.cellForRow(at: indexPath)
-        let selectedCatImage = selectedCell?.defaultContentConfiguration().image
-        let detailViewController = DetailViewController(cat: selectedCat, catImage: selectedCatImage ?? UIImage())
+        let localRepository = CoreDataRepository()
+        let detailViewController = DetailViewController(
+            cat: selectedCat,
+            catImage: UIImage(),
+            localRepository: localRepository
+        )
         show(detailViewController, sender: nil)
     }
 }
