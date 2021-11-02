@@ -11,6 +11,7 @@ import SwiftUI
 #endif
 
 class HomeViewController: UIViewController {
+    @IBOutlet weak var label: UILabel!
 
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var botaoInicio: UIButton!
@@ -23,6 +24,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         indicator.startAnimating()
         botaoInicio.layer.cornerRadius = 20
+        label.layer.cornerRadius = 20
+        label.layer.masksToBounds = true
+        label.layer.borderColor = UIColor.black.cgColor
+        label.layer.borderWidth = 1.0
         getBreeds {  [weak self] result in
             guard self != nil else { return }
             switch result {
@@ -67,6 +72,8 @@ class HomeViewController: UIViewController {
             self.show(suggestionViewController, sender: nil)
         }
     }
+
+
 }
 
 #if DEBUG

@@ -25,6 +25,7 @@
 		146DD8982726631D0094C3FA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8972726631D0094C3FA /* HTTPMethod.swift */; };
 		146DD89D2728DCB60094C3FA /* Temperament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD89C2728DCB60094C3FA /* Temperament.swift */; };
 		563A497727315F73007F3239 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A497627315F73007F3239 /* UIImage+Extension.swift */; };
+		563A49792731920D007F3239 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563A49782731920D007F3239 /* DetailViewController.xib */; };
 		563A8B8727314E7D00560149 /* Breed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 563A8B8527314E7D00560149 /* Breed.xcdatamodeld */; };
 		563A8B8927314EC300560149 /* DataBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A8B8827314EC300560149 /* DataBaseController.swift */; };
 		563A8B8B27314F3400560149 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A8B8A27314F3400560149 /* CoreDataRepository.swift */; };
@@ -37,7 +38,6 @@
 		56B718CD27306BA6000E5CCE /* FilterBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B718CC27306BA6000E5CCE /* FilterBreed.swift */; };
 		56E39408273070F40025B5FC /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39407273070F40025B5FC /* Suggestion.swift */; };
 		56E3940B273072B30025B5FC /* BestCatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39409273072B30025B5FC /* BestCatsViewController.swift */; };
-		56E3940E273099C40025B5FC /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E3940D273099C40025B5FC /* DetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +80,7 @@
 		146DD8972726631D0094C3FA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		146DD89C2728DCB60094C3FA /* Temperament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperament.swift; sourceTree = "<group>"; };
 		563A497627315F73007F3239 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		563A49782731920D007F3239 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		563A8B8627314E7D00560149 /* Breed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Breed.xcdatamodel; sourceTree = "<group>"; };
 		563A8B8827314EC300560149 /* DataBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseController.swift; sourceTree = "<group>"; };
 		563A8B8A27314F3400560149 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		56B718CC27306BA6000E5CCE /* FilterBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBreed.swift; sourceTree = "<group>"; };
 		56E39407273070F40025B5FC /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
 		56E39409273072B30025B5FC /* BestCatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatsViewController.swift; sourceTree = "<group>"; };
-		56E3940D273099C40025B5FC /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +196,7 @@
 			children = (
 				56AC3608272DD06A0077EF70 /* Helper */,
 				14421FCE272B7D6C0098F334 /* DetailViewController.swift */,
+				563A49782731920D007F3239 /* DetailViewController.xib */,
 				14421FD0272CBF180098F334 /* HomeViewController.swift */,
 				14421FD1272CBF180098F334 /* HomeViewController.xib */,
 				56AC360C272DDC180077EF70 /* FavoritesViewController.swift */,
@@ -203,7 +204,6 @@
 				14421FD6272E06CA0098F334 /* SuggestionViewController.swift */,
 				14421FD7272E06CA0098F334 /* SuggestionViewController.xib */,
 				56E39409273072B30025B5FC /* BestCatsViewController.swift */,
-				56E3940D273099C40025B5FC /* DetailViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -331,7 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14421FD9272E06CA0098F334 /* SuggestionViewController.xib in Resources */,
-				56E3940E273099C40025B5FC /* DetailViewController.xib in Resources */,
+				563A49792731920D007F3239 /* DetailViewController.xib in Resources */,
 				146DD8682721C5990094C3FA /* Assets.xcassets in Resources */,
 				56AC360F272DDC180077EF70 /* FavoritesViewController.xib in Resources */,
 				56B718BE27302312000E5CCE /* LaunchScreen.storyboard in Resources */,

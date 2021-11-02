@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="botaoInicio" destination="fLU-hS-MUe" id="k5K-C2-Bl7"/>
                 <outlet property="indicator" destination="LTl-ls-c3k" id="LvB-T7-DoF"/>
+                <outlet property="label" destination="7L9-WS-c8A" id="GZY-zb-Yt2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,37 +23,44 @@
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fundo cats " translatesAutoresizingMaskIntoConstraints="NO" id="st1-C6-X9B">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" red="0.92331387683797295" green="0.82269086787679668" blue="0.96461148606133218" alpha="0.51205620798123941" colorSpace="custom" customColorSpace="displayP3"/>
+                    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCK-ST-pHc">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pronta(o) para conhecer seu novo amor?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7L9-WS-c8A">
-                            <rect key="frame" x="40" y="40" width="334" height="96"/>
-                            <color key="backgroundColor" red="0.91267045550000003" green="0.69401790959999998" blue="0.80638962989999996" alpha="0.69902007429771462" colorSpace="custom" customColorSpace="displayP3"/>
-                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                            <rect key="frame" x="40" y="40" width="334" height="119"/>
+                            <color key="backgroundColor" red="0.92101854520000004" green="0.80054516269999998" blue="0.92537075280000003" alpha="0.74044374219999998" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="119" id="g45-ub-a6h"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
+                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLU-hS-MUe">
-                            <rect key="frame" x="40" y="196" width="334" height="62"/>
-                            <color key="backgroundColor" red="0.91267045550000003" green="0.69401790959999998" blue="0.80638962989999996" alpha="0.69902007430000002" colorSpace="custom" customColorSpace="displayP3"/>
+                            <rect key="frame" x="40" y="278" width="334" height="100"/>
+                            <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="KkH-7o-KWJ"/>
+                            </constraints>
                             <color key="tintColor" red="0.023484675850000001" green="0.023484675850000001" blue="0.023484675850000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <state key="normal" title="Button"/>
-                            <buttonConfiguration key="configuration" style="plain" titleAlignment="center">
+                            <buttonConfiguration key="configuration" style="plain" cornerStyle="large" titleAlignment="center">
+                                <backgroundConfiguration key="background">
+                                    <color key="backgroundColor" red="0.92101854520000004" green="0.80054516269999998" blue="0.92537075280000003" alpha="0.74044374219999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </backgroundConfiguration>
                                 <attributedString key="attributedTitle">
-                                    <fragment content="Prontissíma(o)!">
+                                    <fragment content="Prontissíma(o)! ">
                                         <attributes>
                                             <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="30" name="Noteworthy-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <font key="NSFont" size="30" name="Helvetica"/>
+                                            <font key="NSFont" size="27" name="Noteworthy-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
@@ -65,14 +73,15 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="7L9-WS-c8A" firstAttribute="trailing" secondItem="fLU-hS-MUe" secondAttribute="trailing" id="8Dd-Wc-OaE"/>
+                        <constraint firstItem="fLU-hS-MUe" firstAttribute="top" secondItem="KCK-ST-pHc" secondAttribute="top" constant="278" id="ADI-3A-UAG"/>
                         <constraint firstAttribute="trailing" secondItem="fLU-hS-MUe" secondAttribute="trailing" constant="40" id="CBt-Ne-R4X"/>
                         <constraint firstItem="fLU-hS-MUe" firstAttribute="centerX" secondItem="KCK-ST-pHc" secondAttribute="centerX" id="Ejj-Ii-9KA"/>
-                        <constraint firstItem="7L9-WS-c8A" firstAttribute="leading" secondItem="KCK-ST-pHc" secondAttribute="leading" constant="40" id="Ffd-0W-eBi"/>
-                        <constraint firstAttribute="trailing" secondItem="7L9-WS-c8A" secondAttribute="trailing" constant="40" id="Jk5-kz-XAo"/>
+                        <constraint firstItem="7L9-WS-c8A" firstAttribute="leading" secondItem="fLU-hS-MUe" secondAttribute="leading" id="F8x-UN-tEv"/>
                         <constraint firstItem="fLU-hS-MUe" firstAttribute="leading" secondItem="KCK-ST-pHc" secondAttribute="leading" constant="40" id="Sgu-kq-kSa"/>
-                        <constraint firstItem="7L9-WS-c8A" firstAttribute="centerX" secondItem="KCK-ST-pHc" secondAttribute="centerX" id="cES-Nu-X0O"/>
-                        <constraint firstItem="7L9-WS-c8A" firstAttribute="top" secondItem="KCK-ST-pHc" secondAttribute="top" constant="40" id="hsM-Nw-8TN"/>
-                        <constraint firstItem="fLU-hS-MUe" firstAttribute="top" secondItem="7L9-WS-c8A" secondAttribute="bottom" constant="60" id="mvj-wj-R5v"/>
+                        <constraint firstItem="fLU-hS-MUe" firstAttribute="leading" secondItem="KCK-ST-pHc" secondAttribute="leading" constant="40" id="eT7-h0-1WN"/>
+                        <constraint firstAttribute="trailing" secondItem="fLU-hS-MUe" secondAttribute="trailing" constant="40" id="hji-22-nbd"/>
+                        <constraint firstItem="7L9-WS-c8A" firstAttribute="top" secondItem="KCK-ST-pHc" secondAttribute="top" constant="40" id="oRt-s9-jnw"/>
                     </constraints>
                 </view>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="LTl-ls-c3k">
@@ -107,6 +116,9 @@
     </objects>
     <resources>
         <image name="fundo cats " width="333.33334350585938" height="333.33334350585938"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
