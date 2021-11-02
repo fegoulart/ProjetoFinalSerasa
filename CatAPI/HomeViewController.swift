@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         indicator.startAnimating()
-        botaoInicio.isEnabled = false
         botaoInicio.layer.cornerRadius = 20
         getBreeds {  [weak self] result in
             guard self != nil else { return }
@@ -34,7 +33,6 @@ class HomeViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self?.indicator.stopAnimating()
-                self?.botaoInicio.isEnabled = true
             }
         }
     }
@@ -62,8 +60,12 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func prontissimoButtonAction(_ sender: UIButton) {
-        let suggestionViewController = SuggestionViewController(allBreeds: self.cats)
-        self.show(suggestionViewController, sender: nil)
+        if self.indicator.isAnimating {
+            print("Não trouxe os gatos. Sem internet ?")
+        } else {
+            let suggestionViewController = SuggestionViewController(allBreeds: self.cats)
+            self.show(suggestionViewController, sender: nil)
+        }
     }
 }
 
