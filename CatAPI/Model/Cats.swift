@@ -30,7 +30,7 @@ struct Cats: Codable {
     var vocalisation: Int? // Barulhento
     var weight: CatWeight? // Peso
     var affectionLevel: Int?
-    var description: String?
+    var catDescription: String?
 
     enum CodingKeys: String, CodingKey {
         case weight
@@ -38,7 +38,7 @@ struct Cats: Codable {
         case name
         case origin
 //        case countryCode = "country_code"
-        case description
+        case catDescription = "description"
         case lifeSpan = "life_span"
         case image
         case indoor

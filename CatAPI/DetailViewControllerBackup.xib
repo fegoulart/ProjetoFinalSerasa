@@ -10,12 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController" customModule="CatAPI" customModuleProvider="target">
             <connections>
-                <outlet property="adaptability" destination="5zL-Au-q6l" id="cuI-y5-JMD"/>
+                <outlet property="adaptability" destination="5zL-Au-q6l" id="y1g-rz-qik"/>
                 <outlet property="affection" destination="wYE-Ze-rND" id="sW5-ig-NRw"/>
                 <outlet property="catDescription" destination="ib8-67-pE8" id="PGR-mq-BG1"/>
-                <outlet property="catImage" destination="ngu-fV-5HB" id="QzM-lr-ioE"/>
-                <outlet property="catName" destination="VUs-5l-soJ" id="5zB-ob-a8u"/>
-                <outlet property="favoriteStar" destination="rnN-Um-D4I" id="Eal-d9-F2X"/>
+                <outlet property="catImage" destination="ngu-fV-5HB" id="sea-yA-yfg"/>
+                <outlet property="catName" destination="VUs-5l-soJ" id="pXW-3Q-Igr"/>
                 <outlet property="rare" destination="RZa-aB-NNA" id="trJ-ei-P4a"/>
                 <outlet property="shedding" destination="ilV-hz-4uT" id="sHv-1Z-IWt"/>
                 <outlet property="socialNeeds" destination="7Ef-Fv-lYC" id="VAW-VV-9F9"/>
@@ -188,13 +187,6 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rnN-Um-D4I">
-                                    <rect key="frame" x="354" y="19.5" width="40" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="Bgj-c8-Qg9"/>
-                                        <constraint firstAttribute="width" secondItem="rnN-Um-D4I" secondAttribute="height" multiplier="1:1" id="zy6-2P-G42"/>
-                                    </constraints>
-                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="1" green="0.88356229590000002" blue="0.94279659709999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
@@ -229,7 +221,6 @@
                                 <constraint firstItem="Vnj-7l-ABh" firstAttribute="leading" secondItem="MIg-7d-XLj" secondAttribute="leading" id="EcX-s7-HgG"/>
                                 <constraint firstAttribute="trailing" secondItem="MIg-7d-XLj" secondAttribute="trailing" constant="35" id="Exn-fL-KBh"/>
                                 <constraint firstItem="7Ef-Fv-lYC" firstAttribute="width" secondItem="7Yy-Jy-QJF" secondAttribute="width" multiplier="0.8" id="FDj-dB-Quj"/>
-                                <constraint firstAttribute="trailing" secondItem="rnN-Um-D4I" secondAttribute="trailing" constant="20" id="Fhz-Rw-OcV"/>
                                 <constraint firstItem="lP5-fZ-DcV" firstAttribute="top" secondItem="VoE-uF-hhM" secondAttribute="bottom" constant="17" id="Gp6-X3-RnL"/>
                                 <constraint firstItem="Dqx-jw-CtP" firstAttribute="leading" secondItem="nWu-hZ-WvP" secondAttribute="trailing" constant="285" id="HaR-zc-rEm"/>
                                 <constraint firstItem="JzI-AC-MSN" firstAttribute="top" secondItem="Txc-GG-sBE" secondAttribute="bottom" constant="35" id="IGQ-Rg-aHN"/>
@@ -295,7 +286,6 @@
                                 <constraint firstItem="Vnj-7l-ABh" firstAttribute="leading" secondItem="vmw-fn-sia" secondAttribute="trailing" constant="285" id="pZr-2f-9nA"/>
                                 <constraint firstItem="ngu-fV-5HB" firstAttribute="leading" secondItem="7Yy-Jy-QJF" secondAttribute="leading" constant="20" id="qYH-6a-Gn1"/>
                                 <constraint firstItem="lP5-fZ-DcV" firstAttribute="centerY" secondItem="7Yy-Jy-QJF" secondAttribute="centerY" constant="-333" id="qrm-3z-8gl"/>
-                                <constraint firstItem="rnN-Um-D4I" firstAttribute="top" secondItem="7Yy-Jy-QJF" secondAttribute="top" constant="20" id="rT9-LS-NDc"/>
                                 <constraint firstItem="IHw-7a-Obp" firstAttribute="leading" secondItem="hkM-3d-lM1" secondAttribute="leading" id="rcV-t9-jHp"/>
                                 <constraint firstItem="UF1-Nd-5Xa" firstAttribute="leading" secondItem="JzI-AC-MSN" secondAttribute="leading" id="s8P-KJ-f2Z"/>
                                 <constraint firstItem="ib8-67-pE8" firstAttribute="top" secondItem="MIg-7d-XLj" secondAttribute="bottom" constant="125" id="soh-8G-wcg"/>
@@ -336,7 +326,6 @@
         </view>
     </objects>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
