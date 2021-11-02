@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         indicator.startAnimating()
+        botaoInicio.isEnabled = false
         botaoInicio.layer.cornerRadius = 20
         getBreeds {  [weak self] result in
             guard self != nil else { return }
@@ -33,8 +34,13 @@ class HomeViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self?.indicator.stopAnimating()
+                self?.botaoInicio.isEnabled = true
             }
         }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 
     convenience init(api: API) {

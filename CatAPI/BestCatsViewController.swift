@@ -17,11 +17,11 @@ class BestCatsViewController: UIViewController {
         let mFrame = CGRect(
                            x: 0.0,
                             y: 0.0,
-                            width: self.view.bounds.width - 20,
+                            width: self.view.bounds.width,
                             height: self.view.bounds.height
         )
         var tableView = UITableView(frame: mFrame)
-        tableView.estimatedRowHeight = 100.0
+        tableView.rowHeight = 70
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -94,7 +94,11 @@ extension BestCatsViewController: UITableViewDataSource {
 
 extension BestCatsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+        let selectedCat = suggestions[indexPath.row]
+        let selectedCell = self.suggestionsTableView.cellForRow(at: indexPath)
+        let selectedCatImage = selectedCell?.defaultContentConfiguration().image
+        let detailViewController = DetailViewController(cat: selectedCat, catImage: selectedCatImage ?? UIImage())
+        show(detailViewController, sender: nil)
     }
 }
 
