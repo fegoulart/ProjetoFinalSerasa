@@ -15,6 +15,7 @@
                 <outlet property="catDescription" destination="ib8-67-pE8" id="PGR-mq-BG1"/>
                 <outlet property="catImage" destination="ngu-fV-5HB" id="sea-yA-yfg"/>
                 <outlet property="catName" destination="VUs-5l-soJ" id="pXW-3Q-Igr"/>
+                <outlet property="favoriteStar" destination="dXl-t5-ZdJ" id="wvD-6f-zz2"/>
                 <outlet property="rare" destination="RZa-aB-NNA" id="trJ-ei-P4a"/>
                 <outlet property="shedding" destination="ilV-hz-4uT" id="sHv-1Z-IWt"/>
                 <outlet property="socialNeeds" destination="7Ef-Fv-lYC" id="VAW-VV-9F9"/>
@@ -115,6 +116,18 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dXl-t5-ZdJ">
+                                    <rect key="frame" x="354" y="9.5" width="40" height="40"/>
+                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" button="YES"/>
+                                        <bool key="isElement" value="YES"/>
+                                    </accessibility>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="dXl-t5-ZdJ" secondAttribute="height" multiplier="1:1" id="S8N-Qy-SyO"/>
+                                        <constraint firstAttribute="height" constant="40" id="efX-jQ-FVT"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -135,6 +148,7 @@
                                 <constraint firstItem="5zL-Au-q6l" firstAttribute="top" secondItem="VoE-uF-hhM" secondAttribute="bottom" constant="30" id="Oaz-3l-NBc"/>
                                 <constraint firstItem="RZa-aB-NNA" firstAttribute="width" secondItem="7Yy-Jy-QJF" secondAttribute="width" multiplier="0.8" id="POo-Az-bIS"/>
                                 <constraint firstItem="JzI-AC-MSN" firstAttribute="leading" secondItem="G24-fV-5sG" secondAttribute="leading" id="PtO-zO-bXu"/>
+                                <constraint firstAttribute="trailing" secondItem="dXl-t5-ZdJ" secondAttribute="trailing" constant="20" id="QEp-uD-soX"/>
                                 <constraint firstItem="G24-fV-5sG" firstAttribute="leading" secondItem="VoE-uF-hhM" secondAttribute="leading" id="Qab-u7-Ayo"/>
                                 <constraint firstItem="7Ef-Fv-lYC" firstAttribute="top" secondItem="UF1-Nd-5Xa" secondAttribute="bottom" constant="30" id="Ros-aK-Ezz"/>
                                 <constraint firstItem="UF1-Nd-5Xa" firstAttribute="top" secondItem="wYE-Ze-rND" secondAttribute="bottom" constant="30" id="Ru0-3V-c8U"/>
@@ -152,6 +166,7 @@
                                 <constraint firstItem="ilV-hz-4uT" firstAttribute="width" secondItem="7Yy-Jy-QJF" secondAttribute="width" multiplier="0.8" id="iIT-HB-d5z"/>
                                 <constraint firstItem="RZa-aB-NNA" firstAttribute="top" secondItem="IHw-7a-Obp" secondAttribute="bottom" constant="30" id="iVT-zt-02J"/>
                                 <constraint firstItem="Txc-GG-sBE" firstAttribute="centerX" secondItem="7Yy-Jy-QJF" secondAttribute="centerX" id="jY2-se-C8I"/>
+                                <constraint firstItem="dXl-t5-ZdJ" firstAttribute="top" secondItem="7Yy-Jy-QJF" secondAttribute="top" constant="10" id="jYf-5p-MCI"/>
                                 <constraint firstItem="G24-fV-5sG" firstAttribute="leading" secondItem="ngu-fV-5HB" secondAttribute="leading" id="mgO-fa-mNN"/>
                                 <constraint firstItem="wYE-Ze-rND" firstAttribute="width" secondItem="7Yy-Jy-QJF" secondAttribute="width" multiplier="0.8" id="o0r-2e-gGs"/>
                                 <constraint firstItem="ngu-fV-5HB" firstAttribute="leading" secondItem="7Yy-Jy-QJF" secondAttribute="leading" constant="20" id="qYH-6a-Gn1"/>
@@ -188,6 +203,7 @@
         </view>
     </objects>
     <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

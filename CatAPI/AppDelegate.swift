@@ -55,5 +55,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarImage = UIImage(systemName: systemIcon)
         return UITabBarItem(title: title, image: tabBarImage, selectedImage: tabBarImage)
     }
-
 }

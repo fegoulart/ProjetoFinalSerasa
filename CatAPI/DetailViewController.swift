@@ -17,18 +17,21 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var shedding: UISlider!
     @IBOutlet weak var rare: UISlider!
     @IBOutlet weak var catDescription: UILabel!
+    @IBOutlet weak var favoriteStar: UIImageView!
 
     // MARK: Properties
 
     var cat: Cats?
     var catUIImage: UIImage?
+    var localRepository: CoreDataRepository?
 
     // MARK: ViewController Lifecycle
 
-    convenience init(cat: Cats, catImage: UIImage) {
+    convenience init(cat: Cats, catImage: UIImage, localRepository: CoreDataRepository) {
         self.init()
         self.cat = cat
         self.catUIImage = catImage
+        self.localRepository = localRepository
     }
 
     override func viewDidLoad() {
@@ -48,17 +51,21 @@ class DetailViewController: UIViewController {
                         }
                     }
                 }
+            } else {
+                self.catUIImage = UIImage(named: "cat")
+                self.catImage.image = self.catUIImage
             }
         } else {
             self.catImage.image = self.catUIImage
         }
         self.catName.text = self.cat?.name
+        self.checkIfFavorite()
         self.adaptability.value = Float(self.cat?.adaptability ?? 0)
         self.vocalization.value = Float(self.cat?.vocalisation ?? 0)
         self.affection.value = Float(self.cat?.affectionLevel ?? 0)
         self.socialNeeds.value = Float(self.cat?.socialNeeds ?? 0)
         self.rare.value = Float(self.cat?.rare ?? 0)
-        self.catDescription.text = self.cat?.description
+        self.catDescription.text = self.cat?.catDescription
     }
 
     private func setupUI() {
@@ -72,8 +79,89 @@ class DetailViewController: UIViewController {
         self.socialNeeds.minimumValue = 1
         self.rare.maximumValue = 1
         self.rare.minimumValue = 0
+        self.favoriteStar.tintColor = .systemGray
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(imageTapped(tapGestureRecognizer:))
+        )
+        favoriteStar.isUserInteractionEnabled = true
+        self.favoriteStar.addGestureRecognizer(tapGestureRecognizer)
     }
 
+    private func checkIfFavorite() {
+        guard let lRepository = localRepository, let catName = cat?.name else { return }
+        lRepository.getFavorites(by: catName) { [weak self] result in
+            guard self != nil else { return }
+            switch result {
+            case .success(let cats):
+                if cats.count > 0 {
+                    self?.favoriteStar.tintColor = .red
+                } else {
+                    self?.favoriteStar.tintColor = .systemGray
+                }
+            case .failure:
+                self?.favoriteStar.tintColor = .systemGray
+            }
+
+        }
+    }
+
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        guard let tappedImage = tapGestureRecognizer.view as? UIImageView else { return }
+        if tappedImage == favoriteStar {
+            manageFavorite()
+            switchStarColor()
+        }
+    }
+
+    private func switchStarColor() {
+        if favoriteStar.tintColor == .red {
+            favoriteStar.tintColor = .systemGray
+        } else {
+            favoriteStar.tintColor = .red
+        }
+    }
+
+    private func manageFavorite() {
+        guard let mCat = cat, let mCatImage = catImage.image else { return }
+        if isNotFavorite() {
+            favoriteIt(cat: mCat, image: mCatImage)
+        } else {
+            guard let catName = mCat.name, mCat.name != "" else { return }
+            unFavoriteIt(name: catName)
+        }
+    }
+
+    private func isNotFavorite() -> Bool {
+        return favoriteStar.tintColor == .systemGray
+    }
+
+    private func favoriteIt(cat: Cats, image: UIImage) {
+        if let binaryImage = image.jpegData(withCompressionQuality: 1.0) {
+            localRepository?.saveCat(with: cat, catImage: binaryImage) { [weak self] result in
+                guard self != nil else { return }
+                switch result {
+                case .success:
+                    print("ok")
+                case .failure:
+                    print("nao salvou ou já existia")
+                }
+
+            }
+        }
+    }
+
+    private func unFavoriteIt(name: String) {
+        localRepository?.deleteCat(name: name) { [weak self] result in
+            guard self != nil else { return }
+            switch result {
+            case .success:
+                print("apagou ok")
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 #if DEBUG
