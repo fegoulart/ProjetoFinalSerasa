@@ -182,6 +182,7 @@
 			children = (
 				56AC3608272DD06A0077EF70 /* Helper */,
 				14421FCE272B7D6C0098F334 /* DetailViewController.swift */,
+				56E3940D273099C40025B5FC /* DetailViewController.xib */,
 				14421FD0272CBF180098F334 /* HomeViewController.swift */,
 				14421FD1272CBF180098F334 /* HomeViewController.xib */,
 				56AC360C272DDC180077EF70 /* FavoritesViewController.swift */,
@@ -189,7 +190,6 @@
 				14421FD6272E06CA0098F334 /* SuggestionViewController.swift */,
 				14421FD7272E06CA0098F334 /* SuggestionViewController.xib */,
 				56E39409273072B30025B5FC /* BestCatsViewController.swift */,
-				56E3940D273099C40025B5FC /* DetailViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

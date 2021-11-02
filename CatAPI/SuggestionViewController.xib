@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -42,34 +43,52 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jwx-Le-jv6">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="700"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uo2-ua-7ke">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uo2-ua-7ke">
                                             <rect key="frame" x="47" y="24" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="120" id="Efj-04-kgP"/>
                                                 <constraint firstAttribute="height" constant="120" id="kBz-17-lE2"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Gosta de apartamento" cornerStyle="medium">
+                                            <buttonConfiguration key="configuration" style="filled" cornerStyle="medium" titleAlignment="center">
                                                 <backgroundConfiguration key="background">
-                                                    <color key="backgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.9210185451595776" green="0.80054516265367726" blue="0.92537075281143188" alpha="0.74044374219414333" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="strokeColor" systemColor="labelColor"/>
                                                 </backgroundConfiguration>
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Gosta de apartamento">
+                                                        <attributes>
+                                                            <font key="NSFont" size="18" name="BodoniSvtyTwoITCTT-Book"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="baseBackgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="baseBackgroundColor" red="0.90980392156862744" green="0.77233985441724362" blue="0.56072160087988276" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
                                             <connections>
                                                 <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="EOT-Es-veh"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="wordWrap" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-Gi-53R">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z4a-Gi-53R">
                                             <rect key="frame" x="247" y="24" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="120" id="kEx-Br-r2B"/>
                                                 <constraint firstAttribute="width" constant="120" id="x2E-pz-cAf"/>
                                             </constraints>
-                                            <buttonConfiguration key="configuration" style="filled" title="Gosta de &quot;cantar&quot; alto" cornerStyle="medium">
+                                            <buttonConfiguration key="configuration" style="filled" cornerStyle="medium" titleAlignment="center">
                                                 <backgroundConfiguration key="background">
-                                                    <color key="backgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.92101854520000004" green="0.80054516269999998" blue="0.92537075280000003" alpha="0.74044374219999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="strokeColor" systemColor="labelColor"/>
                                                 </backgroundConfiguration>
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Gosta de &quot;cantar&quot; alto">
+                                                        <attributes>
+                                                            <font key="NSFont" size="18" name="BodoniSvtyTwoITCTT-Book"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="baseBackgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
@@ -84,9 +103,21 @@
                                                 <constraint firstAttribute="height" constant="120" id="jfK-x5-MFg"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Gosta de um colinho">
+                                            <buttonConfiguration key="configuration" style="filled" cornerStyle="medium" titleAlignment="center">
+                                                <backgroundConfiguration key="background">
+                                                    <color key="strokeColor" systemColor="labelColor"/>
+                                                </backgroundConfiguration>
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Gosta de um colinho">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="18" name="BodoniSvtyTwoITCTT-Book"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="baseBackgroundColor" red="0.81530142289999996" green="0.88734575579999997" blue="0.90941474899999997" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="baseBackgroundColor" red="0.92101854520000004" green="0.80054516269999998" blue="0.92537075280000003" alpha="0.74044374219999998" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
                                             <connections>
                                                 <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="vqc-Hh-7Mo"/>
@@ -99,9 +130,22 @@
                                                 <constraint firstAttribute="width" constant="120" id="x8W-tP-t8q"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Não solta pelo">
+                                            <buttonConfiguration key="configuration" style="filled" cornerStyle="medium" titleAlignment="center">
+                                                <backgroundConfiguration key="background">
+                                                    <color key="strokeColor" systemColor="labelColor"/>
+                                                </backgroundConfiguration>
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Peludinho">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <font key="NSFont" size="18" name="BodoniSvtyTwoITCTT-Book"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="baseBackgroundColor" red="0.81530142289999996" green="0.88734575579999997" blue="0.90941474899999997" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="baseBackgroundColor" red="0.92101854520000004" green="0.80054516269999998" blue="0.92537075280000003" alpha="0.74044374219999998" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
                                             <connections>
                                                 <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="Q2c-Es-rQj"/>
@@ -114,24 +158,46 @@
                                                 <constraint firstAttribute="height" constant="120" id="u4l-z8-tR5"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="É sociável">
+                                            <buttonConfiguration key="configuration" style="filled" cornerStyle="medium" titleAlignment="center">
+                                                <backgroundConfiguration key="background">
+                                                    <color key="strokeColor" systemColor="labelColor"/>
+                                                </backgroundConfiguration>
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="É sociável">
+                                                        <attributes>
+                                                            <font key="NSFont" size="19" name="BodoniSvtyTwoITCTT-Book"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="baseBackgroundColor" red="0.81568627450980391" green="0.88627450980392153" blue="0.90980392156862744" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="baseBackgroundColor" red="0.92101854520000004" green="0.80054516269999998" blue="0.92537075280000003" alpha="0.74044374219999998" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
                                             <connections>
                                                 <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="XtU-af-xkN"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fp-bT-coZ">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="headTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8fp-bT-coZ">
                                             <rect key="frame" x="247" y="364" width="120" height="120"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="120" id="eu8-Ub-mWK"/>
                                                 <constraint firstAttribute="width" constant="120" id="yx5-m9-bzi"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Raro">
+                                            <buttonConfiguration key="configuration" style="filled" cornerStyle="medium" titleAlignment="center">
+                                                <backgroundConfiguration key="background">
+                                                    <color key="strokeColor" systemColor="labelColor"/>
+                                                </backgroundConfiguration>
+                                                <attributedString key="attributedTitle">
+                                                    <fragment content="Raro">
+                                                        <attributes>
+                                                            <font key="NSFont" size="19" name="BodoniSvtyTwoITCTT-Book"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="baseBackgroundColor" red="0.81530142289999996" green="0.88734575579999997" blue="0.90941474899999997" alpha="0.63254240910000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="baseBackgroundColor" red="0.92101854520000004" green="0.80054516269999998" blue="0.92537075280000003" alpha="0.74044374219999998" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
                                             <connections>
                                                 <action selector="selectUIButton:" destination="-1" eventType="touchUpInside" id="a0Y-n7-1Lg"/>
@@ -161,10 +227,10 @@
                                         <constraint firstAttribute="height" constant="100" id="Isb-eb-vQ4"/>
                                     </constraints>
                                     <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain" title="DESCOBRIR">
+                                    <buttonConfiguration key="configuration" style="plain" title="DESCOBRIR" cornerStyle="medium">
                                         <backgroundConfiguration key="background">
                                             <color key="backgroundColor" red="0.84267407660000004" green="0.60011999500000002" blue="0.79093289840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="strokeColor" red="0.84267407660000004" green="0.60011999500000002" blue="0.79093289840000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </backgroundConfiguration>
                                         <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </buttonConfiguration>
@@ -203,4 +269,9 @@
             <point key="canvasLocation" x="137.68115942028987" y="132.25446428571428"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
