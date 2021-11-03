@@ -2,7 +2,6 @@
 //  BestCatsViewController.swift
 //  CatAPI
 //
-//  Created by Fernando Goulart on 01/11/21.
 //
 
 import UIKit

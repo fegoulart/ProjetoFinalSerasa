@@ -4,7 +4,6 @@
 //
 //  Created by Thayanne Viana on 30/10/21.
 //
-
 import UIKit
 #if DEBUG
 import SwiftUI
@@ -27,6 +26,8 @@ class SuggestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        indoorUIButton.backgroundColor = .darkGray
+//        indoorUIButton.tintColor = .darkGray
     }
 
     convenience init(allBreeds: [Cats] ) {
@@ -35,7 +36,6 @@ class SuggestionViewController: UIViewController {
     }
 
     // MARK: Actions
-
     @IBAction func selectUIButton(_ sender: UIButton) {
         print(sender.state)
     }
@@ -49,6 +49,7 @@ class SuggestionViewController: UIViewController {
             shedding: sheddingUIButton.isSelected,
             rare: rareUIButton.isSelected
         )
+
         let suggestedBreeds = FilterBreed.getSuggestions(breeds: suggestions ?? [], wish: userWish)
         if suggestedBreeds.count > 0 {
             let bestCatsViewController = BestCatsViewController(suggestions: suggestedBreeds)

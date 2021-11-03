@@ -2,8 +2,6 @@
 //  ErrorAPI.swift
 //  CatAPI
 //
-//  Created by Fernando Goulart on 02/11/21.
-//
 
 enum ErrorAPI: Error {
     case noURL

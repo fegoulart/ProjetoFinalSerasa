@@ -23,7 +23,6 @@
 		146DD8932726598C0094C3FA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8922726598C0094C3FA /* API.swift */; };
 		146DD89527265D550094C3FA /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD89427265D550094C3FA /* EndPoints.swift */; };
 		146DD8982726631D0094C3FA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8972726631D0094C3FA /* HTTPMethod.swift */; };
-		146DD89D2728DCB60094C3FA /* Temperament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD89C2728DCB60094C3FA /* Temperament.swift */; };
 		563A497727315F73007F3239 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A497627315F73007F3239 /* UIImage+Extension.swift */; };
 		563A49792731920D007F3239 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563A49782731920D007F3239 /* DetailViewController.xib */; };
 		563A8B8727314E7D00560149 /* Breed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 563A8B8527314E7D00560149 /* Breed.xcdatamodeld */; };
@@ -78,7 +77,6 @@
 		146DD8922726598C0094C3FA /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		146DD89427265D550094C3FA /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		146DD8972726631D0094C3FA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		146DD89C2728DCB60094C3FA /* Temperament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperament.swift; sourceTree = "<group>"; };
 		563A497627315F73007F3239 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		563A49782731920D007F3239 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		563A8B8627314E7D00560149 /* Breed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Breed.xcdatamodel; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				146DD8922726598C0094C3FA /* API.swift */,
 				146DD89427265D550094C3FA /* EndPoints.swift */,
 				146DD8972726631D0094C3FA /* HTTPMethod.swift */,
-				146DD89C2728DCB60094C3FA /* Temperament.swift */,
 				14421FD4272DDFFF0098F334 /* APIError.swift */,
 				56B718CC27306BA6000E5CCE /* FilterBreed.swift */,
 				56E39407273070F40025B5FC /* Suggestion.swift */,
@@ -396,7 +393,6 @@
 				563A8B8B27314F3400560149 /* CoreDataRepository.swift in Sources */,
 				146DD89527265D550094C3FA /* EndPoints.swift in Sources */,
 				146DD8932726598C0094C3FA /* API.swift in Sources */,
-				146DD89D2728DCB60094C3FA /* Temperament.swift in Sources */,
 				146DD8982726631D0094C3FA /* HTTPMethod.swift in Sources */,
 				56E39408273070F40025B5FC /* Suggestion.swift in Sources */,
 				56E3940B273072B30025B5FC /* BestCatsViewController.swift in Sources */,

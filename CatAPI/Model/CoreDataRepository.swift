@@ -2,7 +2,6 @@
 //  CoreDataRepository.swift
 //  CatAPI
 //
-//  Created by Fernando Goulart on 02/11/21.
 //
 
 import Foundation
@@ -38,7 +37,7 @@ class CoreDataRepository {
             guard self != nil else { return }
             switch result {
             case .success:
-                print("O elefante foi adicionado aos favoritos com sucesso.")
+                print("O gato foi adicionado aos favoritos com sucesso.")
                 completion(Result.success(()))
             case .failure(let error):
                 print(error)
