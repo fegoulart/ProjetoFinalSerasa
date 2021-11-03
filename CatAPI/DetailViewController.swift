@@ -142,8 +142,7 @@ class DetailViewController: UIViewController {
                 guard self != nil else { return }
                 switch result {
                 case .success:
-                    let secondAlert = UIAlertController(title: "Adicionado aos favoritos com sucesso",
-                                                                    preferredStyle: .alert)
+                    print("ok")
                 case .failure:
                     print("nao salvou ou já existia")
                 }
