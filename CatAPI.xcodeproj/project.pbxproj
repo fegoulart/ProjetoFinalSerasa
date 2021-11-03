@@ -59,10 +59,10 @@
 /* Begin PBXFileReference section */
 		14421FCE272B7D6C0098F334 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		14421FD0272CBF180098F334 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		14421FD1272CBF180098F334 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		14421FD1272CBF180098F334 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeViewController.xib; path = CatAPI/HomeViewController.xib; sourceTree = "<group>"; };
 		14421FD4272DDFFF0098F334 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		14421FD6272E06CA0098F334 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
-		14421FD7272E06CA0098F334 /* SuggestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuggestionViewController.xib; sourceTree = "<group>"; };
+		14421FD7272E06CA0098F334 /* SuggestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SuggestionViewController.xib; path = CatAPI/SuggestionViewController.xib; sourceTree = "<group>"; };
 		146DD8582721C5960094C3FA /* CatAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		146DD85B2721C5960094C3FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		146DD8652721C5960094C3FA /* CatAPI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CatAPI.xcdatamodel; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		146DD89427265D550094C3FA /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		146DD8972726631D0094C3FA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		563A497627315F73007F3239 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		563A49782731920D007F3239 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		563A49782731920D007F3239 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = CatAPI/DetailViewController.xib; sourceTree = "<group>"; };
 		563A8B8627314E7D00560149 /* Breed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Breed.xcdatamodel; sourceTree = "<group>"; };
 		563A8B8827314EC300560149 /* DataBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseController.swift; sourceTree = "<group>"; };
 		563A8B8A27314F3400560149 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		56AC3605272DCFDF0077EF70 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		56AC3609272DD07A0077EF70 /* ViewControllerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerPreview.swift; sourceTree = "<group>"; };
 		56AC360C272DDC180077EF70 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		56AC360D272DDC180077EF70 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		56AC360D272DDC180077EF70 /* FavoritesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = CatAPI/FavoritesViewController.xib; sourceTree = "<group>"; };
 		56B718BD27302312000E5CCE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56B718CC27306BA6000E5CCE /* FilterBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBreed.swift; sourceTree = "<group>"; };
 		56E39407273070F40025B5FC /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
@@ -121,6 +121,7 @@
 		146DD84F2721C5960094C3FA = {
 			isa = PBXGroup;
 			children = (
+				14882D162732FB79002415DA /* View */,
 				146DD85A2721C5960094C3FA /* CatAPI */,
 				146DD8742721C59A0094C3FA /* CatAPITests */,
 				146DD87E2721C59A0094C3FA /* CatAPIUITests */,
@@ -193,16 +194,23 @@
 			children = (
 				56AC3608272DD06A0077EF70 /* Helper */,
 				14421FCE272B7D6C0098F334 /* DetailViewController.swift */,
-				563A49782731920D007F3239 /* DetailViewController.xib */,
 				14421FD0272CBF180098F334 /* HomeViewController.swift */,
-				14421FD1272CBF180098F334 /* HomeViewController.xib */,
 				56AC360C272DDC180077EF70 /* FavoritesViewController.swift */,
-				56AC360D272DDC180077EF70 /* FavoritesViewController.xib */,
 				14421FD6272E06CA0098F334 /* SuggestionViewController.swift */,
-				14421FD7272E06CA0098F334 /* SuggestionViewController.xib */,
 				56E39409273072B30025B5FC /* BestCatsViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		14882D162732FB79002415DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14421FD7272E06CA0098F334 /* SuggestionViewController.xib */,
+				56AC360D272DDC180077EF70 /* FavoritesViewController.xib */,
+				14421FD1272CBF180098F334 /* HomeViewController.xib */,
+				563A49782731920D007F3239 /* DetailViewController.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		56AC3604272DCFC10077EF70 /* Extensions */ = {
