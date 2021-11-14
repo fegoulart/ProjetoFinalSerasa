@@ -63,12 +63,12 @@ class HomeViewController: UIViewController {
             }
         }
     }
- 
+
     @IBAction func prontissimoButtonAction(_ sender: UIButton) {
         if self.indicator.isAnimating {
             let alert = UIAlertController(title: "Ops ", message: "Verifique sua conexão!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                switch action.style{
+                switch action.style {
                 case .default:
                     print("default")
 
@@ -77,6 +77,8 @@ class HomeViewController: UIViewController {
 
                 case .destructive:
                     print("destructive")
+                @unknown default:
+                    fatalError()
                 }}))
             self.present(alert, animated: true, completion: nil)
             print("Nenhum gato encontrado")

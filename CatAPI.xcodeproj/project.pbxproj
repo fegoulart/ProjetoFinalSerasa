@@ -37,6 +37,8 @@
 		56B718CD27306BA6000E5CCE /* FilterBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B718CC27306BA6000E5CCE /* FilterBreed.swift */; };
 		56E39408273070F40025B5FC /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39407273070F40025B5FC /* Suggestion.swift */; };
 		56E3940B273072B30025B5FC /* BestCatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39409273072B30025B5FC /* BestCatsViewController.swift */; };
+		6C33420B274166EB00C86B4F /* CatLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C33420A274166EB00C86B4F /* CatLoader.framework */; };
+		6C33420C274166EB00C86B4F /* CatLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C33420A274166EB00C86B4F /* CatLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,20 @@
 			remoteInfo = CatAPI;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6C33420D274166EC00C86B4F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6C33420C274166EB00C86B4F /* CatLoader.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		14421FCE272B7D6C0098F334 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +107,7 @@
 		56B718CC27306BA6000E5CCE /* FilterBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBreed.swift; sourceTree = "<group>"; };
 		56E39407273070F40025B5FC /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
 		56E39409273072B30025B5FC /* BestCatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatsViewController.swift; sourceTree = "<group>"; };
+		6C33420A274166EB00C86B4F /* CatLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CatLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C33420B274166EB00C86B4F /* CatLoader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +144,7 @@
 				146DD8742721C59A0094C3FA /* CatAPITests */,
 				146DD87E2721C59A0094C3FA /* CatAPIUITests */,
 				146DD8592721C5960094C3FA /* Products */,
+				6C334209274166EB00C86B4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -230,6 +249,14 @@
 			name = Helper;
 			sourceTree = "<group>";
 		};
+		6C334209274166EB00C86B4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C33420A274166EB00C86B4F /* CatLoader.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -241,6 +268,7 @@
 				146DD8552721C5960094C3FA /* Frameworks */,
 				146DD8562721C5960094C3FA /* Resources */,
 				56AC360B272DD2800077EF70 /* Swiftlint */,
+				6C33420D274166EC00C86B4F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

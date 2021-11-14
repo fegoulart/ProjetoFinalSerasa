@@ -16,7 +16,6 @@ final class FilterBreed {
             suggestion = suggestion.filter { $0.vocalisation ?? 0 > 3 }
         }
         if wish.lap {
-      
             suggestion = suggestion.filter { $0.affectionLevel ?? 0 > 3 }
         }
         if wish.sociable {

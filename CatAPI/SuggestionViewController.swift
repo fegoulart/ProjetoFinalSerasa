@@ -55,17 +55,24 @@ class SuggestionViewController: UIViewController {
             let bestCatsViewController = BestCatsViewController(suggestions: suggestedBreeds)
             self.show(bestCatsViewController, sender: nil)
         } else {
-            let alert = UIAlertController(title: "Ops, não encotramos felinos com esse perfil!", message: "Escolha mais características!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                switch action.style{
+            let alert = UIAlertController(
+                title: "Ops, não encotramos felinos com esse perfil!",
+                message: "Escolha mais características!",
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: { action in
+                switch action.style {
                 case .default:
                     print("default")
-
                 case .cancel:
                     print("cancel")
 
                 case .destructive:
                     print("destructive")
+                @unknown default:
+                    fatalError()
                 }}))
             self.present(alert, animated: true, completion: nil)
             print("Nenhum gato encontrado")
