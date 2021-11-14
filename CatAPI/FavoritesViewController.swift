@@ -5,13 +5,14 @@
 //
 
 import UIKit
+import CatLoader
 #if DEBUG
 import SwiftUI
 #endif
 
 class FavoritesViewController: UIViewController {
 
-    var favorites: [Cats] = []
+    var favorites: [Cat] = []
     var localRepository: CoreDataRepository?
     lazy var favoritesTableView: UITableView = {
         let mFrame = CGRect(
@@ -68,7 +69,7 @@ extension FavoritesViewController: UITableViewDataSource {
         cell.textLabel?.text = self.favorites[indexPath.row].name
         cell.accessoryType = .disclosureIndicator
         let cat = self.favorites[indexPath.row]
-        if let imageURL = cat.image?.url {
+        if let imageURL = cat.imageUrl {
             if let url = URL(string: imageURL) {
                 if let data = try? Data(contentsOf: url) {
                     DispatchQueue.global(qos: .background).async {

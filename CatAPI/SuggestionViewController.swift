@@ -5,12 +5,13 @@
 //  Created by Thayanne Viana on 30/10/21.
 //
 import UIKit
+import CatLoader
 #if DEBUG
 import SwiftUI
 #endif
 
 class SuggestionViewController: UIViewController {
-    var suggestions: [Cats]?
+    var suggestions: [Cat]?
 
     // MARK: Outlets
 
@@ -30,7 +31,7 @@ class SuggestionViewController: UIViewController {
 //        indoorUIButton.tintColor = .darkGray
     }
 
-    convenience init(allBreeds: [Cats] ) {
+    convenience init(allBreeds: [Cat] ) {
         self.init()
         self.suggestions = allBreeds
     }

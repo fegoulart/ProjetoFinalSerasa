@@ -3,10 +3,11 @@
 //  CatAPI
 //
 //
+import CatLoader
 
 final class FilterBreed {
 
-    static func getSuggestions(breeds: [Cats], wish: Suggestion) -> [Cats] {
+    static func getSuggestions(breeds: [Cat], wish: Suggestion) -> [Cat] {
         var suggestion = breeds
         if wish.indoor {
 

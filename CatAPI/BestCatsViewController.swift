@@ -5,13 +5,14 @@
 //
 
 import UIKit
+import CatLoader
 #if DEBUG
 import SwiftUI
 #endif
 
 class BestCatsViewController: UIViewController {
 
-    var suggestions: [Cats] = []
+    var suggestions: [Cat] = []
     lazy var suggestionsTableView: UITableView = {
         let mFrame = CGRect(
                            x: 0.0,
@@ -27,7 +28,7 @@ class BestCatsViewController: UIViewController {
         return tableView
     }()
 
-    convenience init(suggestions: [Cats] ) {
+    convenience init(suggestions: [Cat] ) {
         self.init()
         self.suggestions = suggestions
     }
@@ -58,7 +59,7 @@ extension BestCatsViewController: UITableViewDataSource {
         cell.textLabel?.text = self.suggestions[indexPath.row].name
         cell.accessoryType = .disclosureIndicator
         let cat = self.suggestions[indexPath.row]
-        if let imageURL = cat.image?.url {
+        if let imageURL = cat.imageUrl {
             if let url = URL(string: imageURL) {
                 if let data = try? Data(contentsOf: url) {
                     DispatchQueue.global(qos: .background).async {

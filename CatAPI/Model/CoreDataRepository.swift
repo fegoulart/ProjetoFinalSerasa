@@ -6,12 +6,19 @@
 
 import Foundation
 import CoreData
+import CatLoader
+
+enum APIError: Error {
+    case connectivity
+    case serverError
+    case notFound
+}
 
 class CoreDataRepository {
 
     let context =  DataBaseController.persistentContainer.viewContext
 
-    func getCatsFromLocal(completion: @escaping (Result<[Cats], ErrorAPI>) throws -> Void) throws {
+    func getCatsFromLocal(completion: @escaping (Result<[Cat], ErrorAPI>) throws -> Void) throws {
         guard let favorites = try? DataBaseController.persistentContainer
                 .viewContext.fetch(Favorite.fetchRequest()) else {
                     try completion(Result.failure(ErrorAPI.noData))
@@ -21,7 +28,7 @@ class CoreDataRepository {
         try completion(Result.success(cats))
     }
 
-    func saveCat(with newCat: Cats, catImage: Data, completion: @escaping ((Result<Void, APIError>) -> Void)) {
+    func saveCat(with newCat: Cat, catImage: Data, completion: @escaping ((Result<Void, APIError>) -> Void)) {
 
         let favorite = Favorite(context: context)
         favorite.catDescription = newCat.catDescription
@@ -68,7 +75,7 @@ class CoreDataRepository {
         }
     }
 
-    func getFavorites(by name: String, completion: @escaping((Result<[Cats], APIError>) -> Void)) {
+    func getFavorites(by name: String, completion: @escaping((Result<[Cat], APIError>) -> Void)) {
         let fetchRequest = NSFetchRequest<Favorite>(entityName: "Favorite")
         fetchRequest.predicate =  NSPredicate(format: "name =%@", name)
         do {
@@ -81,12 +88,12 @@ class CoreDataRepository {
         }
     }
 
-    private func catMapper(_ input: Favorite ) -> Cats {
-        let result = Cats(
+    private func catMapper(_ input: Favorite ) -> Cat {
+        let result = Cat(
             adaptability: Int(input.adaptability),
             hypoallergenic: nil,
             identity: nil,
-            image: nil,
+            imageUrl: nil,
             indoor: nil,
             intelligence: nil,
             lap: nil,
@@ -105,7 +112,8 @@ class CoreDataRepository {
             vocalisation: Int(input.vocalisation),
             weight: nil,
             affectionLevel: Int(input.affectionLevel),
-            catDescription: input.catDescription)
+            catDescription: input.catDescription
+        )
         return result
     }
 }
