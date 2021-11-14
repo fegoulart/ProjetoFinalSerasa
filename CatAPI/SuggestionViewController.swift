@@ -5,12 +5,13 @@
 //  Created by Thayanne Viana on 30/10/21.
 //
 import UIKit
+import CatLoader
 #if DEBUG
 import SwiftUI
 #endif
 
 class SuggestionViewController: UIViewController {
-    var suggestions: [Cats]?
+    var suggestions: [Cat]?
 
     // MARK: Outlets
 
@@ -30,7 +31,7 @@ class SuggestionViewController: UIViewController {
 //        indoorUIButton.tintColor = .darkGray
     }
 
-    convenience init(allBreeds: [Cats] ) {
+    convenience init(allBreeds: [Cat] ) {
         self.init()
         self.suggestions = allBreeds
     }
@@ -55,17 +56,24 @@ class SuggestionViewController: UIViewController {
             let bestCatsViewController = BestCatsViewController(suggestions: suggestedBreeds)
             self.show(bestCatsViewController, sender: nil)
         } else {
-            let alert = UIAlertController(title: "Ops, não encotramos felinos com esse perfil!", message: "Escolha mais características!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                switch action.style{
+            let alert = UIAlertController(
+                title: "Ops, não encotramos felinos com esse perfil!",
+                message: "Escolha mais características!",
+                preferredStyle: .alert)
+            alert.addAction(UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: { action in
+                switch action.style {
                 case .default:
                     print("default")
-
                 case .cancel:
                     print("cancel")
 
                 case .destructive:
                     print("destructive")
+                @unknown default:
+                    fatalError()
                 }}))
             self.present(alert, animated: true, completion: nil)
             print("Nenhum gato encontrado")

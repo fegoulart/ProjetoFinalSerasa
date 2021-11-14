@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import CatLoader
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func mainViewController() -> UIViewController {
-        let mApi = API()
-        let viewController = HomeViewController(api: mApi)
+        let mCatLoader = CatLoader()
+        let viewController = HomeViewController(catLoader: mCatLoader)
         let navigationController =  UINavigationController(rootViewController: viewController)
         navigationController.tabBarItem = tabBarItem(title: "home", systemIcon: "house")
         return navigationController

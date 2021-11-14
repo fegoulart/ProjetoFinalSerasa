@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CatLoader
 #if DEBUG
 import SwiftUI
 #endif
@@ -16,9 +17,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var botaoInicio: UIButton!
 
-    var cats: [Cats] = []
-    var suggestionsCats: [Cats] = []
-    var api: API?
+    var cats: [Cat] = []
+    var suggestionsCats: [Cat] = []
+    var catLoader: RemoteCatLoader?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,29 +47,33 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
     }
 
-    convenience init(api: API) {
+    convenience init(catLoader: RemoteCatLoader) {
         self.init()
-        self.api = api
+        self.catLoader = catLoader
     }
 
-    private func getBreeds(completion: @escaping ((Result < [Cats], APIError>) -> Void)) {
-        guard let mApi = api else {return}
-        mApi.getCats(urlString: mApi.setCatBreedsURL(), method: .GET) { [weak self] result in
+    private func getBreeds(completion: @escaping ((Result < [Cat], CatLoader.Error>) -> Void)) {
+        guard let loader = catLoader else { completion(Result.failure(.connectivity))
+            return
+        }
+        loader.load { [weak self] result in
             guard self != nil else { return }
             switch result {
             case .success(let cats):
-                completion(Result.success(cats))
+                print("\(cats.count) GATOS CARREGADOS COM SUCESSO")
+                completion(.success(cats))
             case .failure(let error):
-                completion(Result.failure(error))
+                print(error)
+                completion(.failure(CatLoader.Error.invalidData))
             }
         }
     }
- 
+
     @IBAction func prontissimoButtonAction(_ sender: UIButton) {
         if self.indicator.isAnimating {
             let alert = UIAlertController(title: "Ops ", message: "Verifique sua conexão!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                switch action.style{
+                switch action.style {
                 case .default:
                     print("default")
 
@@ -77,6 +82,8 @@ class HomeViewController: UIViewController {
 
                 case .destructive:
                     print("destructive")
+                @unknown default:
+                    fatalError()
                 }}))
             self.present(alert, animated: true, completion: nil)
             print("Nenhum gato encontrado")

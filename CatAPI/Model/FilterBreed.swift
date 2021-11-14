@@ -3,10 +3,11 @@
 //  CatAPI
 //
 //
+import CatLoader
 
 final class FilterBreed {
 
-    static func getSuggestions(breeds: [Cats], wish: Suggestion) -> [Cats] {
+    static func getSuggestions(breeds: [Cat], wish: Suggestion) -> [Cat] {
         var suggestion = breeds
         if wish.indoor {
 
@@ -16,7 +17,6 @@ final class FilterBreed {
             suggestion = suggestion.filter { $0.vocalisation ?? 0 > 3 }
         }
         if wish.lap {
-      
             suggestion = suggestion.filter { $0.affectionLevel ?? 0 > 3 }
         }
         if wish.sociable {

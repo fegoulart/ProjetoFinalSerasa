@@ -1,13 +1,11 @@
 //
-//  Cats.swift
-//  CatAPI
+//  CatDTO.swift
+//  CatLoader
 //
-//  Created by Thayanne Viana on 21/10/21.
+//  Created by Fernando Luiz Goulart on 14/11/21.
 //
 
-import Foundation
-
-struct Cats: Codable {
+struct CatDTO: Codable {
     var adaptability: Int? // Adaptabilidade
     var hypoallergenic: Int? // Nao da alergia
     var identity: String?
@@ -37,7 +35,6 @@ struct Cats: Codable {
         case identity = "id"
         case name
         case origin
-//        case countryCode = "country_code"
         case catDescription = "description"
         case lifeSpan = "life_span"
         case image
@@ -45,16 +42,9 @@ struct Cats: Codable {
         case lap
         case adaptability
         case affectionLevel = "affection_level"
-//        case childFriendly = "child_friendly"
-//        case dogFriendly = "dog_friendly"
-//        case energyLevel = "energy_level"
-//        case grooming
-//        case healthIssues = "health_issues"
         case intelligence
         case sheddingLevel = "shedding_level"
         case vocalisation
-//        case experimental
-//        case hairless
         case natural
         case rare
         case rex

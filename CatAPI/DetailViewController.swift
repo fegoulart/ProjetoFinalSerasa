@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import CatLoader
 #if DEBUG
 import SwiftUI
 #endif
@@ -21,13 +22,13 @@ class DetailViewController: UIViewController {
 
     // MARK: Properties
 
-    var cat: Cats?
+    var cat: Cat?
     var catUIImage: UIImage?
     var localRepository: CoreDataRepository?
 
     // MARK: ViewController Lifecycle
 
-    convenience init(cat: Cats, catImage: UIImage, localRepository: CoreDataRepository) {
+    convenience init(cat: Cat, catImage: UIImage, localRepository: CoreDataRepository) {
         self.init()
         self.cat = cat
         self.catUIImage = catImage
@@ -40,7 +41,7 @@ class DetailViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         if self.catUIImage == UIImage() {
-            if let imageURL = self.cat?.image?.url {
+            if let imageURL = self.cat?.imageUrl {
                 if let url = URL(string: imageURL) {
                     if let data = try? Data(contentsOf: url) {
                         DispatchQueue.global(qos: .background).async {
@@ -136,7 +137,7 @@ class DetailViewController: UIViewController {
         return favoriteStar.tintColor == .systemGray
     }
 
-    private func favoriteIt(cat: Cats, image: UIImage) {
+    private func favoriteIt(cat: Cat, image: UIImage) {
         if let binaryImage = image.jpegData(withCompressionQuality: 1.0) {
             localRepository?.saveCat(with: cat, catImage: binaryImage) { [weak self] result in
                 guard self != nil else { return }

@@ -10,7 +10,6 @@
 		14421FCF272B7D6C0098F334 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14421FCE272B7D6C0098F334 /* DetailViewController.swift */; };
 		14421FD2272CBF180098F334 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14421FD0272CBF180098F334 /* HomeViewController.swift */; };
 		14421FD3272CBF180098F334 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14421FD1272CBF180098F334 /* HomeViewController.xib */; };
-		14421FD5272DDFFF0098F334 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14421FD4272DDFFF0098F334 /* APIError.swift */; };
 		14421FD8272E06CA0098F334 /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14421FD6272E06CA0098F334 /* SuggestionViewController.swift */; };
 		14421FD9272E06CA0098F334 /* SuggestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14421FD7272E06CA0098F334 /* SuggestionViewController.xib */; };
 		146DD85C2721C5960094C3FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD85B2721C5960094C3FA /* AppDelegate.swift */; };
@@ -19,10 +18,6 @@
 		146DD8762721C59A0094C3FA /* CatAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8752721C59A0094C3FA /* CatAPITests.swift */; };
 		146DD8802721C59A0094C3FA /* CatAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD87F2721C59A0094C3FA /* CatAPIUITests.swift */; };
 		146DD8822721C59A0094C3FA /* CatAPIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8812721C59A0094C3FA /* CatAPIUITestsLaunchTests.swift */; };
-		146DD8912721FCEB0094C3FA /* Cats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8902721FCEB0094C3FA /* Cats.swift */; };
-		146DD8932726598C0094C3FA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8922726598C0094C3FA /* API.swift */; };
-		146DD89527265D550094C3FA /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD89427265D550094C3FA /* EndPoints.swift */; };
-		146DD8982726631D0094C3FA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146DD8972726631D0094C3FA /* HTTPMethod.swift */; };
 		563A497727315F73007F3239 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 563A497627315F73007F3239 /* UIImage+Extension.swift */; };
 		563A49792731920D007F3239 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563A49782731920D007F3239 /* DetailViewController.xib */; };
 		563A8B8727314E7D00560149 /* Breed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 563A8B8527314E7D00560149 /* Breed.xcdatamodeld */; };
@@ -37,6 +32,8 @@
 		56B718CD27306BA6000E5CCE /* FilterBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56B718CC27306BA6000E5CCE /* FilterBreed.swift */; };
 		56E39408273070F40025B5FC /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39407273070F40025B5FC /* Suggestion.swift */; };
 		56E3940B273072B30025B5FC /* BestCatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39409273072B30025B5FC /* BestCatsViewController.swift */; };
+		6C33420B274166EB00C86B4F /* CatLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C33420A274166EB00C86B4F /* CatLoader.framework */; };
+		6C33420C274166EB00C86B4F /* CatLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C33420A274166EB00C86B4F /* CatLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,11 +53,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6C33420D274166EC00C86B4F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6C33420C274166EB00C86B4F /* CatLoader.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		14421FCE272B7D6C0098F334 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		14421FD0272CBF180098F334 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		14421FD1272CBF180098F334 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HomeViewController.xib; path = CatAPI/HomeViewController.xib; sourceTree = "<group>"; };
-		14421FD4272DDFFF0098F334 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		14421FD6272E06CA0098F334 /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
 		14421FD7272E06CA0098F334 /* SuggestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SuggestionViewController.xib; path = CatAPI/SuggestionViewController.xib; sourceTree = "<group>"; };
 		146DD8582721C5960094C3FA /* CatAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,10 +83,6 @@
 		146DD87B2721C59A0094C3FA /* CatAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatAPIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		146DD87F2721C59A0094C3FA /* CatAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatAPIUITests.swift; sourceTree = "<group>"; };
 		146DD8812721C59A0094C3FA /* CatAPIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatAPIUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		146DD8902721FCEB0094C3FA /* Cats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cats.swift; sourceTree = "<group>"; };
-		146DD8922726598C0094C3FA /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		146DD89427265D550094C3FA /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
-		146DD8972726631D0094C3FA /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		563A497627315F73007F3239 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		563A49782731920D007F3239 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DetailViewController.xib; path = CatAPI/DetailViewController.xib; sourceTree = "<group>"; };
 		563A8B8627314E7D00560149 /* Breed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Breed.xcdatamodel; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 		56B718CC27306BA6000E5CCE /* FilterBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBreed.swift; sourceTree = "<group>"; };
 		56E39407273070F40025B5FC /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
 		56E39409273072B30025B5FC /* BestCatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatsViewController.swift; sourceTree = "<group>"; };
+		6C33420A274166EB00C86B4F /* CatLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CatLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C33420B274166EB00C86B4F /* CatLoader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +134,7 @@
 				146DD8742721C59A0094C3FA /* CatAPITests */,
 				146DD87E2721C59A0094C3FA /* CatAPIUITests */,
 				146DD8592721C5960094C3FA /* Products */,
+				6C334209274166EB00C86B4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,11 +183,6 @@
 		146DD88F2721FCD80094C3FA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				146DD8902721FCEB0094C3FA /* Cats.swift */,
-				146DD8922726598C0094C3FA /* API.swift */,
-				146DD89427265D550094C3FA /* EndPoints.swift */,
-				146DD8972726631D0094C3FA /* HTTPMethod.swift */,
-				14421FD4272DDFFF0098F334 /* APIError.swift */,
 				56B718CC27306BA6000E5CCE /* FilterBreed.swift */,
 				56E39407273070F40025B5FC /* Suggestion.swift */,
 				563A8B8527314E7D00560149 /* Breed.xcdatamodeld */,
@@ -230,6 +234,14 @@
 			name = Helper;
 			sourceTree = "<group>";
 		};
+		6C334209274166EB00C86B4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C33420A274166EB00C86B4F /* CatLoader.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -241,6 +253,7 @@
 				146DD8552721C5960094C3FA /* Frameworks */,
 				146DD8562721C5960094C3FA /* Resources */,
 				56AC360B272DD2800077EF70 /* Swiftlint */,
+				6C33420D274166EC00C86B4F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -390,7 +403,6 @@
 				563A8B8D27314FAB00560149 /* ErrorAPI.swift in Sources */,
 				14421FCF272B7D6C0098F334 /* DetailViewController.swift in Sources */,
 				56AC3606272DCFDF0077EF70 /* UIViewController+Extension.swift in Sources */,
-				146DD8912721FCEB0094C3FA /* Cats.swift in Sources */,
 				56B718CD27306BA6000E5CCE /* FilterBreed.swift in Sources */,
 				146DD8662721C5960094C3FA /* CatAPI.xcdatamodeld in Sources */,
 				563A8B8727314E7D00560149 /* Breed.xcdatamodeld in Sources */,
@@ -399,13 +411,9 @@
 				14421FD2272CBF180098F334 /* HomeViewController.swift in Sources */,
 				56AC360A272DD07A0077EF70 /* ViewControllerPreview.swift in Sources */,
 				563A8B8B27314F3400560149 /* CoreDataRepository.swift in Sources */,
-				146DD89527265D550094C3FA /* EndPoints.swift in Sources */,
-				146DD8932726598C0094C3FA /* API.swift in Sources */,
-				146DD8982726631D0094C3FA /* HTTPMethod.swift in Sources */,
 				56E39408273070F40025B5FC /* Suggestion.swift in Sources */,
 				56E3940B273072B30025B5FC /* BestCatsViewController.swift in Sources */,
 				563A8B8927314EC300560149 /* DataBaseController.swift in Sources */,
-				14421FD5272DDFFF0098F334 /* APIError.swift in Sources */,
 				14421FD8272E06CA0098F334 /* SuggestionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
