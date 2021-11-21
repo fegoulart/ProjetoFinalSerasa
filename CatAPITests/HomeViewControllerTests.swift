@@ -31,7 +31,12 @@ class HomeViewControllerTests: XCTestCase {
     }
 
     func test_noCatsLoadedAlert_doesNotShowAfterLoad() {
-        let (sut, loader) = makeSUT()
+        let alertClosure: () -> Void = { [weak self] in
+            guard self != nil else { return }
+            XCTFail("Alert closure should not be called")
+        }
+
+        let (sut, loader) = makeSUT(noCatsAlertAction: alertClosure)
 
         sut.loadViewIfNeeded()
         XCTAssertFalse(sut.isShowingAlert, "No error alert is being presented while loading request")
@@ -41,31 +46,41 @@ class HomeViewControllerTests: XCTestCase {
         XCTAssertFalse(sut.isShowingAlert, "No error alert is being presented while loading request")
     }
 
-    func test_noCatsLoadedAlert_isVisibleAfterLoaderError() {
-        let (sut, loader) = makeSUT()
-        // let container = TestingContainerViewController(sut)
+    func test_noCatsLoadedAlert_notVisibleBeforePressingButton() {
 
-        //        let window = UIWindow(frame: UIScreen.main.bounds)
-        //        window.rootViewController = sut
+        let expect = expectation(description: "Alert Closure Expectation")
+        expect.isInverted = true
+        let alertClosure: () -> Void = { [weak self] in
+            guard self != nil else { return }
+            XCTAssert(false, "Alert should not called")
+            expect.fulfill()
+        }
 
-        UIWindow(frame: UIScreen.main.bounds).rootViewController = sut
-        UIWindow(frame: UIScreen.main.bounds).makeKeyAndVisible()
+        let (sut, loader) = makeSUT(noCatsAlertAction: alertClosure)
         sut.loadViewIfNeeded()
-        XCTAssertFalse(sut.isShowingAlert, "No error alert is being presented while loading request")
 
         loader.completeCatLoading(withError: anyNSError(), at: 0)
-        XCTAssertFalse(sut.isShowingAlert, "No error alert is being presented while loading request")
+
+        waitForExpectations(timeout: 5.0)
+    }
+
+    func test_noCatsLoadedAlert_isVisibleAfterLoaderError() {
+
+        let expect = expectation(description: "Alert Closure Expectation")
+        let alertClosure: () -> Void = { [weak self] in
+            guard self != nil else { return }
+            XCTAssert(true, "Alert should be called")
+            expect.fulfill()
+        }
+
+        let (sut, loader) = makeSUT(noCatsAlertAction: alertClosure)
+        sut.loadViewIfNeeded()
+
+        loader.completeCatLoading(withError: anyNSError(), at: 0)
 
         sut.pressGoButton()
-        XCTAssertTrue(sut.isShowingAlert, "No error alert is being presented while loading request")
 
-        //        let exp = expectation(description: "Test after 1.5 second wait")
-        //        let result = XCTWaiter.wait(for: [exp], timeout: 1.5)
-        //        if result == XCTWaiter.Result.timedOut {
-        //            XCTAssertTrue(sut.isShowingAlert, "No error alert is being presented while loading request")
-        //        } else {
-        //            XCTFail("Delay interrupted")
-        //        }
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
 
     // MARK: - Helpers
@@ -79,30 +94,11 @@ class HomeViewControllerTests: XCTestCase {
         loader: LoaderSpy
     ) {
         let loader = LoaderSpy()
-        // let sut = HomeViewController(catLoader: loader)
         let sut = HomeViewController(catLoader: loader, noCatsAlertAction: noCatsAlertAction)
-        // UIWindow(frame: UIScreen.main.bounds).rootViewController = sut
-        // let sut = TestingHomeViewController(catLoader: loader)
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
     }
-
-//    func topMostController() -> UIViewController? {
-//        let keyWindow =
-//        UIApplication
-//            .shared
-//            .connectedScenes
-//            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
-//            .first { $0.isKeyWindow }
-//        var topController = keyWindow?.rootViewController
-//
-//        while (topController?.presentedViewController != nil) {
-//            topController = topController?.presentedViewController!
-//        }
-//
-//        return topController
-//    }
 
     // Pra simplificar aqui vamos usar só o Remote
     class LoaderSpy: RemoteCatLoader {

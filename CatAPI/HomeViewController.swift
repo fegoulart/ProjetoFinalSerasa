@@ -99,7 +99,10 @@ public final class HomeViewController: UIViewController {
             return
         }
         if self.cats.count == 0 {
-            self.present(alert, animated: true, completion: nil)
+            guard let mAction = self.noCatsAlertAction else {
+                return
+            }
+            mAction()
         } else {
             let suggestionViewController = SuggestionViewController(allBreeds: self.cats)
             self.show(suggestionViewController, sender: nil)
