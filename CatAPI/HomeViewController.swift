@@ -85,8 +85,7 @@ public final class HomeViewController: UIViewController {
             switch result {
             case .success(let cats):
                 print("\(cats.count) GATOS CARREGADOS COM SUCESSO")
-                let testCats: [Cat] = []
-                completion(.success(testCats))
+                completion(.success(cats))
             case .failure(let error):
                 print(error)
                 completion(.failure(CatLoader.Error.invalidData))
