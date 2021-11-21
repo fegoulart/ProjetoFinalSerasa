@@ -14,7 +14,20 @@
 		6C3342032741609800C86B4F /* CatLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3342022741609800C86B4F /* CatLoader.swift */; };
 		6C3342052741630400C86B4F /* CatMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3342042741630400C86B4F /* CatMapper.swift */; };
 		6C3342082741635D00C86B4F /* CatDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3342072741635D00C86B4F /* CatDTO.swift */; };
+		6C334225274177D600C86B4F /* CatLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3341EE2741542C00C86B4F /* CatLoader.framework */; };
+		6C33422D2741781200C86B4F /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33422C2741781200C86B4F /* XCTestCase+MemoryLeakTracking.swift */; };
+		6C33422F2741785700C86B4F /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33422E2741785700C86B4F /* SharedTestHelpers.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6C334226274177D600C86B4F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6C3341E52741542C00C86B4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C3341ED2741542C00C86B4F;
+			remoteInfo = CatLoader;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6C3341EE2741542C00C86B4F /* CatLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CatLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -25,6 +38,9 @@
 		6C3342022741609800C86B4F /* CatLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatLoader.swift; sourceTree = "<group>"; };
 		6C3342042741630400C86B4F /* CatMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatMapper.swift; sourceTree = "<group>"; };
 		6C3342072741635D00C86B4F /* CatDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDTO.swift; sourceTree = "<group>"; };
+		6C334221274177D600C86B4F /* CatLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C33422C2741781200C86B4F /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		6C33422E2741785700C86B4F /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +51,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6C33421E274177D600C86B4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C334225274177D600C86B4F /* CatLoader.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -42,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				6C3341F02741542C00C86B4F /* CatLoader */,
+				6C334222274177D600C86B4F /* CatLoaderTests */,
 				6C3341EF2741542C00C86B4F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				6C3341EE2741542C00C86B4F /* CatLoader.framework */,
+				6C334221274177D600C86B4F /* CatLoaderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +118,23 @@
 			path = CatDTO;
 			sourceTree = "<group>";
 		};
+		6C334222274177D600C86B4F /* CatLoaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				6C33422B274177EE00C86B4F /* Helpers */,
+			);
+			path = CatLoaderTests;
+			sourceTree = "<group>";
+		};
+		6C33422B274177EE00C86B4F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6C33422C2741781200C86B4F /* XCTestCase+MemoryLeakTracking.swift */,
+				6C33422E2741785700C86B4F /* SharedTestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -123,6 +166,24 @@
 			productReference = 6C3341EE2741542C00C86B4F /* CatLoader.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		6C334220274177D600C86B4F /* CatLoaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C33422A274177D600C86B4F /* Build configuration list for PBXNativeTarget "CatLoaderTests" */;
+			buildPhases = (
+				6C33421D274177D600C86B4F /* Sources */,
+				6C33421E274177D600C86B4F /* Frameworks */,
+				6C33421F274177D600C86B4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6C334227274177D600C86B4F /* PBXTargetDependency */,
+			);
+			name = CatLoaderTests;
+			productName = CatLoaderTests;
+			productReference = 6C334221274177D600C86B4F /* CatLoaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -130,11 +191,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
 					6C3341ED2741542C00C86B4F = {
 						CreatedOnToolsVersion = 13.1;
 						LastSwiftMigration = 1310;
+					};
+					6C334220274177D600C86B4F = {
+						CreatedOnToolsVersion = 13.1;
 					};
 				};
 			};
@@ -152,12 +217,20 @@
 			projectRoot = "";
 			targets = (
 				6C3341ED2741542C00C86B4F /* CatLoader */,
+				6C334220274177D600C86B4F /* CatLoaderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6C3341EC2741542C00C86B4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C33421F274177D600C86B4F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -181,7 +254,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6C33421D274177D600C86B4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C33422F2741785700C86B4F /* SharedTestHelpers.swift in Sources */,
+				6C33422D2741781200C86B4F /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6C334227274177D600C86B4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C3341ED2741542C00C86B4F /* CatLoader */;
+			targetProxy = 6C334226274177D600C86B4F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6C3341F32741542C00C86B4F /* Debug */ = {
@@ -363,6 +453,46 @@
 			};
 			name = Release;
 		};
+		6C334228274177D600C86B4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.CatLoaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6C334229274177D600C86B4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.CatLoaderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -380,6 +510,15 @@
 			buildConfigurations = (
 				6C3341F62741542C00C86B4F /* Debug */,
 				6C3341F72741542C00C86B4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C33422A274177D600C86B4F /* Build configuration list for PBXNativeTarget "CatLoaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C334228274177D600C86B4F /* Debug */,
+				6C334229274177D600C86B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -11,17 +11,35 @@ import CatLoader
 import SwiftUI
 #endif
 
-class HomeViewController: UIViewController {
+public final class HomeViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
 
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
-    @IBOutlet weak var botaoInicio: UIButton!
+    @IBOutlet public weak var indicator: UIActivityIndicatorView!
+    @IBOutlet public weak var botaoInicio: UIButton!
+    public lazy var alert: UIAlertController = {
+        let mAlert = UIAlertController(title: "Ops ", message: "Verifique sua conexão!", preferredStyle: .alert)
+        mAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style {
+            case .default:
+                print("default")
+
+            case .cancel:
+                print("cancel")
+
+            case .destructive:
+                print("destructive")
+            @unknown default:
+                fatalError()
+            }}))
+        return mAlert
+    }()
+    private var noCatsAlertAction: (() -> Void)?
 
     var cats: [Cat] = []
     var suggestionsCats: [Cat] = []
-    var catLoader: RemoteCatLoader?
+    private var catLoader: RemoteCatLoader?
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         indicator.startAnimating()
         botaoInicio.layer.cornerRadius = 20
@@ -37,19 +55,24 @@ class HomeViewController: UIViewController {
             case .failure(let error):
                 print(error)
             }
-            DispatchQueue.main.async {
-                self?.indicator.stopAnimating()
-            }
         }
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
 
-    convenience init(catLoader: RemoteCatLoader) {
+    public convenience init(catLoader: RemoteCatLoader, noCatsAlertAction: (() -> Void)?) {
         self.init()
         self.catLoader = catLoader
+        if noCatsAlertAction == nil {
+            self.noCatsAlertAction = { [weak self] in
+                guard let mViewController: HomeViewController = self else { return }
+                mViewController.present(mViewController.alert, animated: true, completion: nil)
+            }
+        } else {
+            self.noCatsAlertAction = noCatsAlertAction
+        }
     }
 
     private func getBreeds(completion: @escaping ((Result < [Cat], CatLoader.Error>) -> Void)) {
@@ -58,10 +81,12 @@ class HomeViewController: UIViewController {
         }
         loader.load { [weak self] result in
             guard self != nil else { return }
+            self?.indicator.stopAnimating()
             switch result {
             case .success(let cats):
                 print("\(cats.count) GATOS CARREGADOS COM SUCESSO")
-                completion(.success(cats))
+                let testCats: [Cat] = []
+                completion(.success(testCats))
             case .failure(let error):
                 print(error)
                 completion(.failure(CatLoader.Error.invalidData))
@@ -70,23 +95,12 @@ class HomeViewController: UIViewController {
     }
 
     @IBAction func prontissimoButtonAction(_ sender: UIButton) {
-        if self.indicator.isAnimating {
-            let alert = UIAlertController(title: "Ops ", message: "Verifique sua conexão!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                switch action.style {
-                case .default:
-                    print("default")
-
-                case .cancel:
-                    print("cancel")
-
-                case .destructive:
-                    print("destructive")
-                @unknown default:
-                    fatalError()
-                }}))
+        guard !self.indicator.isAnimating else {
+            print("indicator is animating")
+            return
+        }
+        if self.cats.count == 0 {
             self.present(alert, animated: true, completion: nil)
-            print("Nenhum gato encontrado")
         } else {
             let suggestionViewController = SuggestionViewController(allBreeds: self.cats)
             self.show(suggestionViewController, sender: nil)
