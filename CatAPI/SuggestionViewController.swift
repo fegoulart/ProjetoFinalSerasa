@@ -27,8 +27,6 @@ class SuggestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        indoorUIButton.backgroundColor = .darkGray
-//        indoorUIButton.tintColor = .darkGray
     }
 
     convenience init(allBreeds: [Cat] ) {
@@ -69,7 +67,6 @@ class SuggestionViewController: UIViewController {
                     print("default")
                 case .cancel:
                     print("cancel")
-
                 case .destructive:
                     print("destructive")
                 @unknown default:

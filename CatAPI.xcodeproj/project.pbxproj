@@ -35,6 +35,7 @@
 		6C33423227417A7900C86B4F /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33423127417A7900C86B4F /* XCTestCase+MemoryLeakTracking.swift */; };
 		6C33423427417A8F00C86B4F /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33423327417A8F00C86B4F /* SharedTestHelpers.swift */; };
 		6C33423527417BBE00C86B4F /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33420E2741765700C86B4F /* HomeViewControllerTests.swift */; };
+		6CA113DF274AF9D100B3C778 /* BestCatsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA113DE274AF9D100B3C778 /* BestCatsViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		6C334214274177A200C86B4F /* CatAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C33423127417A7900C86B4F /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		6C33423327417A8F00C86B4F /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		6CA113DE274AF9D100B3C778 /* BestCatsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatsViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			children = (
 				6C33423027417A5800C86B4F /* Helpers */,
 				6C33420E2741765700C86B4F /* HomeViewControllerTests.swift */,
+				6CA113DE274AF9D100B3C778 /* BestCatsViewControllerTests.swift */,
 			);
 			path = CatAPITests;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C33423427417A8F00C86B4F /* SharedTestHelpers.swift in Sources */,
+				6CA113DF274AF9D100B3C778 /* BestCatsViewControllerTests.swift in Sources */,
 				6C33423527417BBE00C86B4F /* HomeViewControllerTests.swift in Sources */,
 				6C33423227417A7900C86B4F /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
