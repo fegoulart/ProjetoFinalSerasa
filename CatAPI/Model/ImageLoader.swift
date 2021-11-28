@@ -7,7 +7,16 @@
 
 import Foundation
 
+class ImageLoaderTask: CatImageDataLoaderTask {
+    func cancel() {
+
+    }
+}
+
 public class ImageLoader: CatImageDataLoader {
+    public func loadImageData(from url: URL) -> CatImageDataLoaderTask {
+        return ImageLoaderTask()
+    }
 
     public func loadImageData(from url: URL) {
         //                if let data = try? Data(contentsOf: url) {

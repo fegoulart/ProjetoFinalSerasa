@@ -29,6 +29,7 @@ public class BestCatsViewController: UIViewController {
     }()
 
     private var imageLoader: CatImageDataLoader?
+    private var tasks = [IndexPath: CatImageDataLoaderTask]()
 
     public convenience init(suggestions: [Cat], imageLoader: CatImageDataLoader) {
         self.init()
@@ -65,7 +66,8 @@ extension BestCatsViewController: UITableViewDataSource {
         if let imageURL = cat.imageUrl {
             if let url = URL(string: imageURL) {
                 if let mImageLoader = imageLoader {
-                    mImageLoader.loadImageData(from: url)
+                    //mImageLoader.loadImageData(from: url)
+                    tasks[indexPath] = mImageLoader.loadImageData(from: url)
                 }
                 // TODO: Verificar como o essential developer faz pra carregar imagens sem retorno e sem closure
             }
@@ -96,9 +98,8 @@ extension BestCatsViewController: UITableViewDelegate {
     }
 
     public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cellModel = suggestions[indexPath.row]
-        guard let stringURL = cellModel.imageUrl, let imageUrl = URL(string: stringURL) else { return }
-        imageLoader?.cancelImageDataLoad(from: imageUrl)
+        tasks[indexPath]?.cancel()
+        tasks[indexPath] = nil
     }
 }
 

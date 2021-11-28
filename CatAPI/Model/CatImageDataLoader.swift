@@ -8,6 +8,9 @@
 import Foundation
 
 public protocol CatImageDataLoader {
-    func loadImageData(from url: URL)
-    func cancelImageDataLoad(from url: URL)
+    func loadImageData(from url: URL) -> CatImageDataLoaderTask
+}
+
+public protocol CatImageDataLoaderTask {
+    func cancel()
 }
