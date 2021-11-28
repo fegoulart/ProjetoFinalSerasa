@@ -10,10 +10,10 @@ import CatLoader
 import SwiftUI
 #endif
 
-class BestCatsViewController: UIViewController {
+public class BestCatsViewController: UIViewController {
 
     var suggestions: [Cat] = []
-    lazy var suggestionsTableView: UITableView = {
+    lazy public var suggestionsTableView: UITableView = {
         let mFrame = CGRect(
                            x: 0.0,
                             y: 0.0,
@@ -28,12 +28,12 @@ class BestCatsViewController: UIViewController {
         return tableView
     }()
 
-    convenience init(suggestions: [Cat] ) {
+    public convenience init(suggestions: [Cat] ) {
         self.init()
         self.suggestions = suggestions
     }
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(self.suggestionsTableView)
         self.navigationController?.tabBarController?.tabBar.barTintColor = .systemGray
@@ -42,7 +42,7 @@ class BestCatsViewController: UIViewController {
         self.navigationController?.tabBarController?.tabBar.unselectedItemTintColor = .darkGray
     }
 
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.suggestionsTableView.reloadData()
         self.tabBarController?.tabBar.backgroundColor = .systemGray
@@ -50,11 +50,11 @@ class BestCatsViewController: UIViewController {
 }
 
 extension BestCatsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return suggestions.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = self.suggestions[indexPath.row].name
         cell.accessoryType = .disclosureIndicator
@@ -93,7 +93,7 @@ extension BestCatsViewController: UITableViewDataSource {
 }
 
 extension BestCatsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCat = suggestions[indexPath.row]
         let localRepository = CoreDataRepository()
         let detailViewController = DetailViewController(

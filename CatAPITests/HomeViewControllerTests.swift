@@ -26,7 +26,7 @@ class HomeViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         XCTAssertTrue(sut.isShowingLoadingIndicator, "Expected loading indicator once view is loaded")
 
-        loader.completeCatLoading(at: 0)
+        loader.completeCatLoadingSuccessfully(at: 0)
         XCTAssertFalse(sut.isShowingLoadingIndicator, "Expected no loading indicator once loading is completed")
     }
 
@@ -41,7 +41,7 @@ class HomeViewControllerTests: XCTestCase {
         sut.loadViewIfNeeded()
         XCTAssertFalse(sut.isShowingAlert, "No error alert is being presented while loading request")
 
-        loader.completeCatLoading(at: 0)
+        loader.completeCatLoadingSuccessfully(at: 0)
 
         XCTAssertFalse(sut.isShowingAlert, "No error alert is being presented while loading request")
     }
@@ -112,8 +112,8 @@ class HomeViewControllerTests: XCTestCase {
             completions.append(completion)
         }
 
-        func completeCatLoading(at index: Int) {
-            completions[index](.success([]))
+        func completeCatLoadingSuccessfully(with cats: [Cat] = [], at index: Int) {
+            completions[index](.success(cats))
         }
 
         func completeCatLoading(withError error: Error = anyNSError(), at index: Int) {
