@@ -36,6 +36,8 @@
 		6C33423227417A7900C86B4F /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33423127417A7900C86B4F /* XCTestCase+MemoryLeakTracking.swift */; };
 		6C33423427417A8F00C86B4F /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33423327417A8F00C86B4F /* SharedTestHelpers.swift */; };
 		6C33423527417BBE00C86B4F /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33420E2741765700C86B4F /* HomeViewControllerTests.swift */; };
+		6C8C87FD27542CC7007D1B00 /* CatImageDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C87FC27542CC7007D1B00 /* CatImageDataLoader.swift */; };
+		6C8C87FF27542F3E007D1B00 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C87FE27542F3E007D1B00 /* ImageLoader.swift */; };
 		6CA113DF274AF9D100B3C778 /* BestCatsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA113DE274AF9D100B3C778 /* BestCatsViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +97,8 @@
 		6C334214274177A200C86B4F /* CatAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C33423127417A7900C86B4F /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		6C33423327417A8F00C86B4F /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		6C8C87FC27542CC7007D1B00 /* CatImageDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageDataLoader.swift; sourceTree = "<group>"; };
+		6C8C87FE27542F3E007D1B00 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		6CA113DE274AF9D100B3C778 /* BestCatsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatsViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +176,8 @@
 				563A8B8A27314F3400560149 /* CoreDataRepository.swift */,
 				563A8B8C27314FAB00560149 /* ErrorAPI.swift */,
 				6C2099D6274A8DFA00F533C0 /* MainQueueDispatchDecorator.swift */,
+				6C8C87FC27542CC7007D1B00 /* CatImageDataLoader.swift */,
+				6C8C87FE27542F3E007D1B00 /* ImageLoader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 			files = (
 				56AC360E272DDC180077EF70 /* FavoritesViewController.swift in Sources */,
 				563A8B8D27314FAB00560149 /* ErrorAPI.swift in Sources */,
+				6C8C87FF27542F3E007D1B00 /* ImageLoader.swift in Sources */,
 				6C2E09D0274D5A9B00B3D38E /* CustomOperators.swift in Sources */,
 				14421FCF272B7D6C0098F334 /* DetailViewController.swift in Sources */,
 				56AC3606272DCFDF0077EF70 /* UIViewController+Extension.swift in Sources */,
@@ -374,6 +381,7 @@
 				563A8B8727314E7D00560149 /* Breed.xcdatamodeld in Sources */,
 				146DD85C2721C5960094C3FA /* AppDelegate.swift in Sources */,
 				563A497727315F73007F3239 /* UIImage+Extension.swift in Sources */,
+				6C8C87FD27542CC7007D1B00 /* CatImageDataLoader.swift in Sources */,
 				14421FD2272CBF180098F334 /* HomeViewController.swift in Sources */,
 				56AC360A272DD07A0077EF70 /* ViewControllerPreview.swift in Sources */,
 				563A8B8B27314F3400560149 /* CoreDataRepository.swift in Sources */,

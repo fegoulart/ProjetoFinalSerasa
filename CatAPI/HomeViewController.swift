@@ -82,6 +82,7 @@ public final class HomeViewController: UIViewController {
         loader.load { [weak self] result in
             guard self != nil else { return }
             self?.indicator.stopAnimating()
+            // if we care just for success we can use an if let cats = try? result.get() {
             switch result {
             case .success(let cats):
                 print("\(cats.count) GATOS CARREGADOS COM SUCESSO")

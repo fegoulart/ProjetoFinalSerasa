@@ -51,7 +51,8 @@ class SuggestionViewController: UIViewController {
 
         let suggestedBreeds = FilterBreed.getSuggestions(breeds: suggestions ?? [], wish: userWish)
         if suggestedBreeds.count > 0 {
-            let bestCatsViewController = BestCatsViewController(suggestions: suggestedBreeds)
+            let imageLoader = ImageLoader()
+            let bestCatsViewController = BestCatsViewController(suggestions: suggestedBreeds, imageLoader: imageLoader)
             self.show(bestCatsViewController, sender: nil)
         } else {
             let alert = UIAlertController(

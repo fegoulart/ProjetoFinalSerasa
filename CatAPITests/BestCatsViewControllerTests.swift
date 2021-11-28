@@ -13,7 +13,7 @@ import CatLoader
 class BestCatsViewControllerTests: XCTestCase {
 
     func test_init_noCatsRendered() {
-        let (sut) = makeSUT()
+        let (sut, _) = makeSUT()
 
         sut.loadViewIfNeeded()
 
@@ -22,7 +22,7 @@ class BestCatsViewControllerTests: XCTestCase {
 
     func test_init_renderOneCatSuccessfully() {
         let cat0 = makeCat(name: "a name", imageUrl: "https://any-url.com")
-        let (sut) = makeSUT(cats: [cat0])
+        let (sut, _) = makeSUT(cats: [cat0])
 
         sut.loadViewIfNeeded()
         assertThat(sut, isRendering: [cat0])
@@ -32,17 +32,63 @@ class BestCatsViewControllerTests: XCTestCase {
         let cat0 = makeCat(name: "a name", imageUrl: "https://any-url.com")
         let cat1 = makeCat(name: "another name", imageUrl: "https://another-url.com")
         let cat2 = makeCat(name: "Nenúfaro", imageUrl: "http://www.nenus.com")
-        let (sut) = makeSUT(cats: [cat0, cat1, cat2])
+        let (sut, _) = makeSUT(cats: [cat0, cat1, cat2])
 
         sut.loadViewIfNeeded()
         assertThat(sut, isRendering: [cat0, cat1, cat2])
     }
 
+    func test_catImageView_cancelsImageLoadingWhenNotVisibleAnymore() {
+        let cat0 = makeCat(name: "a name", imageUrl: "https://any-url.com")
+        let cat1 = makeCat(name: "another name", imageUrl: "https://another-url.com")
+        let (sut, imageLoader) = makeSUT(cats: [cat0, cat1])
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(
+            imageLoader.cancelledImageURLs,
+    [],
+            "Expected no cancelled image URL requests until image is not visible")
+
+        sut.simulateCatImageViewNotVisible(at: 0)
+        let cat0ImageUrl = URL(string: cat0.imageUrl!)
+        XCTAssertEqual(imageLoader.cancelledImageURLs, [cat0ImageUrl])
+
+        sut.simulateCatImageViewNotVisible(at: 1)
+        let cat1ImageUrl = URL(string: cat1.imageUrl!)
+        XCTAssertEqual(imageLoader.cancelledImageURLs, [cat0ImageUrl, cat1ImageUrl])
+
+    }
+
+    // Se estivessemos carregando os dados e tambem as imagens na mesma tela, deveriamos testar se alguma imagem é carregada antes de que as celulas estejam visiveis
+
+//    func test_catImageView_loadsImageURLWhenVisible() {
+//        let cat0 = makeCat(name: "Fifi", imageUrl: "https://url-0.com")
+//        let (sut) = makeSUT(cats: [cat0])
+//        sut.loadViewIfNeeded()
+//        sut.simulateCatImageViewVisible(at: 0)
+//    }
+
     // Helper
 
-    private func makeSUT(cats: [Cat] = []) -> BestCatsViewController {
-        let mViewController = BestCatsViewController(suggestions: cats)
-        return mViewController
+    private func makeSUT(cats: [Cat] = []) -> (BestCatsViewController, ImageLoaderSpy) {
+        let imageLoader = ImageLoaderSpy()
+        let mViewController = BestCatsViewController(suggestions: cats, imageLoader: imageLoader)
+        return (mViewController, imageLoader)
+    }
+
+    // Pra simplificar aqui vamos usar só o Remote
+    class ImageLoaderSpy: CatImageDataLoader {
+
+        private(set) var loadedImagesURLs = [URL]()
+
+        private(set) var cancelledImageURLs = [URL]()
+
+        func loadImageData(from url: URL) {
+            loadedImagesURLs.append(url)
+        }
+
+        func cancelImageDataLoad(from url: URL) {
+            cancelledImageURLs.append(url)
+        }
     }
 
     private func makeCat(name: String, imageUrl: String) -> Cat {
@@ -111,6 +157,20 @@ class BestCatsViewControllerTests: XCTestCase {
 
 // DSL
 private extension BestCatsViewController {
+
+    @discardableResult
+    func simulateCatImageViewVisible(at index: Int) -> UITableViewCell? {
+        return catImageView(at: index)
+    }
+
+    func simulateCatImageViewNotVisible(at row: Int) {
+        let view = simulateCatImageViewVisible(at: row)
+
+        let delegate = suggestionsTableView.delegate
+        let index = IndexPath(row: row, section: catsSection)
+        delegate?.tableView?(suggestionsTableView, didEndDisplaying: view!, forRowAt: index)
+    }
+
     func numberOfRenderedCats() -> Int {
         return suggestionsTableView.numberOfRows(inSection: catsSection)
     }

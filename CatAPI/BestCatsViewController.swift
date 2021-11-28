@@ -28,9 +28,12 @@ public class BestCatsViewController: UIViewController {
         return tableView
     }()
 
-    public convenience init(suggestions: [Cat] ) {
+    private var imageLoader: CatImageDataLoader?
+
+    public convenience init(suggestions: [Cat], imageLoader: CatImageDataLoader) {
         self.init()
         self.suggestions = suggestions
+        self.imageLoader = imageLoader
     }
 
     public override func viewDidLoad() {
@@ -61,22 +64,10 @@ extension BestCatsViewController: UITableViewDataSource {
         let cat = self.suggestions[indexPath.row]
         if let imageURL = cat.imageUrl {
             if let url = URL(string: imageURL) {
-                if let data = try? Data(contentsOf: url) {
-                    DispatchQueue.global(qos: .background).async {
-                        let image = UIImage(data: data)
-                        DispatchQueue.main.async {
-                            let cell = self.suggestionsTableView.cellForRow(at: indexPath)
-                            var content = cell?.defaultContentConfiguration()
-                            content?.imageProperties.reservedLayoutSize = CGSize(width: 50.0, height: 50.0)
-                            content?.imageProperties.maximumSize = CGSize(width: 50.0, height: 50.0)
-                            content?.image = image
-                            if let texto = cat.name {
-                                content?.text = texto
-                            }
-                            cell?.contentConfiguration = content
-                        }
-                    }
+                if let mImageLoader = imageLoader {
+                    mImageLoader.loadImageData(from: url)
                 }
+                // TODO: Verificar como o essential developer faz pra carregar imagens sem retorno e sem closure
             }
         } else {
             var content = cell.defaultContentConfiguration()
@@ -102,6 +93,12 @@ extension BestCatsViewController: UITableViewDelegate {
             localRepository: localRepository
         )
         show(detailViewController, sender: nil)
+    }
+
+    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cellModel = suggestions[indexPath.row]
+        guard let stringURL = cellModel.imageUrl, let imageUrl = URL(string: stringURL) else { return }
+        imageLoader?.cancelImageDataLoad(from: imageUrl)
     }
 }
 
