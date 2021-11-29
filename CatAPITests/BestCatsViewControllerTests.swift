@@ -67,6 +67,49 @@ class BestCatsViewControllerTests: XCTestCase {
 //        sut.simulateCatImageViewVisible(at: 0)
 //    }
 
+    func test_catImageViewLoadingIndicator_isVisibleWhileLoadingImage() {
+        let cat0 = makeCat(name: "Joseph", imageUrl: "https://any-url.com")
+        let cat1 = makeCat(name: "Manuel", imageUrl: "https://another-url.com")
+
+        let (sut, loader) = makeSUT(cats: [cat0, cat1])
+        let view0 = sut.simulateCatImageViewVisible(at: 0)
+        let view1 = sut.simulateCatImageViewVisible(at: 1)
+        XCTAssertEqual(
+            view0?.isShowingImageLoadingIndicator,
+            true,
+            "Expected loading indicator for first view while loading first image"
+        )
+        XCTAssertEqual(
+            view1?.isShowingImageLoadingIndicator,
+            true,
+            "Expected loading indicator for second view while loading second image"
+        )
+
+        loader.completeImageLoading(at: 0)
+        XCTAssertEqual(
+            view0?.isShowingImageLoadingIndicator,
+            false,
+            "Expected no loading indicator for view once first image loading completes successfully"
+        )
+        XCTAssertEqual(
+            view1?.isShowingImageLoadingIndicator,
+            true,
+            "Expected no loading indicator state change for second view once first image loading completes successfully"
+        )
+        loader.completeImageLoadingWithError(at: 1)
+        XCTAssertEqual(
+            view0?.isShowingImageLoadingIndicator,
+            false,
+            "Expected no loading indicator for view once second image loading completes with error"
+        )
+        XCTAssertEqual(
+            view1?.isShowingImageLoadingIndicator,
+            false,
+            "Expected no loading indicator for second view once second image loading completes with error"
+        )
+
+    }
+
     // Helper
 
     private func makeSUT(cats: [Cat] = []) -> (BestCatsViewController, ImageLoaderSpy) {
@@ -78,8 +121,12 @@ class BestCatsViewControllerTests: XCTestCase {
     // Pra simplificar aqui vamos usar só o Remote
     class ImageLoaderSpy: CatImageDataLoader {
 
-        private(set) var loadedImagesURLs = [URL]()
+        typealias Result = CatImageDataLoader.Result
 
+        private var imageRequests = [(url: URL, completion: (CatImageDataLoader.Result) -> Void)]()
+        var loadedImagesURLs: [URL] {
+            return imageRequests.map { $0.url }
+        }
         private(set) var cancelledImageURLs = [URL]()
 
         private struct TaskSpy: CatImageDataLoaderTask {
@@ -89,11 +136,20 @@ class BestCatsViewControllerTests: XCTestCase {
             }
         }
 
-        func loadImageData(from url: URL) -> CatImageDataLoaderTask {
-            loadedImagesURLs.append(url)
+        func loadImageData(from url: URL, completion: @escaping (Result) -> Void) -> CatImageDataLoaderTask {
+            imageRequests.append((url, completion))
             return TaskSpy { [weak self] in
                 self?.cancelledImageURLs.append(url)
             }
+        }
+
+        func completeImageLoading(with imageData: Data = Data(), at index: Int = 0) {
+            imageRequests[index].completion(.success(imageData))
+        }
+
+        func completeImageLoadingWithError(at index: Int = 0) {
+            let error = NSError(domain: "an error", code: 0)
+            imageRequests[index].completion(.failure(error))
         }
     }
 
@@ -196,5 +252,9 @@ private extension BestCatsViewController {
 private extension UITableViewCell {
     var nameText: String? {
         return textLabel?.text
+    }
+
+    var isShowingImageLoadingIndicator: Bool {
+        return self.imageView?.isShimmering ?? false
     }
 }

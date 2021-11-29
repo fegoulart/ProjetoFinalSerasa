@@ -14,11 +14,13 @@ class ImageLoaderTask: CatImageDataLoaderTask {
 }
 
 public class ImageLoader: CatImageDataLoader {
-    public func loadImageData(from url: URL) -> CatImageDataLoaderTask {
+    public typealias Result = CatImageDataLoader.Result
+
+    public func loadImageData(from url: URL, completion: @escaping (Result) -> Void) -> CatImageDataLoaderTask {
         return ImageLoaderTask()
     }
 
-    public func loadImageData(from url: URL) {
+    // public func loadImageData(from url: URL) {
         //                if let data = try? Data(contentsOf: url) {
         //                    DispatchQueue.global(qos: .background).async {
         //                        let image = UIImage(data: data)
@@ -35,9 +37,8 @@ public class ImageLoader: CatImageDataLoader {
         //                        }
         //                    }
         //                }
-    }
+    // }
 
     public func cancelImageDataLoad(from url: URL) {
-        
     }
 }

@@ -15,10 +15,10 @@ public class BestCatsViewController: UIViewController {
     var suggestions: [Cat] = []
     lazy public var suggestionsTableView: UITableView = {
         let mFrame = CGRect(
-                           x: 0.0,
-                            y: 0.0,
-                            width: self.view.bounds.width,
-                            height: self.view.bounds.height
+            x: 0.0,
+            y: 0.0,
+            width: self.view.bounds.width,
+            height: self.view.bounds.height
         )
         var tableView = UITableView(frame: mFrame)
         tableView.rowHeight = 70
@@ -29,6 +29,7 @@ public class BestCatsViewController: UIViewController {
     }()
 
     private var imageLoader: CatImageDataLoader?
+    // Technique to move state management to client
     private var tasks = [IndexPath: CatImageDataLoaderTask]()
 
     public convenience init(suggestions: [Cat], imageLoader: CatImageDataLoader) {
@@ -63,15 +64,22 @@ extension BestCatsViewController: UITableViewDataSource {
         cell.textLabel?.text = self.suggestions[indexPath.row].name
         cell.accessoryType = .disclosureIndicator
         let cat = self.suggestions[indexPath.row]
+        cell.imageView?.startShimmering()
         if let imageURL = cat.imageUrl {
             if let url = URL(string: imageURL) {
-                if let mImageLoader = imageLoader {
-                    //mImageLoader.loadImageData(from: url)
-                    tasks[indexPath] = mImageLoader.loadImageData(from: url)
+                let loadImage = { [weak self, weak cell] in
+                    guard let self = self else { return }
+                    self.tasks[indexPath] = self.imageLoader?.loadImageData(from: url) { [weak cell] result in
+                        let data = try? result.get()
+                        let image = data.map(UIImage.init) ?? nil
+                        cell?.imageView?.image = image
+                        cell?.imageView?.stopShimmering()
+                    }
                 }
-                // TODO: Verificar como o essential developer faz pra carregar imagens sem retorno e sem closure
+                loadImage()
             }
         } else {
+            // TODO: Send this ELSE logic to imageLoader
             var content = cell.defaultContentConfiguration()
             content.imageProperties.reservedLayoutSize = CGSize(width: 50.0, height: 50.0)
             content.imageProperties.maximumSize = CGSize(width: 50.0, height: 50.0)
@@ -80,6 +88,7 @@ extension BestCatsViewController: UITableViewDataSource {
                 content.text = texto
             }
             cell.contentConfiguration = content
+            cell.stopShimmering()
         }
         return cell
     }
@@ -97,7 +106,11 @@ extension BestCatsViewController: UITableViewDelegate {
         show(detailViewController, sender: nil)
     }
 
-    public func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    public func tableView(
+        _ tableView: UITableView,
+        didEndDisplaying cell: UITableViewCell,
+        forRowAt indexPath: IndexPath
+    ) {
         tasks[indexPath]?.cancel()
         tasks[indexPath] = nil
     }
