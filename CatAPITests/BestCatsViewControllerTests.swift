@@ -177,6 +177,40 @@ class BestCatsViewControllerTests: XCTestCase {
         )
     }
 
+    func test_catImageView_cancelsImageURLPreloadingWhenNotNearVisible() {
+        let cat0 = makeCat(name: "Joseph", imageUrl: "https://any-url.com")
+        let cat1 = makeCat(name: "Manuel", imageUrl: "https://another-url.com")
+        let (sut, loader) = makeSUT(cats: [cat0, cat1])
+        guard let image0 = URL(string: cat0.imageUrl!) else {
+            XCTFail("cat0 should have a valid imageURL")
+            return
+        }
+        guard let image1 = URL(string: cat1.imageUrl!) else {
+            XCTFail("cat1 should have a valid imageURL")
+            return
+        }
+
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(
+            loader.cancelledImageURLs,
+    [],
+            "Expected no cancelled image URL requests until is not near visible"
+        )
+
+        sut.simulateCatImageViewNotNearVisible(at: 0)
+        XCTAssertEqual(
+            loader.cancelledImageURLs,
+            [image0],
+            "Expected first cancelled image URL request once first image is not near visible anymore"
+        )
+        sut.simulateCatImageViewNotNearVisible(at: 1)
+        XCTAssertEqual(
+            loader.cancelledImageURLs,
+            [image0, image1],
+            "Expected second cancelled image URL request once second image is not near visible anymore"
+        )
+    }
+
     // Helper
 
     private func makeSUT(cats: [Cat] = []) -> (BestCatsViewController, ImageLoaderSpy) {
@@ -304,6 +338,14 @@ private extension BestCatsViewController {
         let mDataSource = suggestionsTableView.prefetchDataSource
         let index = IndexPath(row: row, section: catsSection)
         mDataSource?.tableView(suggestionsTableView, prefetchRowsAt: [index])
+    }
+
+    func simulateCatImageViewNotNearVisible(at row: Int) {
+        simulateCatImageViewNearVisible(at: row)
+
+        let mDataSource = suggestionsTableView.prefetchDataSource
+        let index = IndexPath(row: row, section: catsSection)
+        mDataSource?.tableView?(suggestionsTableView, cancelPrefetchingForRowsAt: [index])
     }
 
     func numberOfRenderedCats() -> Int {

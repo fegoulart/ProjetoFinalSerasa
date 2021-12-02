@@ -112,6 +112,10 @@ extension BestCatsViewController: UITableViewDelegate {
         didEndDisplaying cell: UITableViewCell,
         forRowAt indexPath: IndexPath
     ) {
+        cancelTask(forRowAt: indexPath)
+    }
+
+    private func cancelTask(forRowAt indexPath: IndexPath) {
         tasks[indexPath]?.cancel()
         tasks[indexPath] = nil
     }
@@ -122,8 +126,14 @@ extension BestCatsViewController: UITableViewDataSourcePrefetching {
         indexPaths.forEach { indexPath in
             let cellModel = suggestions[indexPath.row]
             if let url = cellModel.imageUrl, let imageURL = URL(string: url) {
-                _ = imageLoader?.loadImageData(from: imageURL) { _ in }
+                tasks[indexPath] = imageLoader?.loadImageData(from: imageURL) { _ in }
             }
+        }
+    }
+
+    public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { indexPath in
+            cancelTask(forRowAt: indexPath)
         }
     }
 }
