@@ -41,6 +41,7 @@ public class BestCatsViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(self.suggestionsTableView)
+        suggestionsTableView.prefetchDataSource = self
         self.navigationController?.tabBarController?.tabBar.barTintColor = .systemGray
         self.navigationController?.tabBarController?.tabBar.backgroundColor = .systemGray
         self.navigationController?.tabBarController?.tabBar.tintColor = .white
@@ -113,6 +114,17 @@ extension BestCatsViewController: UITableViewDelegate {
     ) {
         tasks[indexPath]?.cancel()
         tasks[indexPath] = nil
+    }
+}
+
+extension BestCatsViewController: UITableViewDataSourcePrefetching {
+    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        indexPaths.forEach { indexPath in
+            let cellModel = suggestions[indexPath.row]
+            if let url = cellModel.imageUrl, let imageURL = URL(string: url) {
+                _ = imageLoader?.loadImageData(from: imageURL) { _ in }
+            }
+        }
     }
 }
 

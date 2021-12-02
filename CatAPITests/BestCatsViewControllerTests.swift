@@ -145,7 +145,36 @@ class BestCatsViewControllerTests: XCTestCase {
             imageData1,
             "Expected image for second view once second image loading completes successfully"
         )
+    }
 
+    func test_catImageView_preloadsImageURLWhenNearVisible() {
+        let cat0 = makeCat(name: "Joseph", imageUrl: "https://any-url.com")
+        let cat1 = makeCat(name: "Manuel", imageUrl: "https://another-url.com")
+        let (sut, loader) = makeSUT(cats: [cat0, cat1])
+        guard let image0 = URL(string: cat0.imageUrl!) else {
+            XCTFail("cat0 should have a valid imageURL")
+            return
+        }
+        guard let image1 = URL(string: cat1.imageUrl!) else {
+            XCTFail("cat1 should have a valid imageURL")
+            return
+        }
+
+        sut.loadViewIfNeeded()
+        XCTAssertEqual(loader.loadedImagesURLs, [])
+
+        sut.simulateCatImageViewNearVisible(at: 0)
+        XCTAssertEqual(
+            loader.loadedImagesURLs,
+            [image0],
+            "Expected first image URL request once first image is near visible"
+        )
+        sut.simulateCatImageViewNearVisible(at: 1)
+        XCTAssertEqual(
+            loader.loadedImagesURLs,
+            [image0, image1],
+            "Expected first image URL request once first image is near visible"
+        )
     }
 
     // Helper
@@ -269,6 +298,12 @@ private extension BestCatsViewController {
         let delegate = suggestionsTableView.delegate
         let index = IndexPath(row: row, section: catsSection)
         delegate?.tableView?(suggestionsTableView, didEndDisplaying: view!, forRowAt: index)
+    }
+
+    func simulateCatImageViewNearVisible(at row: Int) {
+        let mDataSource = suggestionsTableView.prefetchDataSource
+        let index = IndexPath(row: row, section: catsSection)
+        mDataSource?.tableView(suggestionsTableView, prefetchRowsAt: [index])
     }
 
     func numberOfRenderedCats() -> Int {
