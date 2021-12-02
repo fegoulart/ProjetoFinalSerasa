@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="CatAPI" customModuleProvider="target">
             <connections>
                 <outlet property="botaoInicio" destination="fLU-hS-MUe" id="k5K-C2-Bl7"/>
-                <outlet property="indicator" destination="LTl-ls-c3k" id="LvB-T7-DoF"/>
+                <outlet property="indicator" destination="LTl-ls-c3k" id="oGw-bX-dJe"/>
                 <outlet property="label" destination="7L9-WS-c8A" id="GZY-zb-Yt2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

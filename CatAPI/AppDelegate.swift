@@ -40,7 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func mainViewController() -> UIViewController {
         let mCatLoader = CatLoader()
-        let viewController = HomeViewController(catLoader: mCatLoader)
+        let mainQueueCatLoader = MainQueueDispatchDecorator(decoratee: mCatLoader)
+        let viewController = HomeViewController(catLoader: mainQueueCatLoader, noCatsAlertAction: nil)
         let navigationController =  UINavigationController(rootViewController: viewController)
         navigationController.tabBarItem = tabBarItem(title: "home", systemIcon: "house")
         return navigationController

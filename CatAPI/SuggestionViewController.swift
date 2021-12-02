@@ -27,8 +27,6 @@ class SuggestionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        indoorUIButton.backgroundColor = .darkGray
-//        indoorUIButton.tintColor = .darkGray
     }
 
     convenience init(allBreeds: [Cat] ) {
@@ -53,7 +51,8 @@ class SuggestionViewController: UIViewController {
 
         let suggestedBreeds = FilterBreed.getSuggestions(breeds: suggestions ?? [], wish: userWish)
         if suggestedBreeds.count > 0 {
-            let bestCatsViewController = BestCatsViewController(suggestions: suggestedBreeds)
+            let imageLoader = ImageLoader()
+            let bestCatsViewController = BestCatsViewController(suggestions: suggestedBreeds, imageLoader: imageLoader)
             self.show(bestCatsViewController, sender: nil)
         } else {
             let alert = UIAlertController(
@@ -69,7 +68,6 @@ class SuggestionViewController: UIViewController {
                     print("default")
                 case .cancel:
                     print("cancel")
-
                 case .destructive:
                     print("destructive")
                 @unknown default:
