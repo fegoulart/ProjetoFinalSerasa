@@ -95,10 +95,10 @@ public final class HomeViewController: UIViewController {
     }
 
     @IBAction func prontissimoButtonAction(_ sender: UIButton) {
-        guard !self.indicator.isAnimating else {
-            print("indicator is animating")
-            return
-        }
+//        guard !self.indicator.isAnimating else {
+//            print("indicator is animating")
+//            return
+//        }
         if self.cats.count == 0 {
             guard let mAction = self.noCatsAlertAction else {
                 return

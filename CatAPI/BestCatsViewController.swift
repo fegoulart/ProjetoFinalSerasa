@@ -30,7 +30,7 @@ public class BestCatsViewController: UIViewController {
 
     private var imageLoader: CatImageDataLoader?
     // Technique to move state management to client
-    private var tasks = [IndexPath: CatImageDataLoaderTask]()
+    private var cellControllers = [IndexPath: CatImageCellController]()
 
     public convenience init(suggestions: [Cat], imageLoader: CatImageDataLoader) {
         self.init()
@@ -56,42 +56,14 @@ public class BestCatsViewController: UIViewController {
 }
 
 extension BestCatsViewController: UITableViewDataSource {
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return suggestions.count
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cellController = cellController(forRowAt: indexPath) else { return UITableViewCell() }
+        cellControllers[indexPath] = cellController
+        return cellController.view()
     }
 
-    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = self.suggestions[indexPath.row].name
-        cell.accessoryType = .disclosureIndicator
-        let cat = self.suggestions[indexPath.row]
-        cell.imageView?.startShimmering()
-        if let imageURL = cat.imageUrl {
-            if let url = URL(string: imageURL) {
-                let loadImage = { [weak self, weak cell] in
-                    guard let self = self else { return }
-                    self.tasks[indexPath] = self.imageLoader?.loadImageData(from: url) { [weak cell] result in
-                        let data = try? result.get()
-                        let image = data.map(UIImage.init) ?? nil
-                        cell?.imageView?.image = image
-                        cell?.imageView?.stopShimmering()
-                    }
-                }
-                loadImage()
-            }
-        } else {
-            // TODO: Send this ELSE logic to imageLoader
-            var content = cell.defaultContentConfiguration()
-            content.imageProperties.reservedLayoutSize = CGSize(width: 50.0, height: 50.0)
-            content.imageProperties.maximumSize = CGSize(width: 50.0, height: 50.0)
-            content.image = UIImage(named: "cat")
-            if let texto = cat.name {
-                content.text = texto
-            }
-            cell.contentConfiguration = content
-            cell.stopShimmering()
-        }
-        return cell
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return suggestions.count
     }
 }
 
@@ -112,28 +84,32 @@ extension BestCatsViewController: UITableViewDelegate {
         didEndDisplaying cell: UITableViewCell,
         forRowAt indexPath: IndexPath
     ) {
-        cancelTask(forRowAt: indexPath)
+        removeCellController(forRowAt: indexPath)
     }
 
-    private func cancelTask(forRowAt indexPath: IndexPath) {
-        tasks[indexPath]?.cancel()
-        tasks[indexPath] = nil
+    private func removeCellController(forRowAt indexPath: IndexPath) {
+        cellControllers[indexPath] = nil
+    }
+
+    private func cellController(forRowAt indexPath: IndexPath) -> CatImageCellController? {
+        guard let mImageLoader = imageLoader else { return nil }
+        let cellModel = suggestions[indexPath.row]
+        return CatImageCellController(model: cellModel, imageLoader: mImageLoader)
     }
 }
 
 extension BestCatsViewController: UITableViewDataSourcePrefetching {
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
-            let cellModel = suggestions[indexPath.row]
-            if let url = cellModel.imageUrl, let imageURL = URL(string: url) {
-                tasks[indexPath] = imageLoader?.loadImageData(from: imageURL) { _ in }
+            if let cellController = cellController(forRowAt: indexPath) {
+                _ = cellController.preload()
             }
         }
     }
 
     public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
-            cancelTask(forRowAt: indexPath)
+            removeCellController(forRowAt: indexPath)
         }
     }
 }
