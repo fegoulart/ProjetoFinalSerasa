@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
 
     // MARK: ViewController Lifecycle
 
+    // TODO: Move it to CatUIComposer
     convenience init(cat: Cat, catImage: UIImage, localRepository: CoreDataRepository) {
         self.init()
         self.cat = cat

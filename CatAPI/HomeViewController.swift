@@ -33,11 +33,11 @@ public final class HomeViewController: UIViewController {
             }}))
         return mAlert
     }()
-    private var noCatsAlertAction: (() -> Void)?
+    var noCatsAlertAction: (() -> Void)?
 
     var cats: [Cat] = []
     var suggestionsCats: [Cat] = []
-    private var catLoader: RemoteCatLoader?
+    var catLoader: RemoteCatLoader?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,19 +62,6 @@ public final class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
     }
 
-    public convenience init(catLoader: RemoteCatLoader, noCatsAlertAction: (() -> Void)?) {
-        self.init()
-        self.catLoader = catLoader
-        if noCatsAlertAction == nil {
-            self.noCatsAlertAction = { [weak self] in
-                guard let mViewController: HomeViewController = self else { return }
-                mViewController.present(mViewController.alert, animated: true, completion: nil)
-            }
-        } else {
-            self.noCatsAlertAction = noCatsAlertAction
-        }
-    }
-
     private func getBreeds(completion: @escaping ((Result < [Cat], CatLoader.Error>) -> Void)) {
         guard let loader = catLoader else { completion(Result.failure(.connectivity))
             return
@@ -95,17 +82,13 @@ public final class HomeViewController: UIViewController {
     }
 
     @IBAction func prontissimoButtonAction(_ sender: UIButton) {
-//        guard !self.indicator.isAnimating else {
-//            print("indicator is animating")
-//            return
-//        }
         if self.cats.count == 0 {
             guard let mAction = self.noCatsAlertAction else {
                 return
             }
             mAction()
         } else {
-            let suggestionViewController = SuggestionViewController(allBreeds: self.cats)
+            let suggestionViewController = CatUIComposer.suggestionsComposedWith(allBreeds: self.cats)
             self.show(suggestionViewController, sender: nil)
         }
     }

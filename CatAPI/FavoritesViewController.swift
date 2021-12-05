@@ -29,6 +29,7 @@ class FavoritesViewController: UIViewController {
         return tableView
     }()
 
+    // TODO: Move it to CatUIComposer
     convenience init(localRepository: CoreDataRepository) {
         self.init()
         self.localRepository = localRepository

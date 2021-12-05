@@ -17,6 +17,29 @@ public final class CatUIComposer {
         return bestCatViewController
     }
 
+    public static func suggestionsComposedWith(allBreeds: [Cat]) -> SuggestionViewController {
+        let suggestionViewController = SuggestionViewController()
+        suggestionViewController.suggestions = allBreeds
+        return suggestionViewController
+    }
+
+    public static func homeViewControllerComposedWith(
+        loader: RemoteCatLoader,
+        noCatsAlertAction: (() -> Void)?
+    ) -> HomeViewController {
+        let homeViewController = HomeViewController()
+        homeViewController.catLoader = loader
+        if noCatsAlertAction == nil {
+            homeViewController.noCatsAlertAction = { [weak homeViewController] in
+                guard let mViewController: HomeViewController = homeViewController else { return }
+                mViewController.present(mViewController.alert, animated: true, completion: nil)
+            }
+        } else {
+            homeViewController.noCatsAlertAction = noCatsAlertAction
+        }
+        return homeViewController
+    }
+
     // Adapter pattern
     private static func adaptCatToCellControllers(
         forwardingTo controller: BestCatsViewController,

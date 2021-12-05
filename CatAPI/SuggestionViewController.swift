@@ -10,7 +10,7 @@ import CatLoader
 import SwiftUI
 #endif
 
-class SuggestionViewController: UIViewController {
+public class SuggestionViewController: UIViewController {
     var suggestions: [Cat]?
 
     // MARK: Outlets
@@ -25,13 +25,8 @@ class SuggestionViewController: UIViewController {
 
     // MARK: ViewController Lifecycle
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    convenience init(allBreeds: [Cat] ) {
-        self.init()
-        self.suggestions = allBreeds
     }
 
     // MARK: Actions
