@@ -13,9 +13,20 @@ public final class CatUIComposer {
 
     public static func catComposedWith(suggestions: [Cat], imageLoader: CatImageDataLoader) -> BestCatsViewController {
         let bestCatViewController = BestCatsViewController()
-        bestCatViewController.suggestions = suggestions.map { cat in
-            return CatCellController(model: cat, imageLoader: imageLoader)
-        }
+        adaptCatToCellControllers(forwardingTo: bestCatViewController, imageLoader: imageLoader)(suggestions)
         return bestCatViewController
+    }
+
+    // Adapter pattern
+    private static func adaptCatToCellControllers(
+        forwardingTo controller: BestCatsViewController,
+        imageLoader: CatImageDataLoader
+    ) -> ([Cat]) -> Void {
+        return { [weak controller] cat in
+            controller?.suggestions = cat.map { model in
+                CatCellController(model: model, imageLoader: imageLoader)
+            }
+
+        }
     }
 }
