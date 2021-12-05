@@ -28,7 +28,11 @@ public final class CatUIComposer {
         noCatsAlertAction: (() -> Void)?
     ) -> HomeViewController {
         let homeViewController = HomeViewController()
-        homeViewController.catLoader = loader
+        let viewModel = CatViewModel(catLoader: loader)
+        viewModel.onBreedsLoad = { [weak homeViewController] cats in
+            homeViewController?.suggestionViewController = CatUIComposer.suggestionsComposedWith(allBreeds: cats)
+        }
+        homeViewController.viewModel = viewModel
         if noCatsAlertAction == nil {
             homeViewController.noCatsAlertAction = { [weak homeViewController] in
                 guard let mViewController: HomeViewController = homeViewController else { return }

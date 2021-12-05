@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import CatLoader
 #if DEBUG
 import SwiftUI
 #endif
 
+// In MVVM ViewController should not know Core components as "CatLoader"
 public final class HomeViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
 
@@ -35,25 +35,28 @@ public final class HomeViewController: UIViewController {
     }()
     var noCatsAlertAction: (() -> Void)?
 
-    var cats: [Cat] = []
-    var suggestionsCats: [Cat] = []
-    var catLoader: RemoteCatLoader?
+    var suggestionViewController: SuggestionViewController?
+    var viewModel: CatViewModel?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        indicator.startAnimating()
         botaoInicio.layer.cornerRadius = 20
         label.layer.cornerRadius = 20
         label.layer.masksToBounds = true
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1.0
-        getBreeds {  [weak self] result in
-            guard self != nil else { return }
-            switch result {
-            case .success(let cats):
-                self?.cats = cats
-            case .failure(let error):
-                print(error)
+
+        bind()
+        viewModel?.loadBreeds()
+    }
+
+    private func bind() {
+        guard let mViewModel = viewModel else { return }
+        mViewModel.onChange = { [weak self] viewModel in
+            if viewModel.isLoading {
+                self?.indicator.startAnimating()
+            } else {
+                self?.indicator.stopAnimating()
             }
         }
     }
@@ -62,35 +65,15 @@ public final class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
     }
 
-    private func getBreeds(completion: @escaping ((Result < [Cat], CatLoader.Error>) -> Void)) {
-        guard let loader = catLoader else { completion(Result.failure(.connectivity))
-            return
-        }
-        loader.load { [weak self] result in
-            guard self != nil else { return }
-            self?.indicator.stopAnimating()
-            // if we care just for success we can use an if let cats = try? result.get() {
-            switch result {
-            case .success(let cats):
-                print("\(cats.count) GATOS CARREGADOS COM SUCESSO")
-                completion(.success(cats))
-            case .failure(let error):
-                print(error)
-                completion(.failure(CatLoader.Error.invalidData))
-            }
-        }
-    }
-
     @IBAction func prontissimoButtonAction(_ sender: UIButton) {
-        if self.cats.count == 0 {
+        guard let sViewController = suggestionViewController else {
             guard let mAction = self.noCatsAlertAction else {
                 return
             }
             mAction()
-        } else {
-            let suggestionViewController = CatUIComposer.suggestionsComposedWith(allBreeds: self.cats)
-            self.show(suggestionViewController, sender: nil)
+            return
         }
+        self.show(sViewController, sender: nil)
     }
 }
 
