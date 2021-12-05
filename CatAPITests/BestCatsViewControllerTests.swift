@@ -215,7 +215,8 @@ class BestCatsViewControllerTests: XCTestCase {
 
     private func makeSUT(cats: [Cat] = []) -> (BestCatsViewController, ImageLoaderSpy) {
         let imageLoader = ImageLoaderSpy()
-        let mViewController = BestCatsViewController(suggestions: cats, imageLoader: imageLoader)
+        // let mViewController = BestCatsViewController(suggestions: cats, imageLoader: imageLoader)
+        let mViewController = CatUIComposer.catComposedWith(suggestions: cats, imageLoader: imageLoader)
         return (mViewController, imageLoader)
     }
 

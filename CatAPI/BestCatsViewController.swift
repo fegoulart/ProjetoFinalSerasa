@@ -12,7 +12,7 @@ import SwiftUI
 
 public class BestCatsViewController: UIViewController {
 
-    var suggestions: [Cat] = []
+    var suggestions = [CatCellController]()
     lazy public var suggestionsTableView: UITableView = {
         let mFrame = CGRect(
             x: 0.0,
@@ -27,16 +27,6 @@ public class BestCatsViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
-
-    private var imageLoader: CatImageDataLoader?
-    // Technique to move state management to client
-    private var cellControllers = [IndexPath: CatImageCellController]()
-
-    public convenience init(suggestions: [Cat], imageLoader: CatImageDataLoader) {
-        self.init()
-        self.suggestions = suggestions
-        self.imageLoader = imageLoader
-    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +47,7 @@ public class BestCatsViewController: UIViewController {
 
 extension BestCatsViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cellController = cellController(forRowAt: indexPath) else { return UITableViewCell() }
-        cellControllers[indexPath] = cellController
-        return cellController.view()
+        return suggestions[indexPath.row].view()
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,7 +57,7 @@ extension BestCatsViewController: UITableViewDataSource {
 
 extension BestCatsViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCat = suggestions[indexPath.row]
+        let selectedCat = suggestions[indexPath.row].model
         let localRepository = CoreDataRepository()
         let detailViewController = DetailViewController(
             cat: selectedCat,
@@ -84,17 +72,15 @@ extension BestCatsViewController: UITableViewDelegate {
         didEndDisplaying cell: UITableViewCell,
         forRowAt indexPath: IndexPath
     ) {
-        removeCellController(forRowAt: indexPath)
+        cancelCellControllerLoad(forRowAt: indexPath)
     }
 
-    private func removeCellController(forRowAt indexPath: IndexPath) {
-        cellControllers[indexPath] = nil
+    private func cancelCellControllerLoad(forRowAt indexPath: IndexPath) {
+        cellController(forRowAt: indexPath)?.cancelLoad()
     }
 
-    private func cellController(forRowAt indexPath: IndexPath) -> CatImageCellController? {
-        guard let mImageLoader = imageLoader else { return nil }
-        let cellModel = suggestions[indexPath.row]
-        return CatImageCellController(model: cellModel, imageLoader: mImageLoader)
+    private func cellController(forRowAt indexPath: IndexPath) -> CatCellController? {
+        return suggestions[indexPath.row]
     }
 }
 
@@ -108,9 +94,7 @@ extension BestCatsViewController: UITableViewDataSourcePrefetching {
     }
 
     public func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
-        indexPaths.forEach { indexPath in
-            removeCellController(forRowAt: indexPath)
-        }
+        indexPaths.forEach(cancelCellControllerLoad)
     }
 }
 

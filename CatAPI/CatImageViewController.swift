@@ -9,9 +9,9 @@ import Foundation
 import CatLoader
 import UIKit
 
-final class CatImageCellController {
+final class CatCellController {
     private var task: CatImageDataLoaderTask?
-    private var model: Cat
+    private(set) var model: Cat
     private var imageLoader: CatImageDataLoader
 
     init(model: Cat, imageLoader: CatImageDataLoader) {
@@ -58,8 +58,7 @@ final class CatImageCellController {
         }
     }
 
-    deinit {
+    func cancelLoad() {
         task?.cancel()
     }
 }
-
