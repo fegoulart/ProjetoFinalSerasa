@@ -27,6 +27,7 @@ public class BestCatsViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
+    var detailViewController: DetailViewController?
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +58,17 @@ extension BestCatsViewController: UITableViewDataSource {
 
 extension BestCatsViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCat = suggestions[indexPath.row].model
-        let localRepository = CoreDataRepository()
-        let detailViewController = DetailViewController(
-            cat: selectedCat,
-            catImage: UIImage(),
-            localRepository: localRepository
-        )
-        show(detailViewController, sender: nil)
+        suggestions[indexPath.row].select()
+//        let selectedCat = suggestions[indexPath.row].model
+//        let localRepository = CoreDataRepository()
+//        let detailViewController = DetailViewController(
+//            cat: selectedCat,
+//            catImage: UIImage(),
+//            localRepository: localRepository
+//        )
+        if let detailVC = self.detailViewController {
+            show(detailVC, sender: nil)
+        }
     }
 
     public func tableView(

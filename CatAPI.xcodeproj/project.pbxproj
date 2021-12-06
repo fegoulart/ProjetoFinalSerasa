@@ -40,10 +40,11 @@
 		6C8C87FF27542F3E007D1B00 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C87FE27542F3E007D1B00 /* ImageLoader.swift */; };
 		6C8C88022754F654007D1B00 /* UView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C88012754F654007D1B00 /* UView+Extension.swift */; };
 		6CA113DF274AF9D100B3C778 /* BestCatsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA113DE274AF9D100B3C778 /* BestCatsViewControllerTests.swift */; };
-		6CE3BF38275D1F2100FF3191 /* CatImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF37275D1F2100FF3191 /* CatImageViewController.swift */; };
+		6CE3BF38275D1F2100FF3191 /* CatCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF37275D1F2100FF3191 /* CatCellController.swift */; };
 		6CE3BF3B275D2DCA00FF3191 /* CatUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF3A275D2DCA00FF3191 /* CatUIComposer.swift */; };
 		6CE3BF3E275D4CA800FF3191 /* CatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF3D275D4CA800FF3191 /* CatViewModel.swift */; };
 		6CE3BF40275DA0B100FF3191 /* SuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF3F275DA0B100FF3191 /* SuggestionViewModel.swift */; };
+		6CE3BF42275DA64200FF3191 /* CatImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF41275DA64200FF3191 /* CatImageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,10 +107,11 @@
 		6C8C87FE27542F3E007D1B00 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		6C8C88012754F654007D1B00 /* UView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UView+Extension.swift"; sourceTree = "<group>"; };
 		6CA113DE274AF9D100B3C778 /* BestCatsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatsViewControllerTests.swift; sourceTree = "<group>"; };
-		6CE3BF37275D1F2100FF3191 /* CatImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageViewController.swift; sourceTree = "<group>"; };
+		6CE3BF37275D1F2100FF3191 /* CatCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCellController.swift; sourceTree = "<group>"; };
 		6CE3BF3A275D2DCA00FF3191 /* CatUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatUIComposer.swift; sourceTree = "<group>"; };
 		6CE3BF3D275D4CA800FF3191 /* CatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewModel.swift; sourceTree = "<group>"; };
 		6CE3BF3F275DA0B100FF3191 /* SuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewModel.swift; sourceTree = "<group>"; };
+		6CE3BF41275DA64200FF3191 /* CatImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +201,7 @@
 				56AC360C272DDC180077EF70 /* FavoritesViewController.swift */,
 				14421FD6272E06CA0098F334 /* SuggestionViewController.swift */,
 				56E39409273072B30025B5FC /* BestCatsViewController.swift */,
-				6CE3BF37275D1F2100FF3191 /* CatImageViewController.swift */,
+				6CE3BF37275D1F2100FF3191 /* CatCellController.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -286,6 +288,7 @@
 			children = (
 				6CE3BF3D275D4CA800FF3191 /* CatViewModel.swift */,
 				6CE3BF3F275DA0B100FF3191 /* SuggestionViewModel.swift */,
+				6CE3BF41275DA64200FF3191 /* CatImageViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				14421FCF272B7D6C0098F334 /* DetailViewController.swift in Sources */,
 				56AC3606272DCFDF0077EF70 /* UIViewController+Extension.swift in Sources */,
 				56B718CD27306BA6000E5CCE /* FilterBreed.swift in Sources */,
+				6CE3BF42275DA64200FF3191 /* CatImageViewModel.swift in Sources */,
 				6C2099D7274A8DFB00F533C0 /* MainQueueDispatchDecorator.swift in Sources */,
 				146DD8662721C5960094C3FA /* CatAPI.xcdatamodeld in Sources */,
 				563A8B8727314E7D00560149 /* Breed.xcdatamodeld in Sources */,
@@ -442,7 +446,7 @@
 				563A8B8927314EC300560149 /* DataBaseController.swift in Sources */,
 				6CE3BF3B275D2DCA00FF3191 /* CatUIComposer.swift in Sources */,
 				14421FD8272E06CA0098F334 /* SuggestionViewController.swift in Sources */,
-				6CE3BF38275D1F2100FF3191 /* CatImageViewController.swift in Sources */,
+				6CE3BF38275D1F2100FF3191 /* CatCellController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
