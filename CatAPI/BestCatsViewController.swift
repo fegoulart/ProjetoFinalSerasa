@@ -5,7 +5,6 @@
 //
 
 import UIKit
-import CatLoader
 #if DEBUG
 import SwiftUI
 #endif
@@ -59,13 +58,6 @@ extension BestCatsViewController: UITableViewDataSource {
 extension BestCatsViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         suggestions[indexPath.row].select()
-//        let selectedCat = suggestions[indexPath.row].model
-//        let localRepository = CoreDataRepository()
-//        let detailViewController = DetailViewController(
-//            cat: selectedCat,
-//            catImage: UIImage(),
-//            localRepository: localRepository
-//        )
         if let detailVC = self.detailViewController {
             show(detailVC, sender: nil)
         }
