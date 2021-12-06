@@ -43,6 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainQueueCatLoader = MainQueueDispatchDecorator(decoratee: mCatLoader)
         let viewController = CatUIComposer.homeViewControllerComposedWith(
             loader: mainQueueCatLoader,
+            imageLoader: ImageLoader(),
             noCatsAlertAction: nil)
         let navigationController =  UINavigationController(rootViewController: viewController)
         navigationController.tabBarItem = tabBarItem(title: "home", systemIcon: "house")

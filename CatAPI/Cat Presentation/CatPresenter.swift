@@ -21,12 +21,13 @@ protocol CatView  {
 // Refactored from CatViewModel is very simple
 // Presenter must have a reference to the View via a protocol
 final class CatPresenter {
-    typealias Observer<T> = (T) -> Void
 
     private var catLoader: RemoteCatLoader
+    private var imageLoader: CatImageDataLoader
 
-    init(catLoader: RemoteCatLoader) {
+    init(catLoader: RemoteCatLoader, imageLoader: CatImageDataLoader) {
         self.catLoader = catLoader
+        self.imageLoader = imageLoader
     }
 
     // Composition details must not leak into our class
@@ -37,11 +38,12 @@ final class CatPresenter {
     func loadBreeds() {
         loadingView?.display(isLoading: true)
         catLoader.load { [weak self] result  in
-            if let breeds = try? result.get() {
+            if let breeds = try? result.get(), let imgLoader = self?.imageLoader {
                 // TODO: Refactor to save allBreeds in a repository
                 self?.catView?.canDisplayNextView(
                     suggestionViewController: CatUIComposer.suggestionsComposedWith(
-                        allBreeds: breeds
+                        allBreeds: breeds,
+                        imageLoader: imgLoader
                     )
                 )
             }

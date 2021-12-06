@@ -9,8 +9,9 @@ import UIKit
 import SwiftUI
 #endif
 
-public class SuggestionViewController: UIViewController {
-    var viewModel: SuggestionViewModel?
+public class SuggestionViewController: UIViewController, SuggestionView {
+
+    private var presenter: SuggestionPresenter?
     var bestCatsViewController: BestCatsViewController?
 
     // MARK: Outlets
@@ -29,13 +30,17 @@ public class SuggestionViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    convenience init(presenter: SuggestionPresenter) {
+        self.init()
+        self.presenter = presenter
+    }
+
     // MARK: Actions
     @IBAction func selectUIButton(_ sender: UIButton) {
         print(sender.state)
     }
 
     @IBAction func goUIButton(_ sender: UIButton) {
-        guard let mViewModel = viewModel else { return }
         let userWish = Suggestion(
             indoor: indoorUIButton.isSelected,
             vocalize: vocalizingUIButton.isSelected,
@@ -45,7 +50,7 @@ public class SuggestionViewController: UIViewController {
             rare: rareUIButton.isSelected
         )
 
-        mViewModel.setUserWish(userWish)
+        presenter?.filter(accordingTo: userWish)
         if let mViewController = self.bestCatsViewController {
             self.show(mViewController, sender: nil)
         } else {
@@ -71,13 +76,18 @@ public class SuggestionViewController: UIViewController {
             print("Nenhum gato encontrado")
         }
     }
+
+    func canDisplayNextView(bestCatViewController: BestCatsViewController) {
+        self.bestCatsViewController = bestCatViewController
+    }
 }
 
 #if DEBUG
 struct SuggestionViewController_Previews: PreviewProvider {
     static var previews: some View {
         ViewControllerPreview {
-            SuggestionViewController()
+            let presenter = SuggestionPresenter(breeds: [], imageLoader: ImageLoader())
+            return SuggestionViewController(presenter: presenter)
         }
     }
 }

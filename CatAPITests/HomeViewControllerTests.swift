@@ -86,6 +86,7 @@ class HomeViewControllerTests: XCTestCase {
     // MARK: - Helpers
 
     private func makeSUT(
+        imageLoader: CatImageDataLoader = ImageLoaderSpy(),
         noCatsAlertAction: (() -> Void)? = nil,
         file: StaticString = #file,
         line: UInt = #line
@@ -94,7 +95,7 @@ class HomeViewControllerTests: XCTestCase {
         loader: LoaderSpy
     ) {
         let loader = LoaderSpy()
-        let sut = CatUIComposer.homeViewControllerComposedWith(loader: loader, noCatsAlertAction: noCatsAlertAction)
+        let sut = CatUIComposer.homeViewControllerComposedWith(loader: loader,imageLoader: imageLoader, noCatsAlertAction: noCatsAlertAction)
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)
