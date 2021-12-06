@@ -84,7 +84,7 @@ extension BestCatsViewController: UITableViewDataSourcePrefetching {
     public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         indexPaths.forEach { indexPath in
             if let cellController = cellController(forRowAt: indexPath) {
-                _ = cellController.preload()
+                cellController.preload()
             }
         }
     }

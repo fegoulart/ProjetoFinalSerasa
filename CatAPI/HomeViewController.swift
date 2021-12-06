@@ -10,7 +10,8 @@ import UIKit
 import SwiftUI
 #endif
 
-// In MVVM ViewController should not know Core components as "CatLoader"
+// MVVM ViewControllers should not know Core components, for instance "CatLoader" Module
+// They should act just as binders between Views and ViewModels
 public final class HomeViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
 
