@@ -9,12 +9,12 @@ import Foundation
 import CatLoader
 
 // Protocols referencing the view (HomeView in this project)
-protocol CatLoadingView: AnyObject {
+protocol CatLoadingView {
     func display(isLoading: Bool)
 }
 
 // TODO: Need to refactor to save allBreeds in a repository and delete this protocol
-protocol CatView: AnyObject {
+protocol CatView  {
     func canDisplayNextView(suggestionViewController: SuggestionViewController)
 }
 
@@ -29,8 +29,10 @@ final class CatPresenter {
         self.catLoader = catLoader
     }
 
-    weak var catView: CatView?
-    weak var loadingView: CatLoadingView?
+    // Composition details must not leak into our class
+    // So, dont use weak here
+    var catView: CatView?
+    var loadingView: CatLoadingView?
 
     func loadBreeds() {
         loadingView?.display(isLoading: true)

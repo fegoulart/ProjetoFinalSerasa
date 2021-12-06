@@ -38,8 +38,8 @@ public final class CatUIComposer {
     ) -> HomeViewController {
         let presenter = CatPresenter(catLoader: loader)
         let homeViewController = HomeViewController(presenter: presenter)
-        presenter.loadingView = homeViewController
-        presenter.catView = homeViewController
+        presenter.loadingView = WeakRefVirtualProxy( homeViewController)
+        presenter.catView = WeakRefVirtualProxy(homeViewController)
         if noCatsAlertAction == nil {
             homeViewController.noCatsAlertAction = { [weak homeViewController] in
                 guard let mViewController: HomeViewController = homeViewController else { return }
@@ -71,5 +71,26 @@ public final class CatUIComposer {
             }
 
         }
+    }
+}
+
+// Keeps a weak reference to the object and passes the messages forward
+private final class WeakRefVirtualProxy<T: AnyObject> {
+    private weak var object: T?
+
+    init(_ object: T) {
+        self.object = object
+    }
+}
+
+extension WeakRefVirtualProxy: CatView where T: CatView {
+    func canDisplayNextView(suggestionViewController: SuggestionViewController) {
+        object?.canDisplayNextView(suggestionViewController: suggestionViewController)
+    }
+}
+
+extension WeakRefVirtualProxy: CatLoadingView where T: CatLoadingView {
+    func display(isLoading: Bool) {
+        object?.display(isLoading: isLoading)
     }
 }
