@@ -20,22 +20,16 @@ final class CatViewModel {
         self.catLoader = catLoader
     }
 
-    var onChange: ((CatViewModel) -> Void)?
-    var onBreedsLoad: (([Cat]) -> Void)?
-
-    private(set) var isLoading: Bool = false {
-        didSet {
-            onChange?(self)
-        }
-    }
+    var onLoadingStateChange: Observer<Bool>?
+    var onBreedsLoad: Observer<[Cat]>?
 
     func loadBreeds() {
-        isLoading = true
+        onLoadingStateChange?(true)
         catLoader.load { [weak self] result  in
             if let breeds = try? result.get() {
                 self?.onBreedsLoad?(breeds)
             }
-            self?.isLoading = false
+            self?.onLoadingStateChange?(false)
         }
     }
 }

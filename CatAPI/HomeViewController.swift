@@ -52,11 +52,11 @@ public final class HomeViewController: UIViewController {
 
     private func bind() {
         guard let mViewModel = viewModel else { return }
-        mViewModel.onChange = { [weak self] viewModel in
-            if viewModel.isLoading {
-                self?.indicator.startAnimating()
+        mViewModel.onLoadingStateChange = { [weak indicator] isLoading in
+            if isLoading {
+                indicator?.startAnimating()
             } else {
-                self?.indicator.stopAnimating()
+                indicator?.stopAnimating()
             }
         }
     }
