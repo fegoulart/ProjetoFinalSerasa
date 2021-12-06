@@ -36,12 +36,10 @@ public final class CatUIComposer {
         loader: RemoteCatLoader,
         noCatsAlertAction: (() -> Void)?
     ) -> HomeViewController {
-        let homeViewController = HomeViewController()
-        let viewModel = CatViewModel(catLoader: loader)
-        viewModel.onBreedsLoad = { [weak homeViewController] cats in
-            homeViewController?.suggestionViewController = CatUIComposer.suggestionsComposedWith(allBreeds: cats)
-        }
-        homeViewController.viewModel = viewModel
+        let presenter = CatPresenter(catLoader: loader)
+        let homeViewController = HomeViewController(presenter: presenter)
+        presenter.loadingView = homeViewController
+        presenter.catView = homeViewController
         if noCatsAlertAction == nil {
             homeViewController.noCatsAlertAction = { [weak homeViewController] in
                 guard let mViewController: HomeViewController = homeViewController else { return }
@@ -60,7 +58,10 @@ public final class CatUIComposer {
     ) -> ([Cat]) -> Void {
         return { [weak controller] cat in
             controller?.suggestions = cat.map { model in
-                let viewModel = CatImageViewModel(model: model, imageLoader: imageLoader, imageTransformer: UIImage.init)
+                let viewModel = CatImageViewModel(
+                    model: model,
+                    imageLoader: imageLoader,
+                    imageTransformer: UIImage.init)
                 viewModel.onSelected = { [weak controller] cat in
                     let localRepository = CoreDataRepository()
                     let detailViewController = DetailViewController(cat: cat, catImage: UIImage(), localRepository: localRepository)

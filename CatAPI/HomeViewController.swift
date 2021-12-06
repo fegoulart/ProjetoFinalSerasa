@@ -12,7 +12,8 @@ import SwiftUI
 
 // MVVM ViewControllers should not know Core components, for instance "CatLoader" Module
 // They should act just as binders between Views and ViewModels
-public final class HomeViewController: UIViewController {
+public final class HomeViewController: UIViewController, CatLoadingView, CatView {
+
     @IBOutlet weak var label: UILabel!
 
     @IBOutlet public weak var indicator: UIActivityIndicatorView!
@@ -37,7 +38,12 @@ public final class HomeViewController: UIViewController {
     var noCatsAlertAction: (() -> Void)?
 
     var suggestionViewController: SuggestionViewController?
-    var viewModel: CatViewModel?
+    private var presenter: CatPresenter?
+
+    convenience init(presenter: CatPresenter) {
+        self.init()
+        self.presenter = presenter
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,20 +53,27 @@ public final class HomeViewController: UIViewController {
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1.0
 
-        bind()
-        viewModel?.loadBreeds()
+        presenter?.loadBreeds()
     }
 
-    private func bind() {
-        guard let mViewModel = viewModel else { return }
-        mViewModel.onLoadingStateChange = { [weak indicator] isLoading in
-            if isLoading {
-                indicator?.startAnimating()
-            } else {
-                indicator?.stopAnimating()
-            }
+    func display(isLoading: Bool) {
+        if isLoading {
+            indicator?.startAnimating()
+        } else {
+            indicator?.stopAnimating()
         }
     }
+
+    func canDisplayNextView(suggestionViewController: SuggestionViewController) {
+        self.suggestionViewController = suggestionViewController
+    }
+
+//    private func bind() {
+//        guard let mViewModel = viewModel else { return }
+//        mViewModel.onLoadingStateChange = { [weak indicator] isLoading in
+//
+//        }
+//    }
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
