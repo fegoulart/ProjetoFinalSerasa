@@ -27,6 +27,12 @@ public class BestCatsViewController: UIViewController {
         return tableView
     }()
     var detailViewController: DetailViewController?
+    private var presenter: BestCatPresenter?
+
+    convenience init(presenter: BestCatPresenter) {
+        self.init()
+        self.presenter = presenter
+    }
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +42,7 @@ public class BestCatsViewController: UIViewController {
         self.navigationController?.tabBarController?.tabBar.backgroundColor = .systemGray
         self.navigationController?.tabBarController?.tabBar.tintColor = .white
         self.navigationController?.tabBarController?.tabBar.unselectedItemTintColor = .darkGray
+        presenter?.loadCats()
     }
 
     public override func viewDidAppear(_ animated: Bool) {

@@ -13,23 +13,19 @@ public final class CatUIComposer {
     private init() {}
 
     public static func catComposedWith(suggestions: [Cat], imageLoader: CatImageDataLoader) -> BestCatsViewController {
-        let bestCatViewController = BestCatsViewController()
-        adaptCatToCellControllers(forwardingTo: bestCatViewController, imageLoader: imageLoader)(suggestions)
-        return bestCatViewController
+        let presenter = BestCatPresenter()
+        let bestCatController = BestCatsViewController(presenter: presenter)
+        presenter.bestCatView = BestCatViewAdapter(
+            cats: suggestions,
+            controller: bestCatController,
+            imageLoader: imageLoader
+        )
+        return bestCatController
     }
 
     public static func suggestionsComposedWith(allBreeds: [Cat], imageLoader: CatImageDataLoader) -> SuggestionViewController {
-        //let viewModel = SuggestionViewModel(breeds: allBreeds)
         let presenter = SuggestionPresenter(breeds: allBreeds, imageLoader: imageLoader)
-//        viewModel.onBreedsFiltered = { [weak suggestionViewController] cats in
-//            let imageLoader = ImageLoader()
-//            suggestionViewController?.bestCatsViewController = CatUIComposer.catComposedWith(
-//                suggestions: cats,
-//                imageLoader: imageLoader
-//            )
-//        }
         let suggestionViewController = SuggestionViewController(presenter: presenter)
-        //suggestionViewController.viewModel = viewModel
         presenter.suggestionView = WeakRefVirtualProxy(suggestionViewController)
         return suggestionViewController
     }
@@ -39,7 +35,7 @@ public final class CatUIComposer {
         imageLoader: CatImageDataLoader,
         noCatsAlertAction: (() -> Void)?
     ) -> HomeViewController {
-        let presenter = CatPresenter(catLoader: loader, imageLoader: imageLoader)
+        let presenter = HomePresenter(catLoader: loader, imageLoader: imageLoader)
         let homeViewController = HomeViewController(presenter: presenter)
         presenter.loadingView = WeakRefVirtualProxy( homeViewController)
         presenter.catView = WeakRefVirtualProxy(homeViewController)
@@ -81,6 +77,47 @@ public final class CatUIComposer {
     }
 }
 
+private final class BestCatViewAdapter: BestCatView {
+    private weak var controller: BestCatsViewController?
+    private let imageLoader: CatImageDataLoader
+    private let cats: [Cat]
+
+    init(cats: [Cat], controller: BestCatsViewController, imageLoader: CatImageDataLoader) {
+        self.controller = controller
+        self.imageLoader = imageLoader
+        self.cats = cats
+    }
+
+    func display() {
+        controller?.suggestions = self.cats.map { model in
+            CatCellController(
+                viewModel: CatImageViewModel(
+                    model: model,
+                    imageLoader: imageLoader,
+                    imageTransformer: UIImage.init
+                )
+            )
+        }
+    }
+
+    private static func adaptCatToCellControllers(
+        forwardingTo controller: BestCatsViewController,
+        imageLoader: CatImageDataLoader
+    ) -> ([Cat]) -> Void {
+        return { [weak controller] cat in
+            controller?.suggestions = cat.map { model in
+                CatCellController(
+                    viewModel: CatImageViewModel(
+                        model: model,
+                        imageLoader: imageLoader,
+                        imageTransformer: UIImage.init
+                    )
+                )
+            }
+        }
+    }
+}
+
 // Keeps a weak reference to the object and passes the messages forward
 private final class WeakRefVirtualProxy<T: AnyObject> {
     private weak var object: T?
@@ -106,6 +143,4 @@ extension WeakRefVirtualProxy: SuggestionView where T: SuggestionView {
     func canDisplayNextView(bestCatViewController: BestCatsViewController) {
         object?.canDisplayNextView(bestCatViewController: bestCatViewController)
     }
-
-
 }

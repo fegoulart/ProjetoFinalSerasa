@@ -30,6 +30,7 @@
 		56E39408273070F40025B5FC /* Suggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39407273070F40025B5FC /* Suggestion.swift */; };
 		56E3940B273072B30025B5FC /* BestCatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E39409273072B30025B5FC /* BestCatsViewController.swift */; };
 		6C2099D7274A8DFB00F533C0 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2099D6274A8DFA00F533C0 /* MainQueueDispatchDecorator.swift */; };
+		6C26230F275EB545003F7096 /* BestCatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C26230E275EB545003F7096 /* BestCatPresenter.swift */; };
 		6C2E09D0274D5A9B00B3D38E /* CustomOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2E09CF274D5A9B00B3D38E /* CustomOperators.swift */; };
 		6C33420B274166EB00C86B4F /* CatLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C33420A274166EB00C86B4F /* CatLoader.framework */; };
 		6C33420C274166EB00C86B4F /* CatLoader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6C33420A274166EB00C86B4F /* CatLoader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -40,7 +41,7 @@
 		6C8C87FF27542F3E007D1B00 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C87FE27542F3E007D1B00 /* ImageLoader.swift */; };
 		6C8C88022754F654007D1B00 /* UView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C88012754F654007D1B00 /* UView+Extension.swift */; };
 		6CA113DF274AF9D100B3C778 /* BestCatsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA113DE274AF9D100B3C778 /* BestCatsViewControllerTests.swift */; };
-		6CE1476C275E31A5007BD5EE /* CatPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE1476B275E31A5007BD5EE /* CatPresenter.swift */; };
+		6CE1476C275E31A5007BD5EE /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE1476B275E31A5007BD5EE /* HomePresenter.swift */; };
 		6CE1476E275E6E74007BD5EE /* ImageLoaderSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE1476D275E6E74007BD5EE /* ImageLoaderSpy.swift */; };
 		6CE3BF38275D1F2100FF3191 /* CatCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF37275D1F2100FF3191 /* CatCellController.swift */; };
 		6CE3BF3B275D2DCA00FF3191 /* CatUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF3A275D2DCA00FF3191 /* CatUIComposer.swift */; };
@@ -98,6 +99,7 @@
 		56E39407273070F40025B5FC /* Suggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suggestion.swift; sourceTree = "<group>"; };
 		56E39409273072B30025B5FC /* BestCatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatsViewController.swift; sourceTree = "<group>"; };
 		6C2099D6274A8DFA00F533C0 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
+		6C26230E275EB545003F7096 /* BestCatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatPresenter.swift; sourceTree = "<group>"; };
 		6C2E09CF274D5A9B00B3D38E /* CustomOperators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOperators.swift; sourceTree = "<group>"; };
 		6C33420A274166EB00C86B4F /* CatLoader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CatLoader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C33420E2741765700C86B4F /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
@@ -108,7 +110,7 @@
 		6C8C87FE27542F3E007D1B00 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		6C8C88012754F654007D1B00 /* UView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UView+Extension.swift"; sourceTree = "<group>"; };
 		6CA113DE274AF9D100B3C778 /* BestCatsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestCatsViewControllerTests.swift; sourceTree = "<group>"; };
-		6CE1476B275E31A5007BD5EE /* CatPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatPresenter.swift; sourceTree = "<group>"; };
+		6CE1476B275E31A5007BD5EE /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		6CE1476D275E6E74007BD5EE /* ImageLoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderSpy.swift; sourceTree = "<group>"; };
 		6CE3BF37275D1F2100FF3191 /* CatCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCellController.swift; sourceTree = "<group>"; };
 		6CE3BF3A275D2DCA00FF3191 /* CatUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatUIComposer.swift; sourceTree = "<group>"; };
@@ -283,7 +285,8 @@
 			children = (
 				6CE3BF3F275DA0B100FF3191 /* SuggestionViewModel.swift */,
 				6CE3BF41275DA64200FF3191 /* CatImageViewModel.swift */,
-				6CE1476B275E31A5007BD5EE /* CatPresenter.swift */,
+				6CE1476B275E31A5007BD5EE /* HomePresenter.swift */,
+				6C26230E275EB545003F7096 /* BestCatPresenter.swift */,
 			);
 			path = "Cat Presentation";
 			sourceTree = "<group>";
@@ -434,10 +437,11 @@
 				6CE3BF42275DA64200FF3191 /* CatImageViewModel.swift in Sources */,
 				6C2099D7274A8DFB00F533C0 /* MainQueueDispatchDecorator.swift in Sources */,
 				146DD8662721C5960094C3FA /* CatAPI.xcdatamodeld in Sources */,
-				6CE1476C275E31A5007BD5EE /* CatPresenter.swift in Sources */,
+				6CE1476C275E31A5007BD5EE /* HomePresenter.swift in Sources */,
 				563A8B8727314E7D00560149 /* Breed.xcdatamodeld in Sources */,
 				146DD85C2721C5960094C3FA /* AppDelegate.swift in Sources */,
 				563A497727315F73007F3239 /* UIImage+Extension.swift in Sources */,
+				6C26230F275EB545003F7096 /* BestCatPresenter.swift in Sources */,
 				6C8C87FD27542CC7007D1B00 /* CatImageDataLoader.swift in Sources */,
 				6CE3BF40275DA0B100FF3191 /* SuggestionViewModel.swift in Sources */,
 				14421FD2272CBF180098F334 /* HomeViewController.swift in Sources */,

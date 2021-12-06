@@ -38,9 +38,9 @@ public final class HomeViewController: UIViewController, CatLoadingView, CatView
     var noCatsAlertAction: (() -> Void)?
 
     var suggestionViewController: SuggestionViewController?
-    private var presenter: CatPresenter?
+    private var presenter: HomePresenter?
 
-    convenience init(presenter: CatPresenter) {
+    convenience init(presenter: HomePresenter) {
         self.init()
         self.presenter = presenter
     }

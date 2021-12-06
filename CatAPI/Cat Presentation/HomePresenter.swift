@@ -20,7 +20,7 @@ protocol CatView  {
 
 // Refactored from CatViewModel is very simple
 // Presenter must have a reference to the View via a protocol
-final class CatPresenter {
+final class HomePresenter {
 
     private var catLoader: RemoteCatLoader
     private var imageLoader: CatImageDataLoader

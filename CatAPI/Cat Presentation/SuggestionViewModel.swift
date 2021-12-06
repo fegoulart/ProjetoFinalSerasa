@@ -43,7 +43,7 @@ final class SuggestionPresenter {
         suggestionView?.canDisplayNextView(
             bestCatViewController: CatUIComposer.catComposedWith(
                 suggestions: suggestions,
-                imageLoader: imageLoader
+                imageLoader: self.imageLoader
             )
         )
     }
