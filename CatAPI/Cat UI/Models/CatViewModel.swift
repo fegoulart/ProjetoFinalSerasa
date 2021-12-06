@@ -12,6 +12,8 @@ import CatLoader
 // ViewModels should not know about UIKit
 // ViewModels should not know about the Views
 final class CatViewModel {
+    typealias Observer<T> = (T) -> Void
+
     private var catLoader: RemoteCatLoader
 
     init(catLoader: RemoteCatLoader) {

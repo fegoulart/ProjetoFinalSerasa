@@ -19,7 +19,15 @@ public final class CatUIComposer {
 
     public static func suggestionsComposedWith(allBreeds: [Cat]) -> SuggestionViewController {
         let suggestionViewController = SuggestionViewController()
-        suggestionViewController.suggestions = allBreeds
+        let viewModel = SuggestionViewModel(breeds: allBreeds)
+        viewModel.onBreedsFiltered = { [weak suggestionViewController] cats in
+            let imageLoader = ImageLoader()
+            suggestionViewController?.bestCatsViewController = CatUIComposer.catComposedWith(
+                suggestions: cats,
+                imageLoader: imageLoader
+            )
+        }
+        suggestionViewController.viewModel = viewModel
         return suggestionViewController
     }
 

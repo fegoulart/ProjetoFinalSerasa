@@ -43,6 +43,7 @@
 		6CE3BF38275D1F2100FF3191 /* CatImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF37275D1F2100FF3191 /* CatImageViewController.swift */; };
 		6CE3BF3B275D2DCA00FF3191 /* CatUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF3A275D2DCA00FF3191 /* CatUIComposer.swift */; };
 		6CE3BF3E275D4CA800FF3191 /* CatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF3D275D4CA800FF3191 /* CatViewModel.swift */; };
+		6CE3BF40275DA0B100FF3191 /* SuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3BF3F275DA0B100FF3191 /* SuggestionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		6CE3BF37275D1F2100FF3191 /* CatImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageViewController.swift; sourceTree = "<group>"; };
 		6CE3BF3A275D2DCA00FF3191 /* CatUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatUIComposer.swift; sourceTree = "<group>"; };
 		6CE3BF3D275D4CA800FF3191 /* CatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewModel.swift; sourceTree = "<group>"; };
+		6CE3BF3F275DA0B100FF3191 /* SuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				6CE3BF3D275D4CA800FF3191 /* CatViewModel.swift */,
+				6CE3BF3F275DA0B100FF3191 /* SuggestionViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				146DD85C2721C5960094C3FA /* AppDelegate.swift in Sources */,
 				563A497727315F73007F3239 /* UIImage+Extension.swift in Sources */,
 				6C8C87FD27542CC7007D1B00 /* CatImageDataLoader.swift in Sources */,
+				6CE3BF40275DA0B100FF3191 /* SuggestionViewModel.swift in Sources */,
 				14421FD2272CBF180098F334 /* HomeViewController.swift in Sources */,
 				56AC360A272DD07A0077EF70 /* ViewControllerPreview.swift in Sources */,
 				6C8C88022754F654007D1B00 /* UView+Extension.swift in Sources */,

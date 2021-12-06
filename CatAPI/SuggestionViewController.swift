@@ -5,13 +5,13 @@
 //  Created by Thayanne Viana on 30/10/21.
 //
 import UIKit
-import CatLoader
 #if DEBUG
 import SwiftUI
 #endif
 
 public class SuggestionViewController: UIViewController {
-    var suggestions: [Cat]?
+    var viewModel: SuggestionViewModel?
+    var bestCatsViewController: BestCatsViewController?
 
     // MARK: Outlets
 
@@ -35,6 +35,7 @@ public class SuggestionViewController: UIViewController {
     }
 
     @IBAction func goUIButton(_ sender: UIButton) {
+        guard let mViewModel = viewModel else { return }
         let userWish = Suggestion(
             indoor: indoorUIButton.isSelected,
             vocalize: vocalizingUIButton.isSelected,
@@ -44,14 +45,9 @@ public class SuggestionViewController: UIViewController {
             rare: rareUIButton.isSelected
         )
 
-        let suggestedBreeds = FilterBreed.getSuggestions(breeds: suggestions ?? [], wish: userWish)
-        if suggestedBreeds.count > 0 {
-            let imageLoader = ImageLoader()
-            let bestCatsViewController = CatUIComposer.catComposedWith(
-                suggestions: suggestedBreeds,
-                imageLoader: imageLoader
-            )
-            self.show(bestCatsViewController, sender: nil)
+        mViewModel.setUserWish(userWish)
+        if let mViewController = self.bestCatsViewController {
+            self.show(mViewController, sender: nil)
         } else {
             let alert = UIAlertController(
                 title: "Ops, não encotramos felinos com esse perfil!",
@@ -61,16 +57,16 @@ public class SuggestionViewController: UIViewController {
                 title: "OK",
                 style: .default,
                 handler: { action in
-                switch action.style {
-                case .default:
-                    print("default")
-                case .cancel:
-                    print("cancel")
-                case .destructive:
-                    print("destructive")
-                @unknown default:
-                    fatalError()
-                }}))
+                    switch action.style {
+                    case .default:
+                        print("default")
+                    case .cancel:
+                        print("cancel")
+                    case .destructive:
+                        print("destructive")
+                    @unknown default:
+                        fatalError()
+                    }}))
             self.present(alert, animated: true, completion: nil)
             print("Nenhum gato encontrado")
         }
