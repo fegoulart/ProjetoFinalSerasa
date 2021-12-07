@@ -8,22 +8,6 @@
 import Foundation
 import CatLoader
 
-final class SuggestionViewModel {
-    var breeds: [Cat]
-
-    init(breeds: [Cat]) {
-        self.breeds = breeds
-    }
-
-    var onBreedsFiltered: (([Cat]) -> Void)?
-
-    func setUserWish(_ userWish: Suggestion) {
-        guard let onFiltered = onBreedsFiltered else { return }
-        let suggestions = FilterBreed.getSuggestions(breeds: self.breeds, wish: userWish)
-        onFiltered(suggestions)
-    }
-}
-
 protocol SuggestionView {
     func canDisplayNextView(bestCatViewController: BestCatsViewController)
 }

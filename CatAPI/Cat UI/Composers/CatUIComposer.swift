@@ -51,30 +51,30 @@ public final class CatUIComposer {
     }
 
     // Adapter pattern
-    private static func adaptCatToCellControllers(
-        forwardingTo controller: BestCatsViewController,
-        imageLoader: CatImageDataLoader
-    ) -> ([Cat]) -> Void {
-        return { [weak controller] cat in
-            controller?.suggestions = cat.map { model in
-                let viewModel = CatImageViewModel(
-                    model: model,
-                    imageLoader: imageLoader,
-                    imageTransformer: UIImage.init)
-                viewModel.onSelected = { [weak controller] cat in
-                    let localRepository = CoreDataRepository()
-                    let detailViewController = DetailViewController(
-                        cat: cat,
-                        catImage: UIImage(),
-                        localRepository: localRepository
-                    )
-                    controller?.detailViewController = detailViewController
-                }
-                return CatCellController(viewModel: viewModel)
-            }
-
-        }
-    }
+//    private static func adaptCatToCellControllers(
+//        forwardingTo controller: BestCatsViewController,
+//        imageLoader: CatImageDataLoader
+//    ) -> ([Cat]) -> Void {
+//        return { [weak controller] cat in
+//            controller?.suggestions = cat.map { model in
+//                let viewModel = CatImageViewModel(
+//                    model: model,
+//                    imageLoader: imageLoader,
+//                    imageTransformer: UIImage.init)
+//                viewModel.onSelected = { [weak controller] cat in
+//                    let localRepository = CoreDataRepository()
+//                    let detailViewController = DetailViewController(
+//                        cat: cat,
+//                        catImage: UIImage(),
+//                        localRepository: localRepository
+//                    )
+//                    controller?.detailViewController = detailViewController
+//                }
+//                return CatCellController(viewModel: viewModel)
+//            }
+//
+//        }
+//    }
 }
 
 private final class BestCatViewAdapter: BestCatView {
