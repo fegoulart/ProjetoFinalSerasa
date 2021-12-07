@@ -134,8 +134,8 @@ extension WeakRefVirtualProxy: CatView where T: CatView {
 }
 
 extension WeakRefVirtualProxy: CatLoadingView where T: CatLoadingView {
-    func display(isLoading: Bool) {
-        object?.display(isLoading: isLoading)
+    func display(_ viewModel: CatLoadingViewModel) {
+        object?.display(viewModel)
     }
 }
 

@@ -55,9 +55,8 @@ public final class HomeViewController: UIViewController, CatLoadingView, CatView
 
         presenter?.loadBreeds()
     }
-
-    func display(isLoading: Bool) {
-        if isLoading {
+    func display(_ viewModel: CatLoadingViewModel) {
+        if viewModel.isLoading {
             indicator?.startAnimating()
         } else {
             indicator?.stopAnimating()

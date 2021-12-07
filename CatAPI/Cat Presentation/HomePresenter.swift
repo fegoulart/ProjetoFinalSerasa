@@ -8,9 +8,13 @@
 import Foundation
 import CatLoader
 
+struct CatLoadingViewModel {
+    let isLoading: Bool
+}
+
 // Protocols referencing the view (HomeView in this project)
 protocol CatLoadingView {
-    func display(isLoading: Bool)
+    func display(_ viewModel: CatLoadingViewModel)
 }
 
 // TODO: Need to refactor to save allBreeds in a repository and delete this protocol
@@ -36,7 +40,7 @@ final class HomePresenter {
     var loadingView: CatLoadingView?
 
     func loadBreeds() {
-        loadingView?.display(isLoading: true)
+        loadingView?.display(CatLoadingViewModel(isLoading: true))
         catLoader.load { [weak self] result  in
             if let breeds = try? result.get(), let imgLoader = self?.imageLoader {
                 // TODO: Refactor to save allBreeds in a repository
@@ -47,7 +51,7 @@ final class HomePresenter {
                     )
                 )
             }
-            self?.loadingView?.display(isLoading: false)
+            self?.loadingView?.display(CatLoadingViewModel(isLoading: false))
         }
     }
 }
