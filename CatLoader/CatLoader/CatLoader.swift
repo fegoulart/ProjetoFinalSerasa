@@ -35,7 +35,10 @@ public final class CatLoader: RemoteCatLoader {
         }
         do {
             try client.get(from: mUrl) { [weak self] result in
-                guard self != nil else { return }
+                guard self != nil else {
+                    print(self == nil)
+                    return
+                }
 
                 switch result {
                 case let .success((data, response)):

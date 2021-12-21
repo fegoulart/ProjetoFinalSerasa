@@ -10,8 +10,6 @@ import UIKit
 import SwiftUI
 #endif
 
-// MVVM ViewControllers should not know Core components, for instance "CatLoader" Module
-// They should act just as binders between Views and ViewModels
 public final class HomeViewController: UIViewController, CatLoadingView, CatView {
 
     @IBOutlet weak var label: UILabel!
@@ -53,7 +51,7 @@ public final class HomeViewController: UIViewController, CatLoadingView, CatView
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1.0
 
-        presenter?.loadBreeds()
+        // presenter?.loadBreeds()
     }
     func display(_ viewModel: CatLoadingViewModel) {
         if viewModel.isLoading {

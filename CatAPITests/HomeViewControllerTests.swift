@@ -95,7 +95,11 @@ class HomeViewControllerTests: XCTestCase {
         loader: LoaderSpy
     ) {
         let loader = LoaderSpy()
-        let sut = CatUIComposer.homeViewControllerComposedWith(loader: loader,imageLoader: imageLoader, noCatsAlertAction: noCatsAlertAction)
+        let sut = CatUIComposer.homeViewControllerComposedWith(
+            loader: loader,
+            imageLoader: imageLoader,
+            noCatsAlertAction: noCatsAlertAction
+        )
         trackForMemoryLeaks(loader, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, loader)

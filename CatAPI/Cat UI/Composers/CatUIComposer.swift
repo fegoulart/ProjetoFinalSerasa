@@ -23,7 +23,10 @@ public final class CatUIComposer {
         return bestCatController
     }
 
-    public static func suggestionsComposedWith(allBreeds: [Cat], imageLoader: CatImageDataLoader) -> SuggestionViewController {
+    public static func suggestionsComposedWith(
+        allBreeds: [Cat],
+        imageLoader: CatImageDataLoader
+    ) -> SuggestionViewController {
         let presenter = SuggestionPresenter(breeds: allBreeds, imageLoader: imageLoader)
         let suggestionViewController = SuggestionViewController(presenter: presenter)
         presenter.suggestionView = WeakRefVirtualProxy(suggestionViewController)
@@ -78,6 +81,9 @@ public final class CatUIComposer {
 }
 
 private final class BestCatViewAdapter: BestCatView {
+    func display(_ viewModel: BestCatsViewModel) {
+    }
+
     private weak var controller: BestCatsViewController?
     private let imageLoader: CatImageDataLoader
     private let cats: [Cat]
@@ -100,22 +106,22 @@ private final class BestCatViewAdapter: BestCatView {
         }
     }
 
-    private static func adaptCatToCellControllers(
-        forwardingTo controller: BestCatsViewController,
-        imageLoader: CatImageDataLoader
-    ) -> ([Cat]) -> Void {
-        return { [weak controller] cat in
-            controller?.suggestions = cat.map { model in
-                CatCellController(
-                    viewModel: CatImageViewModel(
-                        model: model,
-                        imageLoader: imageLoader,
-                        imageTransformer: UIImage.init
-                    )
-                )
-            }
-        }
-    }
+//    private static func adaptCatToCellControllers(
+//        forwardingTo controller: BestCatsViewController,
+//        imageLoader: CatImageDataLoader
+//    ) -> ([Cat]) -> Void {
+//        return { [weak controller] cat in
+//            controller?.suggestions = cat.map { model in
+//                CatCellController(
+//                    viewModel: CatImageViewModel(
+//                        model: model,
+//                        imageLoader: imageLoader,
+//                        imageTransformer: UIImage.init
+//                    )
+//                )
+//            }
+//        }
+//    }
 }
 
 // Keeps a weak reference to the object and passes the messages forward

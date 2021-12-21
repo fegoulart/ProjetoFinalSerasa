@@ -13,8 +13,22 @@ import CatLoader
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let queue = OperationQueue()
+        queue.maxConcurrentOperationCount = 1
+        let catLoader = CatLoader()
+        let loadBreedsOperation = BreedsLoadOperation(catLoader: catLoader) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let cats):
+                print(cats)
+            }
+        }
+        queue.addOperation(loadBreedsOperation)
+
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController =  setupTabBar()
         self.window?.makeKeyAndVisible()

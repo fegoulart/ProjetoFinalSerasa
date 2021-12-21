@@ -8,8 +8,12 @@
 import Foundation
 import CatLoader
 
+struct BestCatsViewModel {
+    let cats: [Cat]
+}
+
 protocol BestCatView {
-    func display()
+    func display(_ viewModel: BestCatsViewModel)
 }
 
 final class BestCatPresenter {
@@ -17,6 +21,7 @@ final class BestCatPresenter {
     var bestCatView: BestCatView?
 
     func loadCats() {
-        self.bestCatView?.display()
+        let cats: BestCatsViewModel = BestCatsViewModel(cats: [])
+        self.bestCatView?.display(cats)
     }
 }

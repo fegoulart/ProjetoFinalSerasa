@@ -5,7 +5,7 @@
 //  Created by Fernando Luiz Goulart on 14/11/21.
 //
 
-public struct Cat {
+public struct Cat: Equatable {
     public var adaptability: Int?
     public var hypoallergenic: Int?
     public var identity: String?

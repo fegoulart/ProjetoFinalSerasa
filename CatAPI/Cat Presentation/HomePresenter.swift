@@ -18,7 +18,8 @@ protocol CatLoadingView {
 }
 
 // TODO: Need to refactor to save allBreeds in a repository and delete this protocol
-protocol CatView  {
+protocol CatView {
+    // It makes our solution coupled with UIKit because SuggestionViewController depends on UIKit
     func canDisplayNextView(suggestionViewController: SuggestionViewController)
 }
 
@@ -41,6 +42,7 @@ final class HomePresenter {
 
     func loadBreeds() {
         loadingView?.display(CatLoadingViewModel(isLoading: true))
+        // This load should be decoupled from a view. Ex: Usage of Operation
         catLoader.load { [weak self] result  in
             if let breeds = try? result.get(), let imgLoader = self?.imageLoader {
                 // TODO: Refactor to save allBreeds in a repository

@@ -58,7 +58,10 @@ class BestCatsViewControllerTests: XCTestCase {
 
     }
 
-    // Se estivessemos carregando os dados e tambem as imagens na mesma tela, deveriamos testar se alguma imagem é carregada antes de que as celulas estejam visiveis
+    // Se estivessemos carregando os dados e
+    // tambem as imagens na mesma tela,
+    // deveriamos testar se alguma imagem
+    // é carregada antes de que as celulas estejam visiveis
 
 //    func test_catImageView_loadsImageURLWhenVisible() {
 //        let cat0 = makeCat(name: "Fifi", imageUrl: "https://url-0.com")
