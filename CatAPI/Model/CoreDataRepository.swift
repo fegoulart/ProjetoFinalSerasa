@@ -18,17 +18,17 @@ class CoreDataRepository {
 
     let context =  DataBaseController.persistentContainer.viewContext
 
-    func getCatsFromLocal(completion: @escaping (Result<[Cat], ErrorAPI>) throws -> Void) throws {
+    func getFavoritesFromLocal(completion: @escaping (Result<[Cat], ErrorAPI>) throws -> Void) throws {
         guard let favorites = try? DataBaseController.persistentContainer
                 .viewContext.fetch(Favorite.fetchRequest()) else {
                     try completion(Result.failure(ErrorAPI.noData))
                     return
                 }
-        let cats = favorites.map { catMapper($0) }
+        let cats = favorites.map { favoriteMapper($0) }
         try completion(Result.success(cats))
     }
 
-    func saveCat(with newCat: Cat, catImage: Data, completion: @escaping ((Result<Void, APIError>) -> Void)) {
+    func saveFavorite(with newCat: Cat, catImage: Data, completion: @escaping ((Result<Void, APIError>) -> Void)) {
 
         let favorite = Favorite(context: context)
         favorite.catDescription = newCat.catDescription
@@ -53,7 +53,7 @@ class CoreDataRepository {
         }
     }
 
-    func deleteCat(name: String, completion: @escaping ((Result<Void, APIError>) -> Void)) {
+    func deleteFavorite(name: String, completion: @escaping ((Result<Void, APIError>) -> Void)) {
         let fetchRequest = NSFetchRequest<Favorite>(entityName: "Favorite")
         fetchRequest.predicate =  NSPredicate(format: "name =%@", name)
         do {
@@ -80,7 +80,7 @@ class CoreDataRepository {
         fetchRequest.predicate =  NSPredicate(format: "name =%@", name)
         do {
             let fetchedBreeds = try context.fetch(fetchRequest)
-            let cats = fetchedBreeds.map { catMapper($0) }
+            let cats = fetchedBreeds.map { favoriteMapper($0) }
             completion(Result.success(cats))
         } catch {
             completion(Result.failure(APIError.notFound))
@@ -88,7 +88,110 @@ class CoreDataRepository {
         }
     }
 
-    private func catMapper(_ input: Favorite ) -> Cat {
+    private func favoriteMapper(_ input: Favorite ) -> Cat {
+        let result = Cat(
+            adaptability: Int(input.adaptability),
+            hypoallergenic: nil,
+            identity: nil,
+            imageUrl: nil,
+            indoor: nil,
+            intelligence: nil,
+            lap: nil,
+            lifeSpan: nil,
+            name: input.name,
+            natural: nil,
+            origin: nil,
+            rare: Int(input.rare),
+            rex: nil,
+            sheddingLevel: Int(input.sheddingLevel),
+            shortLegs: nil,
+            socialNeeds: Int(input.socialNeeds),
+            strangerFriendly: nil,
+            suppressedTail: nil,
+            temperament: nil,
+            vocalisation: Int(input.vocalisation),
+            weight: nil,
+            affectionLevel: Int(input.affectionLevel),
+            catDescription: input.catDescription
+        )
+        return result
+    }
+}
+
+// MARK: - All breeds
+
+enum LocalRepositoryError: Error {
+    case insertError
+    case noBreedsInserted
+    case bulkInsertionError
+    case retrievalError
+    case truncateError
+}
+
+protocol BreedsLocalRepository {
+    func saveBreeds(breeds: [Cat], completion: @escaping (Result<Void, LocalRepositoryError>) -> Void)
+    func retrieveBreeds(completion: @escaping (Result<[Cat], LocalRepositoryError>) -> Void)
+    func truncateBreeds(completion: @escaping (Result<Void, LocalRepositoryError>) -> Void)
+}
+
+extension CoreDataRepository: BreedsLocalRepository {
+
+    func saveBreeds(breeds: [Cat], completion: @escaping (Result<Void, LocalRepositoryError>) -> Void) {
+        guard breeds.count > 0 else {
+            completion(.failure(.noBreedsInserted))
+            return
+        }
+        context.perform {
+            for item in breeds {
+                let newBreedEntity = NSEntityDescription.insertNewObject(
+                    forEntityName: "Breed",
+                    into: self.context
+                ) as? Breed
+                newBreedEntity?.catDescription = item.catDescription
+                newBreedEntity?.affectionLevel = Int32(item.affectionLevel ?? 1)
+                newBreedEntity?.vocalisation = Int32(item.vocalisation ?? 1)
+                newBreedEntity?.socialNeeds = Int32(item.socialNeeds ?? 1)
+                newBreedEntity?.sheddingLevel = Int32(item.sheddingLevel ?? 1)
+                newBreedEntity?.adaptability = Int32(item.adaptability ?? 1)
+                newBreedEntity?.rare = Int32(item.rare ?? 0)
+                newBreedEntity?.name = item.name
+                newBreedEntity?.imageUrl = item.imageUrl
+            }
+            do {
+                try self.context.save()
+                completion(.success(()))
+            } catch {
+                completion(.failure(LocalRepositoryError.bulkInsertionError))
+            }
+            self.context.reset()
+        }
+    }
+
+    func retrieveBreeds(completion: @escaping (Result<[Cat], LocalRepositoryError>) -> Void) {
+        guard let breeds = try? DataBaseController.persistentContainer
+                .viewContext.fetch(Breed.fetchRequest()) else {
+                    completion(Result.failure(LocalRepositoryError.retrievalError))
+                    return
+                }
+        let localBreeds = breeds.map { breedMapper($0) }
+        completion(Result.success(localBreeds))
+    }
+
+    func truncateBreeds(completion: @escaping (Result<Void, LocalRepositoryError>) -> Void) {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Breed")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+        do {
+            try context.execute(deleteRequest)
+            try self.context.save()
+            completion(.success(()))
+        } catch let error as NSError {
+            print(error.localizedDescription)
+            completion(.failure(LocalRepositoryError.truncateError))
+        }
+    }
+
+    private func breedMapper(_ input: Breed ) -> Cat {
         let result = Cat(
             adaptability: Int(input.adaptability),
             hypoallergenic: nil,

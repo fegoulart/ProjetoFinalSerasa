@@ -46,7 +46,7 @@ class FavoritesViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        try? localRepository?.getCatsFromLocal { [weak self] result in
+        try? localRepository?.getFavoritesFromLocal { [weak self] result in
             guard self != nil else { return }
             switch result {
             case .success(let cats):

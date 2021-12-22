@@ -140,7 +140,7 @@ class DetailViewController: UIViewController {
 
     private func favoriteIt(cat: Cat, image: UIImage) {
         if let binaryImage = image.jpegData(withCompressionQuality: 1.0) {
-            localRepository?.saveCat(with: cat, catImage: binaryImage) { [weak self] result in
+            localRepository?.saveFavorite(with: cat, catImage: binaryImage) { [weak self] result in
                 guard self != nil else { return }
                 switch result {
                 case .success:
@@ -154,7 +154,7 @@ class DetailViewController: UIViewController {
     }
 
     private func unFavoriteIt(name: String) {
-        localRepository?.deleteCat(name: name) { [weak self] result in
+        localRepository?.deleteFavorite(name: name) { [weak self] result in
             guard self != nil else { return }
             switch result {
             case .success:

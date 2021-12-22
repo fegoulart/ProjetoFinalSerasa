@@ -19,15 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
         let catLoader = CatLoader()
-        let loadBreedsOperation = BreedsLoadOperation(catLoader: catLoader) { [weak self] result in
-            switch result {
-            case .failure(let error):
-                print(error)
-            case .success(let cats):
-                print(cats)
-            }
+        let loadBreedsOperation = BreedsLoadOperation(catLoader: catLoader)
+        let localRepository = CoreDataRepository()
+        let saveBreedsOperation = BreedsSaveOperation(localRepository: localRepository)
+
+        loadBreedsOperation.completionBlock = {
+            print("load completion block")
         }
-        queue.addOperation(loadBreedsOperation)
+        saveBreedsOperation.completionBlock = {
+            print("save completion block")
+        }
+
+        saveBreedsOperation.addDependency(loadBreedsOperation)
+        queue.addOperations([loadBreedsOperation, saveBreedsOperation], waitUntilFinished: true)
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController =  setupTabBar()
