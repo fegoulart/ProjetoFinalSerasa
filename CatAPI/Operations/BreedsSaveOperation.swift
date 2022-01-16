@@ -31,21 +31,21 @@ final class BreedsSaveOperation: Operation {
             willChangeValue(forKey: #keyPath(isExecuting))
             self.operationExecuting = true
             didChangeValue(forKey: #keyPath(isExecuting))
-            truncateDB { [weak self] result in
+            truncateDB { [self] result in
                 switch result {
                 case .success:
-                    self?.saveBreeds(breeds: breedsLoadOperation.breeds) { [weak self] result in
+                    saveBreeds(breeds: breedsLoadOperation.breeds) { [self] result in
                         switch result {
                         case .success:
-                            self?.successCompletion()
+                            successCompletion()
                         case .failure(let error):
                             print(error)
-                            self?.cancelledCompletion()
+                            cancelledCompletion()
                         }
                     }
                 case .failure(let error):
                     print(error)
-                    self?.cancelledCompletion()
+                    cancelledCompletion()
                 }
             }
         } else {

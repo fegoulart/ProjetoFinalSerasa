@@ -17,6 +17,7 @@ final class BreedsLoadOperation: Operation {
     private var operationFinished = false
     private var operationExecuting = false
     private var operationCancelled = false
+    private var hasFailed = false
 
     init(
         catLoader: RemoteCatLoader
@@ -61,7 +62,6 @@ final class BreedsLoadOperation: Operation {
 
     private func loadBreeds(completion: @escaping((BreedsLoadResult) -> Void)) {
         catLoader.load { [weak self] result in
-            // [weak self] result in
                 switch result {
                 case .success(let cats):
                     self?.breeds = cats
@@ -69,7 +69,6 @@ final class BreedsLoadOperation: Operation {
                 case .failure:
                     self?.cancelledCompletion()
                 }
-            // completion(loaderResult)
         }
     }
 
