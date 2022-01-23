@@ -117,7 +117,7 @@ extension BestCatsViewController: UITableViewDataSourcePrefetching {
 struct BestCatsViewController_Previews: PreviewProvider {
     static var previews: some View {
         ViewControllerPreview {
-            let loadCat:(Suggestion) -> Void = { _ in }
+            let loadCat: (Suggestion) -> Void = { _ in }
             let wish = Suggestion(
                 indoor: false,
                 vocalize: false,

@@ -19,26 +19,21 @@ protocol BestCatView {
 final class BestCatPresenter {
 
     var bestCatView: BestCatView?
-    var catLoader: RemoteCatLoader
 
-    init(catLoader: RemoteCatLoader = LocalCatLoader()) {
-        self.catLoader = catLoader
+    // Presenter is not responsible anymore for "asking for data"
+    // var catLoader: RemoteCatLoader
+    //
+    //    init(catLoader: RemoteCatLoader = LocalCatLoader()) {
+    //        self.catLoader = catLoader
+    //    }
+
+    // using delegate
+    func didFinishLoadingCat(with cat: [Cat]) {
+        let viewModel = BestCatsViewModel(cats: cat)
+        self.bestCatView?.display(viewModel)
     }
 
-    func loadCats(userWish: Suggestion) {
+    func didFinishLoadingCat(with error: Error) {
 
-        catLoader.load { [weak self] result in
-            guard let self = self, let cats = try? result.get() else {
-                return
-            }
-            let filteredCats = self.filter(cats, accordingTo: userWish)
-            let viewModel = BestCatsViewModel(cats: filteredCats)
-            self.bestCatView?.display(viewModel)
-        }
-    }
-
-    func filter(_ breeds: [Cat], accordingTo userWish: Suggestion) -> [Cat] {
-        let suggestions = FilterBreed.getSuggestions(breeds: breeds, wish: userWish)
-        return suggestions
     }
 }

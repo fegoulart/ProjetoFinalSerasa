@@ -16,10 +16,11 @@ public final class CatUIComposer {
         userWish: Suggestion,
         imageLoader: CatImageDataLoader
     ) -> BestCatsViewController {
-        let presenter = BestCatPresenter(catLoader: LocalCatLoader())
+        let presenter = BestCatPresenter()
+        let presentationAdapter = CatLoaderPresentationAdapter(catLoader: LocalCatLoader(), presenter: presenter)
         // NAO INJETAMOS AQUI O PRESENTER NO VIEWCONTROLLER
         // DESACOPLAMOS O O VIEWCONTROLLER DO PRESENTER
-        let bestCatController = BestCatsViewController(loadCat: presenter.loadCats, userWish: userWish)
+        let bestCatController = BestCatsViewController(loadCat: presentationAdapter.loadCat, userWish: userWish)
         presenter.bestCatView = BestCatViewAdapter(controller: bestCatController, imageLoader: ImageLoader())
         return bestCatController
     }
@@ -101,23 +102,6 @@ private final class BestCatViewAdapter: BestCatView {
             )
         }
     }
-
-//    private static func adaptCatToCellControllers(
-//        forwardingTo controller: BestCatsViewController,
-//        imageLoader: CatImageDataLoader
-//    ) -> ([Cat]) -> Void {
-//        return { [weak controller] cat in
-//            controller?.suggestions = cat.map { model in
-//                CatCellController(
-//                    viewModel: CatImageViewModel(
-//                        model: model,
-//                        imageLoader: imageLoader,
-//                        imageTransformer: UIImage.init
-//                    )
-//                )
-//            }
-//        }
-//    }
 }
 
 // Keeps a weak reference to the object and passes the messages forward
@@ -132,5 +116,35 @@ private final class WeakRefVirtualProxy<T: AnyObject> {
 extension WeakRefVirtualProxy: CatLoadingView where T: CatLoadingView {
     func display(_ viewModel: CatLoadingViewModel) {
         object?.display(viewModel)
+    }
+}
+
+private final class CatLoaderPresentationAdapter {
+    private let catLoader: RemoteCatLoader
+    private let presenter: BestCatPresenter
+
+    init(catLoader: RemoteCatLoader, presenter: BestCatPresenter) {
+        self.catLoader = catLoader
+        self.presenter = presenter
+    }
+
+    func loadCat(filteredBy userWish: Suggestion) {
+
+        // presenter.didStartLoadingCat()
+
+        catLoader.load { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case let .success(cat):
+                self.presenter.didFinishLoadingCat(with: self.filter(cat, accordingTo: userWish))
+            case let .failure(error):
+                self.presenter.didFinishLoadingCat(with: error)
+            }
+        }
+    }
+
+    private func filter(_ breeds: [Cat], accordingTo userWish: Suggestion) -> [Cat] {
+        let suggestions = FilterBreed.getSuggestions(breeds: breeds, wish: userWish)
+        return suggestions
     }
 }
