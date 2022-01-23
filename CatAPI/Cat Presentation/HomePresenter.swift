@@ -17,10 +17,9 @@ protocol CatLoadingView {
     func display(_ viewModel: CatLoadingViewModel)
 }
 
-// TODO: Need to refactor to save allBreeds in a repository and delete this protocol
-protocol CatView {
-    // It makes our solution coupled with UIKit because SuggestionViewController depends on UIKit
-    func canDisplayNextView(suggestionViewController: SuggestionViewController)
+enum HomePresenterError: Error {
+    case noCatsFound
+    case loadCatsError
 }
 
 // Refactored from CatViewModel is very simple
@@ -37,23 +36,19 @@ final class HomePresenter {
 
     // Composition details must not leak into our class
     // So, dont use weak here
-    var catView: CatView?
     var loadingView: CatLoadingView?
 
-    func loadBreeds() {
+    func loadBreeds(completion: @escaping (Result<[Cat], HomePresenterError>) -> Void) {
         loadingView?.display(CatLoadingViewModel(isLoading: true))
         // This load should be decoupled from a view. Ex: Usage of Operation
         catLoader.load { [weak self] result  in
-            if let breeds = try? result.get(), let imgLoader = self?.imageLoader {
-                // TODO: Refactor to save allBreeds in a repository
-                self?.catView?.canDisplayNextView(
-                    suggestionViewController: CatUIComposer.suggestionsComposedWith(
-                        allBreeds: breeds,
-                        imageLoader: imgLoader
-                    )
-                )
+            guard let self = self else { return }
+            self.loadingView?.display(CatLoadingViewModel(isLoading: false))
+            if let breeds = try? result.get() {
+                completion(.success(breeds))
+            } else {
+                completion(.failure(.loadCatsError))
             }
-            self?.loadingView?.display(CatLoadingViewModel(isLoading: false))
         }
     }
 }

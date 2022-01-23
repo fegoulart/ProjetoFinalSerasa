@@ -11,7 +11,7 @@ class QueueManager {
     /// The Lazily-instantiated queue
     lazy var queue: OperationQueue = {
         let queue = OperationQueue()
-        return queue;
+        return queue
     }()
 
     /// The Singleton Instance
@@ -22,7 +22,6 @@ class QueueManager {
     func enqueue(_ operation: Operation) {
         queue.addOperation(operation)
     }
-
 
     /// Add an array of operations
     /// - Parameter operations: The Array of Operation to be added

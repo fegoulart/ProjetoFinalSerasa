@@ -41,7 +41,6 @@ public final class CatUIComposer {
         let presenter = HomePresenter(catLoader: loader, imageLoader: imageLoader)
         let homeViewController = HomeViewController(presenter: presenter)
         presenter.loadingView = WeakRefVirtualProxy( homeViewController)
-        presenter.catView = WeakRefVirtualProxy(homeViewController)
         if noCatsAlertAction == nil {
             homeViewController.noCatsAlertAction = { [weak homeViewController] in
                 guard let mViewController: HomeViewController = homeViewController else { return }
@@ -130,12 +129,6 @@ private final class WeakRefVirtualProxy<T: AnyObject> {
 
     init(_ object: T) {
         self.object = object
-    }
-}
-
-extension WeakRefVirtualProxy: CatView where T: CatView {
-    func canDisplayNextView(suggestionViewController: SuggestionViewController) {
-        object?.canDisplayNextView(suggestionViewController: suggestionViewController)
     }
 }
 

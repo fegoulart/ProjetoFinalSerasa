@@ -9,8 +9,9 @@ import UIKit
 #if DEBUG
 import SwiftUI
 #endif
+import CatLoader
 
-public final class HomeViewController: UIViewController, CatLoadingView, CatView {
+public final class HomeViewController: UIViewController, CatLoadingView {
 
     @IBOutlet weak var label: UILabel!
 
@@ -36,6 +37,8 @@ public final class HomeViewController: UIViewController, CatLoadingView, CatView
     var noCatsAlertAction: (() -> Void)?
 
     var suggestionViewController: SuggestionViewController?
+    var breeds: [Cat] = []
+
     private var presenter: HomePresenter?
 
     convenience init(presenter: HomePresenter) {
@@ -77,14 +80,28 @@ public final class HomeViewController: UIViewController, CatLoadingView, CatView
     }
 
     @IBAction func prontissimoButtonAction(_ sender: UIButton) {
-        guard let sViewController = suggestionViewController else {
-            guard let mAction = self.noCatsAlertAction else {
-                return
+        presenter?.loadBreeds { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let cats):
+                self.breeds = cats
+                if self.breeds.count > 0 {
+                    let imageLoader = ImageLoader()
+                    self.show(
+                        CatUIComposer.suggestionsComposedWith(
+                            allBreeds: self.breeds,
+                            imageLoader: imageLoader
+                        ),
+                        sender: nil
+                    )
+                }
+            case .failure:
+                guard let mAction = self.noCatsAlertAction else {
+                    return
+                }
+                mAction()
             }
-            mAction()
-            return
         }
-        self.show(sViewController, sender: nil)
     }
 }
 
