@@ -17,6 +17,7 @@
 		6C334225274177D600C86B4F /* CatLoader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3341EE2741542C00C86B4F /* CatLoader.framework */; };
 		6C33422D2741781200C86B4F /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33422C2741781200C86B4F /* XCTestCase+MemoryLeakTracking.swift */; };
 		6C33422F2741785700C86B4F /* SharedTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C33422E2741785700C86B4F /* SharedTestHelpers.swift */; };
+		6C920D67279D9AB7008DE687 /* LocalCatLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C920D66279D9AB7008DE687 /* LocalCatLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		6C334221274177D600C86B4F /* CatLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C33422C2741781200C86B4F /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		6C33422E2741785700C86B4F /* SharedTestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedTestHelpers.swift; sourceTree = "<group>"; };
+		6C920D66279D9AB7008DE687 /* LocalCatLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCatLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				6C3341FE2741557D00C86B4F /* RemoteCatLoader.swift */,
 				6C334200274155E600C86B4F /* URLSessionHTTPClient.swift */,
 				6C3342022741609800C86B4F /* CatLoader.swift */,
+				6C920D66279D9AB7008DE687 /* LocalCatLoader.swift */,
 			);
 			path = CatLoader;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C3341FD2741555700C86B4F /* HTTPClient.swift in Sources */,
+				6C920D67279D9AB7008DE687 /* LocalCatLoader.swift in Sources */,
 				6C3342032741609800C86B4F /* CatLoader.swift in Sources */,
 				6C3341FF2741557D00C86B4F /* RemoteCatLoader.swift in Sources */,
 				6C3341FA274154B400C86B4F /* Cat.swift in Sources */,

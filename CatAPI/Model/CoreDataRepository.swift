@@ -40,7 +40,7 @@ class CoreDataRepository {
         favorite.rare = Int32(newCat.rare ?? 0)
         favorite.name = newCat.name
         favorite.image = catImage
-        DataBaseController.saveContext { [weak self] result in
+        DataBaseController.saveContext(context: self.context) { [weak self] result in
             guard self != nil else { return }
             switch result {
             case .success:
@@ -141,11 +141,14 @@ extension CoreDataRepository: BreedsLocalRepository {
             completion(.failure(.noBreedsInserted))
             return
         }
-        context.perform {
+        let context: NSManagedObjectContext = NSPersistentContainer.newBackgroundContext(
+            DataBaseController.persistentContainer
+        )()
+        context.perform { [context] in
             for item in breeds {
                 let newBreedEntity = NSEntityDescription.insertNewObject(
                     forEntityName: "Breed",
-                    into: self.context
+                    into: context
                 ) as? Breed
                 newBreedEntity?.catDescription = item.catDescription
                 newBreedEntity?.affectionLevel = Int32(item.affectionLevel ?? 1)
@@ -158,12 +161,12 @@ extension CoreDataRepository: BreedsLocalRepository {
                 newBreedEntity?.imageUrl = item.imageUrl
             }
             do {
-                try self.context.save()
+                try context.save()
                 completion(.success(()))
             } catch {
                 completion(.failure(LocalRepositoryError.bulkInsertionError))
             }
-            self.context.reset()
+            // context.reset()
         }
     }
 

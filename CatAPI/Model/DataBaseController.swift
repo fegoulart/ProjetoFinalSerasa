@@ -22,8 +22,11 @@ class DataBaseController {
 
     // MARK: - Core Data Saving support
 
-    static func saveContext(completion: @escaping (Result<Void, Error>) -> Void) {
-        let context = persistentContainer.viewContext
+    static func saveContext(
+        context: NSManagedObjectContext,
+        completion: @escaping (Result<Void, Error>) -> Void
+    ) {
+        // let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
