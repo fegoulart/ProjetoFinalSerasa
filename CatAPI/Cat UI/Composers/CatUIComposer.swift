@@ -12,14 +12,13 @@ import UIKit
 public final class CatUIComposer {
     private init() {}
 
-    public static func catComposedWith(suggestions: [Cat], imageLoader: CatImageDataLoader) -> BestCatsViewController {
-        let presenter = BestCatPresenter()
-        let bestCatController = BestCatsViewController(presenter: presenter)
-        presenter.bestCatView = BestCatViewAdapter(
-            cats: suggestions,
-            controller: bestCatController,
-            imageLoader: imageLoader
-        )
+    public static func catComposedWith(
+        userWish: Suggestion,
+        imageLoader: CatImageDataLoader
+    ) -> BestCatsViewController {
+        let presenter = BestCatPresenter(catLoader: LocalCatLoader())
+        let bestCatController = BestCatsViewController(presenter: presenter, userWish: userWish)
+        presenter.bestCatView = BestCatViewAdapter(controller: bestCatController, imageLoader: ImageLoader())
         return bestCatController
     }
 
@@ -29,7 +28,6 @@ public final class CatUIComposer {
     ) -> SuggestionViewController {
         let presenter = SuggestionPresenter(breeds: allBreeds, imageLoader: imageLoader)
         let suggestionViewController = SuggestionViewController(presenter: presenter)
-        presenter.suggestionView = WeakRefVirtualProxy(suggestionViewController)
         return suggestionViewController
     }
 
@@ -80,26 +78,23 @@ public final class CatUIComposer {
 }
 
 private final class BestCatViewAdapter: BestCatView {
-    func display(_ viewModel: BestCatsViewModel) {
-    }
 
     private weak var controller: BestCatsViewController?
     private let imageLoader: CatImageDataLoader
-    private let cats: [Cat]
 
-    init(cats: [Cat], controller: BestCatsViewController, imageLoader: CatImageDataLoader) {
+    init(controller: BestCatsViewController, imageLoader: CatImageDataLoader) {
         self.controller = controller
         self.imageLoader = imageLoader
-        self.cats = cats
     }
 
-    func display() {
-        controller?.suggestions = self.cats.map { model in
+    func display(_ viewModel: BestCatsViewModel) {
+        controller?.tableModel = viewModel.cats.map { model in
             CatCellController(
                 viewModel: CatImageViewModel(
                     model: model,
                     imageLoader: imageLoader,
-                    imageTransformer: UIImage.init
+                    imageTransformer:
+                        UIImage.init
                 )
             )
         }
@@ -135,11 +130,5 @@ private final class WeakRefVirtualProxy<T: AnyObject> {
 extension WeakRefVirtualProxy: CatLoadingView where T: CatLoadingView {
     func display(_ viewModel: CatLoadingViewModel) {
         object?.display(viewModel)
-    }
-}
-
-extension WeakRefVirtualProxy: SuggestionView where T: SuggestionView {
-    func canDisplayNextView(bestCatViewController: BestCatsViewController) {
-        object?.canDisplayNextView(bestCatViewController: bestCatViewController)
     }
 }

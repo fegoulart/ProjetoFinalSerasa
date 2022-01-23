@@ -53,8 +53,8 @@ public final class HomeViewController: UIViewController, CatLoadingView {
         label.layer.masksToBounds = true
         label.layer.borderColor = UIColor.black.cgColor
         label.layer.borderWidth = 1.0
-
-        // presenter?.loadBreeds()
+        self.indicator.hidesWhenStopped = true
+        presenter?.loadBreeds()
     }
     func display(_ viewModel: CatLoadingViewModel) {
         if viewModel.isLoading {
@@ -62,46 +62,36 @@ public final class HomeViewController: UIViewController, CatLoadingView {
         } else {
             indicator?.stopAnimating()
         }
+        self.breeds = viewModel.breeds
     }
 
     func canDisplayNextView(suggestionViewController: SuggestionViewController) {
         self.suggestionViewController = suggestionViewController
     }
 
-//    private func bind() {
-//        guard let mViewModel = viewModel else { return }
-//        mViewModel.onLoadingStateChange = { [weak indicator] isLoading in
-//
-//        }
-//    }
-
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
 
     @IBAction func prontissimoButtonAction(_ sender: UIButton) {
-        presenter?.loadBreeds { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let cats):
-                self.breeds = cats
-                if self.breeds.count > 0 {
-                    let imageLoader = ImageLoader()
-                    self.show(
-                        CatUIComposer.suggestionsComposedWith(
-                            allBreeds: self.breeds,
-                            imageLoader: imageLoader
-                        ),
-                        sender: nil
-                    )
-                }
-            case .failure:
-                guard let mAction = self.noCatsAlertAction else {
-                    return
-                }
-                mAction()
-            }
+        guard indicator.isAnimating == false else {
+            return
         }
+        guard self.breeds.count > 0 else {
+            guard let mAction = self.noCatsAlertAction else {
+                return
+            }
+            mAction()
+            return
+        }
+        let imageLoader = ImageLoader()
+        self.show(
+            CatUIComposer.suggestionsComposedWith(
+                allBreeds: self.breeds,
+                imageLoader: imageLoader
+            ),
+            sender: nil
+        )
     }
 }
 

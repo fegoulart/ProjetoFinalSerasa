@@ -9,10 +9,9 @@ import UIKit
 import SwiftUI
 #endif
 
-public class SuggestionViewController: UIViewController, SuggestionView {
+public class SuggestionViewController: UIViewController {
 
     private var presenter: SuggestionPresenter?
-    var bestCatsViewController: BestCatsViewController?
 
     // MARK: Outlets
 
@@ -50,35 +49,32 @@ public class SuggestionViewController: UIViewController, SuggestionView {
             rare: rareUIButton.isSelected
         )
 
-        presenter?.filter(accordingTo: userWish)
-        if let mViewController = self.bestCatsViewController {
-            self.show(mViewController, sender: nil)
-        } else {
-            let alert = UIAlertController(
-                title: "Ops, não encotramos felinos com esse perfil!",
-                message: "Escolha mais características!",
-                preferredStyle: .alert)
-            alert.addAction(UIAlertAction(
-                title: "OK",
-                style: .default,
-                handler: { action in
-                    switch action.style {
-                    case .default:
-                        print("default")
-                    case .cancel:
-                        print("cancel")
-                    case .destructive:
-                        print("destructive")
-                    @unknown default:
-                        fatalError()
-                    }}))
-            self.present(alert, animated: true, completion: nil)
-            print("Nenhum gato encontrado")
-        }
-    }
-
-    func canDisplayNextView(bestCatViewController: BestCatsViewController) {
-        self.bestCatsViewController = bestCatViewController
+        let nextViewController = CatUIComposer.catComposedWith(userWish: userWish, imageLoader: ImageLoader())
+        self.show(nextViewController, sender: nil)
+//        if let mViewController = self.bestCatsViewController {
+//            self.show(mViewController, sender: nil)
+//        } else {
+//            let alert = UIAlertController(
+//                title: "Ops, não encotramos felinos com esse perfil!",
+//                message: "Escolha mais características!",
+//                preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(
+//                title: "OK",
+//                style: .default,
+//                handler: { action in
+//                    switch action.style {
+//                    case .default:
+//                        print("default")
+//                    case .cancel:
+//                        print("cancel")
+//                    case .destructive:
+//                        print("destructive")
+//                    @unknown default:
+//                        fatalError()
+//                    }}))
+//            self.present(alert, animated: true, completion: nil)
+//            print("Nenhum gato encontrado")
+//        }
     }
 }
 

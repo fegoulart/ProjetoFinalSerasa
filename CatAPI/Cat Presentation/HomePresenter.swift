@@ -10,6 +10,7 @@ import CatLoader
 
 struct CatLoadingViewModel {
     let isLoading: Bool
+    let breeds: [Cat]
 }
 
 // Protocols referencing the view (HomeView in this project)
@@ -38,16 +39,14 @@ final class HomePresenter {
     // So, dont use weak here
     var loadingView: CatLoadingView?
 
-    func loadBreeds(completion: @escaping (Result<[Cat], HomePresenterError>) -> Void) {
-        loadingView?.display(CatLoadingViewModel(isLoading: true))
-        // This load should be decoupled from a view. Ex: Usage of Operation
+    func loadBreeds() {
+        loadingView?.display(CatLoadingViewModel(isLoading: true, breeds: []))
         catLoader.load { [weak self] result  in
             guard let self = self else { return }
-            self.loadingView?.display(CatLoadingViewModel(isLoading: false))
             if let breeds = try? result.get() {
-                completion(.success(breeds))
+                self.loadingView?.display(CatLoadingViewModel(isLoading: false, breeds: breeds))
             } else {
-                completion(.failure(.loadCatsError))
+                self.loadingView?.display(CatLoadingViewModel(isLoading: false, breeds: []))
             }
         }
     }

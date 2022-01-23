@@ -11,7 +11,7 @@ import SwiftUI
 
 public class BestCatsViewController: UIViewController {
 
-    var suggestions = [CatCellController]()
+    var userWish: Suggestion?
     lazy public var suggestionsTableView: UITableView = {
         let mFrame = CGRect(
             x: 0.0,
@@ -27,11 +27,17 @@ public class BestCatsViewController: UIViewController {
         return tableView
     }()
     var detailViewController: DetailViewController?
+    var tableModel = [CatCellController]() {
+        didSet {
+            suggestionsTableView.reloadData()
+        }
+    }
     private var presenter: BestCatPresenter?
 
-    convenience init(presenter: BestCatPresenter) {
+    convenience init(presenter: BestCatPresenter, userWish: Suggestion) {
         self.init()
         self.presenter = presenter
+        self.userWish = userWish
     }
 
     public override func viewDidLoad() {
@@ -42,7 +48,8 @@ public class BestCatsViewController: UIViewController {
         self.navigationController?.tabBarController?.tabBar.backgroundColor = .systemGray
         self.navigationController?.tabBarController?.tabBar.tintColor = .white
         self.navigationController?.tabBarController?.tabBar.unselectedItemTintColor = .darkGray
-        presenter?.loadCats()
+        guard let wish = self.userWish else { return }
+        presenter?.loadCats(userWish: wish)
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -54,17 +61,17 @@ public class BestCatsViewController: UIViewController {
 
 extension BestCatsViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return suggestions[indexPath.row].view()
+        return tableModel[indexPath.row].view()
     }
 
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return suggestions.count
+        return tableModel.count
     }
 }
 
 extension BestCatsViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        suggestions[indexPath.row].select()
+        tableModel[indexPath.row].select()
         if let detailVC = self.detailViewController {
             show(detailVC, sender: nil)
         }
@@ -83,7 +90,7 @@ extension BestCatsViewController: UITableViewDelegate {
     }
 
     private func cellController(forRowAt indexPath: IndexPath) -> CatCellController? {
-        return suggestions[indexPath.row]
+        return tableModel[indexPath.row]
     }
 }
 

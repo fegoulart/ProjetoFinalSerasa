@@ -6,11 +6,27 @@
 
 import Foundation
 
-struct Suggestion {
-    let indoor: Bool
-    let vocalize: Bool
-    let lap: Bool
-    let sociable: Bool
-    let shedding: Bool
-    let rare: Bool
+public struct Suggestion {
+    public let indoor: Bool
+    public let vocalize: Bool
+    public let lap: Bool
+    public let sociable: Bool
+    public let shedding: Bool
+    public let rare: Bool
+
+    public init(
+        indoor: Bool,
+        vocalize: Bool,
+        lap: Bool,
+        sociable: Bool,
+        shedding: Bool,
+        rare: Bool
+    ) {
+        self.indoor = indoor
+        self.vocalize = vocalize
+        self.lap = lap
+        self.sociable = sociable
+        self.shedding = shedding
+        self.rare = rare
+    }
 }
