@@ -17,7 +17,9 @@ public final class CatUIComposer {
         imageLoader: CatImageDataLoader
     ) -> BestCatsViewController {
         let presenter = BestCatPresenter(catLoader: LocalCatLoader())
-        let bestCatController = BestCatsViewController(presenter: presenter, userWish: userWish)
+        // NAO INJETAMOS AQUI O PRESENTER NO VIEWCONTROLLER
+        // DESACOPLAMOS O O VIEWCONTROLLER DO PRESENTER
+        let bestCatController = BestCatsViewController(loadCat: presenter.loadCats, userWish: userWish)
         presenter.bestCatView = BestCatViewAdapter(controller: bestCatController, imageLoader: ImageLoader())
         return bestCatController
     }

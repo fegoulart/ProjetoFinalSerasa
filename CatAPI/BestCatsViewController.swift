@@ -32,12 +32,16 @@ public class BestCatsViewController: UIViewController {
             suggestionsTableView.reloadData()
         }
     }
-    private var presenter: BestCatPresenter?
+    private var loadCat: ((Suggestion) -> Void)?
 
-    convenience init(presenter: BestCatPresenter, userWish: Suggestion) {
-        self.init()
-        self.presenter = presenter
+    init(loadCat: @escaping(Suggestion) -> Void, userWish: Suggestion) {
         self.userWish = userWish
+        self.loadCat = loadCat
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     public override func viewDidLoad() {
@@ -49,7 +53,8 @@ public class BestCatsViewController: UIViewController {
         self.navigationController?.tabBarController?.tabBar.tintColor = .white
         self.navigationController?.tabBarController?.tabBar.unselectedItemTintColor = .darkGray
         guard let wish = self.userWish else { return }
-        presenter?.loadCats(userWish: wish)
+        self.loadCat?(wish)
+        // presenter?.loadCats(userWish: wish)
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -112,7 +117,16 @@ extension BestCatsViewController: UITableViewDataSourcePrefetching {
 struct BestCatsViewController_Previews: PreviewProvider {
     static var previews: some View {
         ViewControllerPreview {
-            BestCatsViewController()
+            let loadCat:(Suggestion) -> Void = { _ in }
+            let wish = Suggestion(
+                indoor: false,
+                vocalize: false,
+                lap: false,
+                sociable: false,
+                shedding: false,
+                rare: true
+            )
+            return BestCatsViewController(loadCat: loadCat, userWish: wish)
         }
     }
 }
