@@ -12,7 +12,7 @@ final class BreedsLoadOperation: Operation {
 
     typealias BreedsLoadResult = Result<[Cat], Error>
 
-    private var catLoader: RemoteCatLoader
+    private var catLoader: CatLoaderProtocol
     var breeds: [Cat] = []
     private var operationFinished = false
     private var operationExecuting = false
@@ -20,7 +20,7 @@ final class BreedsLoadOperation: Operation {
     private var hasFailed = false
 
     init(
-        catLoader: RemoteCatLoader
+        catLoader: CatLoaderProtocol
     ) {
         self.catLoader = catLoader
     }

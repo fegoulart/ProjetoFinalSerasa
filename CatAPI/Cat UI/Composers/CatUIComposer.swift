@@ -16,12 +16,15 @@ public final class CatUIComposer {
         userWish: Suggestion,
         imageLoader: CatImageDataLoader
     ) -> BestCatsViewController {
-        let presenter = BestCatPresenter()
-        let presentationAdapter = CatLoaderPresentationAdapter(catLoader: LocalCatLoader(), presenter: presenter)
+        // let presenter = BestCatPresenter(bestCatView: )
+        let presentationAdapter = CatLoaderPresentationAdapter(catLoader: LocalCatLoader())
         // NAO INJETAMOS AQUI O PRESENTER NO VIEWCONTROLLER
         // DESACOPLAMOS O O VIEWCONTROLLER DO PRESENTER
-        let bestCatController = BestCatsViewController(loadCat: presentationAdapter.loadCat, userWish: userWish)
-        presenter.bestCatView = BestCatViewAdapter(controller: bestCatController, imageLoader: ImageLoader())
+        // The Adapter conforms to the ViewDelegate and translates View events to Domain requests/commands.
+        // The <ViewDelegate> protocol belongs in the ViewLayer. However, we still respect the MVP guidelines, as the Presenter is agnostic of the protocol or any Concrete View Layer component.
+        let bestCatController = BestCatsViewController(delegate: presentationAdapter, userWish: userWish)
+        presentationAdapter.presenter = BestCatPresenter(bestCatView: BestCatViewAdapter(controller: bestCatController, imageLoader: imageLoader))
+//        presenter.bestCatView = BestCatViewAdapter(controller: bestCatController, imageLoader: ImageLoader())
         return bestCatController
     }
 
@@ -35,7 +38,7 @@ public final class CatUIComposer {
     }
 
     public static func homeViewControllerComposedWith(
-        loader: RemoteCatLoader,
+        loader: CatLoaderProtocol,
         imageLoader: CatImageDataLoader,
         noCatsAlertAction: (() -> Void)?
     ) -> HomeViewController {
@@ -119,16 +122,15 @@ extension WeakRefVirtualProxy: CatLoadingView where T: CatLoadingView {
     }
 }
 
-private final class CatLoaderPresentationAdapter {
-    private let catLoader: RemoteCatLoader
-    private let presenter: BestCatPresenter
+final class CatLoaderPresentationAdapter: CatLoadViewControllerDelegate {
+    private let catLoader: CatLoaderProtocol
+    var presenter: BestCatPresenter?
 
-    init(catLoader: RemoteCatLoader, presenter: BestCatPresenter) {
+    init(catLoader: CatLoaderProtocol) {
         self.catLoader = catLoader
-        self.presenter = presenter
     }
 
-    func loadCat(filteredBy userWish: Suggestion) {
+    private func loadCat(filteredBy userWish: Suggestion) {
 
         // presenter.didStartLoadingCat()
 
@@ -136,11 +138,15 @@ private final class CatLoaderPresentationAdapter {
             guard let self = self else { return }
             switch result {
             case let .success(cat):
-                self.presenter.didFinishLoadingCat(with: self.filter(cat, accordingTo: userWish))
+                self.presenter?.didFinishLoadingCat(with: self.filter(cat, accordingTo: userWish))
             case let .failure(error):
-                self.presenter.didFinishLoadingCat(with: error)
+                self.presenter?.didFinishLoadingCat(with: error)
             }
         }
+    }
+
+    func didRequestCatLoad(accordingWith userWish: Suggestion) {
+        self.loadCat(filteredBy: userWish)
     }
 
     private func filter(_ breeds: [Cat], accordingTo userWish: Suggestion) -> [Cat] {

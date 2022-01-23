@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class CatLoader: RemoteCatLoader {
+public final class CatLoader: CatLoaderProtocol {
 
     private let url: URL?
     private let client: HTTPClient
@@ -18,7 +18,7 @@ public final class CatLoader: RemoteCatLoader {
         case invalidUrl
     }
 
-    public typealias Result = RemoteCatLoader.Result
+    public typealias Result = CatLoaderProtocol.Result
 
     public init(
         url: String = "https://api.thecatapi.com/v1/breeds",

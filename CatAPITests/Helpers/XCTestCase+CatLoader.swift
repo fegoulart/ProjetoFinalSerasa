@@ -10,7 +10,7 @@ import CatLoader
 
 extension XCTestCase {
     func expect(
-    _ sut: RemoteCatLoader,
+    _ sut: CatLoaderProtocol,
     toRetrieve expectedResult: Result<[Cat], Error>,
     file: StaticString = #file,
     line: UInt = #line

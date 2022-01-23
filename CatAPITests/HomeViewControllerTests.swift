@@ -105,8 +105,7 @@ class HomeViewControllerTests: XCTestCase {
         return (sut, loader)
     }
 
-    // Pra simplificar aqui vamos usar só o Remote
-    class LoaderSpy: RemoteCatLoader {
+    class LoaderSpy: CatLoaderProtocol {
         private var completions = [(CatLoader.Result) -> Void]()
 
         var loadCallCount: Int {

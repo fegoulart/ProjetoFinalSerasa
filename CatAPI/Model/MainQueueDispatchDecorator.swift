@@ -24,8 +24,8 @@ final class MainQueueDispatchDecorator<T> {
     }
 }
 
-extension MainQueueDispatchDecorator: RemoteCatLoader where T == CatLoader {
-    func load(completion: @escaping (RemoteCatLoader.Result) -> Void) {
+extension MainQueueDispatchDecorator: CatLoaderProtocol where T == CatLoader {
+    func load(completion: @escaping (CatLoaderProtocol.Result) -> Void) {
         decoratee.load { [weak self] result in
             self?.dispatch { completion(result) }
         }

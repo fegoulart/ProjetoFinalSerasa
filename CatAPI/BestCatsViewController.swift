@@ -9,6 +9,10 @@ import UIKit
 import SwiftUI
 #endif
 
+protocol CatLoadViewControllerDelegate {
+    func didRequestCatLoad(accordingWith userWish: Suggestion)
+}
+
 public class BestCatsViewController: UIViewController {
 
     var userWish: Suggestion?
@@ -32,11 +36,12 @@ public class BestCatsViewController: UIViewController {
             suggestionsTableView.reloadData()
         }
     }
-    private var loadCat: ((Suggestion) -> Void)?
+    // private var loadCat: ((Suggestion) -> Void)?
+    private let delegate: CatLoadViewControllerDelegate
 
-    init(loadCat: @escaping(Suggestion) -> Void, userWish: Suggestion) {
+    init(delegate: CatLoadViewControllerDelegate, userWish: Suggestion) {
         self.userWish = userWish
-        self.loadCat = loadCat
+        self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -53,8 +58,8 @@ public class BestCatsViewController: UIViewController {
         self.navigationController?.tabBarController?.tabBar.tintColor = .white
         self.navigationController?.tabBarController?.tabBar.unselectedItemTintColor = .darkGray
         guard let wish = self.userWish else { return }
-        self.loadCat?(wish)
-        // presenter?.loadCats(userWish: wish)
+        // self.loadCat?(wish)
+        delegate.didRequestCatLoad(accordingWith: wish)
     }
 
     public override func viewDidAppear(_ animated: Bool) {
@@ -117,7 +122,6 @@ extension BestCatsViewController: UITableViewDataSourcePrefetching {
 struct BestCatsViewController_Previews: PreviewProvider {
     static var previews: some View {
         ViewControllerPreview {
-            let loadCat: (Suggestion) -> Void = { _ in }
             let wish = Suggestion(
                 indoor: false,
                 vocalize: false,
@@ -126,7 +130,7 @@ struct BestCatsViewController_Previews: PreviewProvider {
                 shedding: false,
                 rare: true
             )
-            return BestCatsViewController(loadCat: loadCat, userWish: wish)
+            return CatUIComposer.catComposedWith(userWish: wish, imageLoader: ImageLoader())
         }
     }
 }

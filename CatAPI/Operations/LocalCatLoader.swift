@@ -8,7 +8,7 @@
 import Foundation
 import CatLoader
 
-final class LocalCatLoader: RemoteCatLoader {
+final class LocalCatLoader: CatLoaderProtocol {
 
     let repository: BreedsLocalRepository?
 
@@ -16,7 +16,7 @@ final class LocalCatLoader: RemoteCatLoader {
         self.repository = repository
     }
 
-    func load(completion: @escaping (RemoteCatLoader.Result) -> Void) {
+    func load(completion: @escaping (CatLoaderProtocol.Result) -> Void) {
         guard let mRepository = repository else { completion(.failure(LocalRepositoryError.retrievalError))
             return
         }

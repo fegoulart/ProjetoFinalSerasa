@@ -8,7 +8,7 @@
 import Foundation
 import CatLoader
 
-final class CatLoaderSpy: RemoteCatLoader {
+final class CatLoaderSpy: CatLoaderProtocol {
     typealias Result = CatLoader.Result
 
     private var completions: [(Result) -> Void] = []

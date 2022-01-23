@@ -18,7 +18,7 @@ protocol BestCatView {
 
 final class BestCatPresenter {
 
-    var bestCatView: BestCatView?
+    var bestCatView: BestCatView
 
     // Presenter is not responsible anymore for "asking for data"
     // var catLoader: RemoteCatLoader
@@ -27,10 +27,14 @@ final class BestCatPresenter {
     //        self.catLoader = catLoader
     //    }
 
+    init(bestCatView: BestCatView) {
+        self.bestCatView = bestCatView
+    }
+
     // using delegate
     func didFinishLoadingCat(with cat: [Cat]) {
         let viewModel = BestCatsViewModel(cats: cat)
-        self.bestCatView?.display(viewModel)
+        self.bestCatView.display(viewModel)
     }
 
     func didFinishLoadingCat(with error: Error) {

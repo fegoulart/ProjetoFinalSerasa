@@ -27,10 +27,10 @@ enum HomePresenterError: Error {
 // Presenter must have a reference to the View via a protocol
 final class HomePresenter {
 
-    private var catLoader: RemoteCatLoader
+    private var catLoader: CatLoaderProtocol
     private var imageLoader: CatImageDataLoader
 
-    init(catLoader: RemoteCatLoader, imageLoader: CatImageDataLoader) {
+    init(catLoader: CatLoaderProtocol, imageLoader: CatImageDataLoader) {
         self.catLoader = catLoader
         self.imageLoader = imageLoader
     }
